@@ -1,0 +1,910 @@
+/* ================================
+   RG PLOMBERIE — THEME LIGHT / DARK
+   À charger en DERNIER dans le layout
+================================ */
+
+/* ================================
+   CLEAN OLD THEME BUTTONS
+================================ */
+
+.theme-toggle,
+.theme-floating,
+.mobile-theme-toggle,
+.header-actions > .theme-toggle {
+    display: none !important;
+}
+
+/* ================================
+   ACCESSIBILITÉ
+================================ */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+/* ================================
+   THEME SWITCH PREMIUM
+   Dark = bleu / lune à droite
+   Light = orange / soleil à gauche
+================================ */
+
+.theme-switch {
+    --switch-bg: #09092f;
+    --switch-start: #16d8ff;
+    --switch-end: #2454ff;
+    --thumb-start: #30e7ff;
+    --thumb-end: #2d5bff;
+
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    z-index: 950;
+    width: 96px;
+    height: 46px;
+    padding: 0;
+    border: 3px solid transparent;
+    border-radius: 999px;
+    background:
+        linear-gradient(var(--switch-bg), var(--switch-bg)) padding-box,
+        linear-gradient(135deg, var(--switch-start), var(--switch-end)) border-box;
+    box-shadow:
+        0 16px 44px rgba(0, 0, 0, 0.26),
+        0 0 22px rgba(36, 84, 255, 0.18);
+    cursor: pointer;
+    transition:
+        transform 0.28s ease,
+        box-shadow 0.28s ease,
+        background 0.28s ease;
+}
+
+.theme-switch:hover {
+    transform: translateY(-2px);
+}
+
+.theme-switch-thumb {
+    position: absolute;
+    top: 50%;
+    left: 4px;
+    width: 34px;
+    height: 34px;
+    border-radius: 50%;
+    display: grid;
+    place-items: center;
+    background: linear-gradient(180deg, var(--thumb-start), var(--thumb-end));
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.26),
+        0 0 22px rgba(36, 84, 255, 0.24);
+    transform: translate(49px, -50%);
+    transition:
+        transform 0.36s cubic-bezier(0.22, 1, 0.36, 1),
+        background 0.28s ease,
+        box-shadow 0.28s ease;
+}
+
+.theme-switch-icon {
+    width: 17px;
+    height: 17px;
+    color: #09092f;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.theme-switch-icon svg {
+    width: 17px;
+    height: 17px;
+    display: block;
+    fill: currentColor;
+    stroke: currentColor;
+    stroke-width: 1.8;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+/* ================================
+   SWITCH — MODE CLAIR
+================================ */
+
+html[data-theme="light"] .theme-switch {
+    --switch-bg: #09092f;
+    --switch-start: #ffb45f;
+    --switch-end: #ff4f69;
+    --thumb-start: #ffbd67;
+    --thumb-end: #ff5c77;
+
+    box-shadow:
+        0 16px 44px rgba(55, 38, 24, 0.18),
+        0 0 22px rgba(255, 89, 102, 0.16);
+}
+
+html[data-theme="light"] .theme-switch-thumb {
+    transform: translate(0, -50%);
+    box-shadow:
+        0 12px 30px rgba(0, 0, 0, 0.22),
+        0 0 22px rgba(255, 89, 102, 0.22);
+}
+
+html[data-theme="light"] .theme-switch-icon {
+    color: #16092f;
+}
+
+/* ================================
+   VARIABLES MODE CLAIR
+================================ */
+
+html[data-theme="light"] {
+    color-scheme: light;
+
+    --rg-black: #f6f1e9;
+    --rg-black-soft: #fffaf2;
+    --rg-dark: #efe7dc;
+    --rg-panel: #ffffff;
+
+    --rg-white: #111111;
+    --rg-ice: #1d1d1d;
+    --rg-muted: #5f5a54;
+    --rg-muted-soft: #7b746c;
+
+    --rg-border: rgba(20, 20, 20, 0.12);
+    --rg-border-soft: rgba(20, 20, 20, 0.08);
+
+    --shadow-soft: 0 22px 70px rgba(55, 38, 24, 0.12);
+    --shadow-strong: 0 34px 110px rgba(55, 38, 24, 0.18);
+    --shadow-red: 0 18px 58px rgba(179, 34, 34, 0.20);
+}
+
+html[data-theme="light"] body {
+    background:
+        radial-gradient(circle at 20% 0%, rgba(179, 34, 34, 0.08), transparent 26%),
+        linear-gradient(180deg, #fff9ef, #f4eadc);
+    color: #2d2824;
+}
+
+/* ================================
+   HEADER / TOPBAR — MODE CLAIR
+================================ */
+
+html[data-theme="light"] .site-header {
+    color: #111111;
+    background: rgba(255, 248, 237, 0.96);
+    border-bottom: 1px solid rgba(45, 36, 28, 0.10);
+    box-shadow:
+        0 14px 44px rgba(55, 38, 24, 0.10),
+        0 1px 0 rgba(255, 255, 255, 0.65) inset;
+    backdrop-filter: blur(22px);
+}
+
+html[data-theme="light"] .site-header.is-scrolled {
+    background: rgba(255, 248, 237, 0.96);
+    border-bottom: 1px solid rgba(45, 36, 28, 0.10);
+    box-shadow:
+        0 14px 44px rgba(55, 38, 24, 0.12),
+        0 1px 0 rgba(255, 255, 255, 0.65) inset;
+}
+
+html[data-theme="light"] .header-topbar {
+    height: 32px;
+    background:
+        linear-gradient(90deg, rgba(179, 34, 34, 0.08), transparent 32%),
+        rgba(246, 239, 228, 0.92);
+    border-bottom: 1px solid rgba(45, 36, 28, 0.08);
+    box-shadow: none;
+}
+
+html[data-theme="light"] .header-topbar-inner {
+    height: 32px;
+    min-height: 32px;
+}
+
+html[data-theme="light"] .topbar-status {
+    gap: 9px;
+}
+
+html[data-theme="light"] .topbar-pulse {
+    width: 7px;
+    height: 7px;
+    background: #b32222;
+    box-shadow: 0 0 12px rgba(179, 34, 34, 0.36);
+}
+
+html[data-theme="light"] .topbar-pulse::after {
+    inset: -5px;
+    border-color: rgba(179, 34, 34, 0.22);
+}
+
+html[data-theme="light"] .topbar-status strong {
+    color: rgba(38, 31, 27, 0.78);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+}
+
+html[data-theme="light"] .topbar-status em {
+    color: rgba(38, 31, 27, 0.42);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+}
+
+html[data-theme="light"] .topbar-services {
+    gap: 7px;
+}
+
+html[data-theme="light"] .topbar-services span {
+    height: 20px;
+    padding: 0 11px;
+    border-color: rgba(38, 31, 27, 0.09);
+    background: rgba(255, 255, 255, 0.56);
+    color: rgba(38, 31, 27, 0.54);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+    box-shadow: 0 5px 16px rgba(55, 38, 24, 0.05);
+}
+
+html[data-theme="light"] .header-main {
+    min-height: 86px;
+}
+
+html[data-theme="light"] .brand-media {
+    background: rgba(255, 255, 255, 0.96);
+    box-shadow:
+        0 14px 34px rgba(55, 38, 24, 0.12),
+        inset 0 0 0 1px rgba(38, 31, 27, 0.07);
+}
+
+html[data-theme="light"] .brand-text strong {
+    color: #1f1a17;
+}
+
+html[data-theme="light"] .brand-text small {
+    color: rgba(38, 31, 27, 0.54);
+}
+
+html[data-theme="light"] .main-nav a {
+    color: rgba(31, 26, 23, 0.92);
+}
+
+html[data-theme="light"] .main-nav a::after {
+    background: #b32222;
+    box-shadow: 0 0 14px rgba(179, 34, 34, 0.24);
+}
+
+html[data-theme="light"] .header-phone {
+    background: rgba(255, 255, 255, 0.72);
+    border-color: rgba(38, 31, 27, 0.12);
+    color: #211b18;
+    box-shadow: 0 10px 28px rgba(55, 38, 24, 0.08);
+}
+
+html[data-theme="light"] .header-cta {
+    background: linear-gradient(135deg, #bd241f, #8f1715);
+    color: #ffffff;
+    box-shadow: 0 16px 42px rgba(179, 34, 34, 0.22);
+}
+
+html[data-theme="light"] .menu-toggle {
+    background: rgba(17, 17, 17, 0.88);
+}
+
+/* ================================
+   PRELOADER — MODE CLAIR
+================================ */
+
+html[data-theme="light"] .site-preloader {
+    background:
+        radial-gradient(circle at center, rgba(179, 34, 34, 0.10), transparent 28%),
+        #fff8ed;
+}
+
+html[data-theme="light"] .site-preloader-inner strong {
+    color: #111111;
+}
+
+html[data-theme="light"] .site-preloader-inner small {
+    color: rgba(17, 17, 17, 0.54);
+}
+
+/* ================================
+   HERO / PAGE HERO — MODE CLAIR
+================================ */
+
+html[data-theme="light"] .hero-cinematic,
+html[data-theme="light"] .page-cinematic-hero,
+html[data-theme="light"] .service-detail-hero,
+html[data-theme="light"] .company-hero {
+    background: #fff8ed;
+}
+
+html[data-theme="light"] .hero-overlay,
+html[data-theme="light"] .page-cinematic-overlay,
+html[data-theme="light"] .service-detail-overlay,
+html[data-theme="light"] .company-hero-overlay {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(255, 248, 237, 0.94),
+            rgba(255, 248, 237, 0.72),
+            rgba(255, 248, 237, 0.88)
+        ),
+        linear-gradient(to top, rgba(255, 248, 237, 1), transparent 58%);
+}
+
+html[data-theme="light"] .hero-layer-1,
+html[data-theme="light"] .page-cinematic-bg,
+html[data-theme="light"] .service-detail-bg,
+html[data-theme="light"] .company-hero-bg {
+    opacity: 0.72;
+    filter: brightness(1.03) contrast(1.02) saturate(0.95);
+}
+
+html[data-theme="light"] .hero-layer-2 {
+    opacity: 0.10;
+}
+
+html[data-theme="light"] .hero-grid-overlay {
+    opacity: 0.13;
+    background-image:
+        linear-gradient(rgba(17, 17, 17, 0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(17, 17, 17, 0.08) 1px, transparent 1px);
+}
+
+/* ================================
+   SECTIONS — MODE CLAIR
+================================ */
+
+html[data-theme="light"] .section-dark,
+html[data-theme="light"] .cinematic-intro,
+html[data-theme="light"] .film-strip-section,
+html[data-theme="light"] .services-cinematic,
+html[data-theme="light"] .before-after-signature,
+html[data-theme="light"] .gallery-teaser,
+html[data-theme="light"] .emergency-cinematic,
+html[data-theme="light"] .contact-cinematic,
+html[data-theme="light"] .realisations-intro,
+html[data-theme="light"] .cinematic-before-projects,
+html[data-theme="light"] .gallery-full-section,
+html[data-theme="light"] .realisations-cta,
+html[data-theme="light"] .prestations-intro,
+html[data-theme="light"] .service-chapters,
+html[data-theme="light"] .prestations-process,
+html[data-theme="light"] .prestations-gallery,
+html[data-theme="light"] .prestations-cta,
+html[data-theme="light"] .service-detail-intro,
+html[data-theme="light"] .service-detail-features,
+html[data-theme="light"] .service-detail-proof,
+html[data-theme="light"] .service-detail-process,
+html[data-theme="light"] .service-detail-gallery,
+html[data-theme="light"] .service-detail-cta,
+html[data-theme="light"] .company-manifesto,
+html[data-theme="light"] .company-values,
+html[data-theme="light"] .company-scene,
+html[data-theme="light"] .company-timeline,
+html[data-theme="light"] .company-zone,
+html[data-theme="light"] .company-gallery,
+html[data-theme="light"] .company-cta {
+    background:
+        radial-gradient(circle at 12% 12%, rgba(179, 34, 34, 0.065), transparent 26%),
+        linear-gradient(180deg, #fff8ed, #f3e9db);
+}
+
+/* ================================
+   TEXTES — MODE CLAIR
+================================ */
+
+html[data-theme="light"] h1,
+html[data-theme="light"] h2,
+html[data-theme="light"] h3,
+html[data-theme="light"] h4,
+html[data-theme="light"] .footer-brand strong,
+html[data-theme="light"] .footer-links span,
+html[data-theme="light"] .service-chapter-content h2,
+html[data-theme="light"] .before-project-text h3,
+html[data-theme="light"] .service-detail-proof-content h2,
+html[data-theme="light"] .company-scene-content h2,
+html[data-theme="light"] .prestations-process-card h3,
+html[data-theme="light"] .service-detail-feature h3,
+html[data-theme="light"] .service-detail-process-card h3,
+html[data-theme="light"] .company-value-card h3,
+html[data-theme="light"] .company-timeline-item h3 {
+    color: #1f1a17;
+}
+
+html[data-theme="light"] p,
+html[data-theme="light"] li,
+html[data-theme="light"] .hero-copy p,
+html[data-theme="light"] .page-cinematic-content p,
+html[data-theme="light"] .service-detail-hero-content p,
+html[data-theme="light"] .company-hero-content p,
+html[data-theme="light"] .service-chapter-content p,
+html[data-theme="light"] .before-project-text p,
+html[data-theme="light"] .service-detail-proof-content p,
+html[data-theme="light"] .company-scene-content p,
+html[data-theme="light"] .company-timeline-item p,
+html[data-theme="light"] .contact-cinematic-panel p,
+html[data-theme="light"] .emergency-cinematic-box p,
+html[data-theme="light"] .prestations-process-card p,
+html[data-theme="light"] .service-detail-feature p,
+html[data-theme="light"] .service-detail-process-card p,
+html[data-theme="light"] .company-value-card p,
+html[data-theme="light"] .company-zone-panel p,
+html[data-theme="light"] .realisations-cta-box p,
+html[data-theme="light"] .prestations-cta-box p,
+html[data-theme="light"] .service-detail-cta-box p,
+html[data-theme="light"] .company-cta-box p {
+    color: rgba(40, 33, 28, 0.74);
+}
+
+html[data-theme="light"] .section-label,
+html[data-theme="light"] .eyebrow,
+html[data-theme="light"] .before-project-text > span,
+html[data-theme="light"] .service-chapter-content .section-label,
+html[data-theme="light"] .company-zone-panel span,
+html[data-theme="light"] .prestations-gallery-card span {
+    color: #b52a22;
+}
+
+html[data-theme="light"] .section-label::before,
+html[data-theme="light"] .eyebrow::before {
+    background: #b52a22;
+    box-shadow: 0 0 14px rgba(181, 42, 34, 0.20);
+}
+
+html[data-theme="light"] .service-chapter-content li,
+html[data-theme="light"] .before-project-text li,
+html[data-theme="light"] .service-detail-proof-content li,
+html[data-theme="light"] .company-scene-content li {
+    color: rgba(40, 33, 28, 0.78);
+}
+
+html[data-theme="light"] .service-chapter-content li::before,
+html[data-theme="light"] .before-project-text li::before,
+html[data-theme="light"] .service-detail-proof-content li::before,
+html[data-theme="light"] .company-scene-content li::before {
+    color: #c52b22;
+}
+
+html[data-theme="light"] .chapter-link,
+html[data-theme="light"] .chapter-link:visited,
+html[data-theme="light"] .back-link {
+    color: #241f1b;
+}
+
+html[data-theme="light"] .chapter-link::after {
+    background: #c52b22;
+    box-shadow: 0 0 14px rgba(197, 43, 34, 0.18);
+}
+
+/* ================================
+   CARTES / PANELS — MODE CLAIR
+================================ */
+
+html[data-theme="light"] .hero-side-panel,
+html[data-theme="light"] .cinematic-stats article,
+html[data-theme="light"] .before-after-placeholder,
+html[data-theme="light"] .emergency-cinematic-box,
+html[data-theme="light"] .contact-cinematic-panel,
+html[data-theme="light"] .before-project-cinematic,
+html[data-theme="light"] .realisations-cta-box,
+html[data-theme="light"] .service-chapter,
+html[data-theme="light"] .prestations-process-card,
+html[data-theme="light"] .prestations-cta-box,
+html[data-theme="light"] .service-detail-feature,
+html[data-theme="light"] .service-detail-proof-content,
+html[data-theme="light"] .service-detail-process-card,
+html[data-theme="light"] .service-detail-cta-box,
+html[data-theme="light"] .company-value-card,
+html[data-theme="light"] .company-scene-content,
+html[data-theme="light"] .company-timeline-item,
+html[data-theme="light"] .company-zone-panel,
+html[data-theme="light"] .company-cta-box {
+    border-color: rgba(20, 20, 20, 0.10);
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 250, 242, 0.58));
+    box-shadow: 0 28px 90px rgba(55, 38, 24, 0.13);
+}
+
+html[data-theme="light"] .hero-side-panel-list article {
+    border-color: rgba(20, 20, 20, 0.08);
+    background:
+        linear-gradient(90deg, rgba(179, 34, 34, 0.06), transparent 60%),
+        rgba(255, 255, 255, 0.68);
+}
+
+html[data-theme="light"] .hero-side-panel-list strong,
+html[data-theme="light"] .service-cinematic-content strong,
+html[data-theme="light"] .film-card-content strong,
+html[data-theme="light"] .prestations-gallery-card strong {
+    color: #201b18;
+}
+
+html[data-theme="light"] .service-chapter-number,
+html[data-theme="light"] .company-timeline-item > span,
+html[data-theme="light"] .service-detail-feature span,
+html[data-theme="light"] .service-detail-process-card span,
+html[data-theme="light"] .prestations-process-card span,
+html[data-theme="light"] .company-value-card span {
+    color: #c52b22;
+}
+
+/* ================================
+   IMAGES — MODE CLAIR
+================================ */
+
+html[data-theme="light"] .film-card,
+html[data-theme="light"] .service-cinematic-card,
+html[data-theme="light"] .gallery-card,
+html[data-theme="light"] .prestations-gallery-card,
+html[data-theme="light"] .service-detail-gallery-card,
+html[data-theme="light"] .company-gallery-card,
+html[data-theme="light"] .contact-cinematic-visual,
+html[data-theme="light"] .company-scene-media,
+html[data-theme="light"] .service-detail-proof-media {
+    background: #ffffff;
+    box-shadow: 0 28px 90px rgba(55, 38, 24, 0.15);
+}
+
+html[data-theme="light"] .film-card img,
+html[data-theme="light"] .service-cinematic-card img,
+html[data-theme="light"] .gallery-card img,
+html[data-theme="light"] .prestations-gallery-card img,
+html[data-theme="light"] .service-detail-gallery-card img,
+html[data-theme="light"] .company-gallery-card img {
+    filter: brightness(0.92) contrast(1.04) saturate(0.98);
+}
+
+html[data-theme="light"] .service-cinematic-overlay,
+html[data-theme="light"] .prestations-gallery-card::after {
+    background:
+        linear-gradient(to top, rgba(255, 248, 237, 0.86), rgba(255, 248, 237, 0.08)),
+        linear-gradient(135deg, rgba(179, 34, 34, 0.14), transparent 44%);
+}
+
+/* ================================
+   AVANT / APRÈS — MODE CLAIR
+================================ */
+
+html[data-theme="light"] .before-label {
+    background: rgba(40, 33, 28, 0.60);
+    color: #ffffff;
+}
+
+html[data-theme="light"] .after-label {
+    color: #ffffff;
+}
+
+html[data-theme="light"] .before-after-divider {
+    background: linear-gradient(to bottom, rgba(179, 34, 34, 0.25), #b32222);
+    box-shadow: 0 0 26px rgba(179, 34, 34, 0.26);
+}
+
+/* ================================
+   MARQUEE — MODE CLAIR
+================================ */
+
+html[data-theme="light"] .hero-bottom-strip {
+    background: rgba(255, 248, 237, 0.82);
+    border-top: 1px solid rgba(17, 17, 17, 0.08);
+    border-bottom: 1px solid rgba(17, 17, 17, 0.06);
+}
+
+html[data-theme="light"] .hero-marquee::before {
+    background: linear-gradient(90deg, #fff8ed, transparent);
+}
+
+html[data-theme="light"] .hero-marquee::after {
+    background: linear-gradient(270deg, #fff8ed, transparent);
+}
+
+html[data-theme="light"] .hero-marquee-group span {
+    color: rgba(17, 17, 17, 0.68);
+}
+
+/* ================================
+   BOUTONS — MODE CLAIR
+================================ */
+
+html[data-theme="light"] .btn-primary,
+html[data-theme="light"] .header-cta,
+html[data-theme="light"] .mobile-menu .mobile-devis,
+html[data-theme="light"] .mobile-menu .mobile-call,
+html[data-theme="light"] .contact-cinematic-panel .btn-primary,
+html[data-theme="light"] .emergency-cinematic-box .btn-primary {
+    color: #ffffff !important;
+}
+
+html[data-theme="light"] .btn-ghost {
+    border-color: rgba(20, 20, 20, 0.14);
+    background: rgba(255, 255, 255, 0.62);
+    color: #201b18;
+}
+
+html[data-theme="light"] .btn-ghost:hover {
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* ================================
+   FOOTER — MODE CLAIR
+================================ */
+
+html[data-theme="light"] .site-footer {
+    background: #fff8ed;
+    border-top: 1px solid rgba(20, 20, 20, 0.10);
+    color: #2b2622;
+}
+
+html[data-theme="light"] .footer-links span {
+    color: #1f1a17;
+}
+
+html[data-theme="light"] .footer-links a,
+html[data-theme="light"] .footer-brand small {
+    color: rgba(17, 17, 17, 0.58);
+}
+
+html[data-theme="light"] .footer-links a:hover {
+    color: #b32222;
+}
+
+/* ================================
+   MOBILE — MODE CLAIR
+================================ */
+
+@media (max-width: 640px) {
+    html[data-theme="light"] .mobile-menu {
+        background: rgba(255, 250, 242, 0.96);
+        border-color: rgba(20, 20, 20, 0.10);
+    }
+
+    html[data-theme="light"] .mobile-menu a {
+        color: #111111;
+        background: rgba(17, 17, 17, 0.045);
+    }
+
+    html[data-theme="light"] .mobile-menu .mobile-devis,
+    html[data-theme="light"] .mobile-menu .mobile-call {
+        color: #ffffff;
+    }
+}
+
+/* ================================
+   SWITCH RESPONSIVE
+================================ */
+
+@media (max-width: 700px) {
+    .theme-switch {
+        right: 14px;
+        bottom: 14px;
+        width: 84px;
+        height: 42px;
+        border-width: 3px;
+    }
+
+    .theme-switch-thumb {
+        left: 3px;
+        width: 30px;
+        height: 30px;
+    }
+
+    html[data-theme="dark"] .theme-switch-thumb,
+    html:not([data-theme="light"]) .theme-switch-thumb {
+        transform: translate(42px, -50%);
+    }
+
+    .theme-switch-icon,
+    .theme-switch-icon svg {
+        width: 15px;
+        height: 15px;
+    }
+}
+
+/* ================================
+   FIX FINAL TOPBAR — DARK + LIGHT
+================================ */
+
+/* Base commune : topbar plus propre */
+.header-topbar {
+    height: 34px;
+    overflow: hidden;
+}
+
+.header-topbar-inner {
+    height: 34px;
+    min-height: 34px;
+}
+
+/* ---------- MODE SOMBRE ---------- */
+
+html[data-theme="dark"] .header-topbar,
+html:not([data-theme="light"]) .header-topbar {
+    background:
+        linear-gradient(90deg, rgba(179, 34, 34, 0.16), transparent 36%),
+        rgba(3, 3, 3, 0.94);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+html[data-theme="dark"] .topbar-status strong,
+html:not([data-theme="light"]) .topbar-status strong {
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+}
+
+html[data-theme="dark"] .topbar-status em,
+html:not([data-theme="light"]) .topbar-status em {
+    color: rgba(255, 255, 255, 0.46);
+    font-size: 0.68rem;
+    letter-spacing: 0.14em;
+}
+
+html[data-theme="dark"] .topbar-services span,
+html:not([data-theme="light"]) .topbar-services span {
+    height: 20px;
+    padding: 0 11px;
+    border-color: rgba(255, 255, 255, 0.10);
+    background: rgba(255, 255, 255, 0.08);
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 0.62rem;
+    letter-spacing: 0.14em;
+}
+
+html[data-theme="dark"] .topbar-pulse,
+html:not([data-theme="light"]) .topbar-pulse {
+    background: #d92727;
+    box-shadow: 0 0 14px rgba(217, 39, 39, 0.55);
+}
+
+/* ---------- MODE CLAIR ---------- */
+
+html[data-theme="light"] .header-topbar {
+    background:
+        linear-gradient(90deg, rgba(179, 34, 34, 0.07), transparent 34%),
+        rgba(248, 241, 231, 0.98);
+    border-bottom: 1px solid rgba(45, 36, 28, 0.08);
+}
+
+html[data-theme="light"] .topbar-status strong {
+    color: rgba(31, 26, 23, 0.76);
+}
+
+html[data-theme="light"] .topbar-status em {
+    color: rgba(31, 26, 23, 0.42);
+}
+
+html[data-theme="light"] .topbar-services span {
+    background: rgba(255, 255, 255, 0.72);
+    color: rgba(31, 26, 23, 0.52);
+    border-color: rgba(31, 26, 23, 0.09);
+}
+
+/* Le header principal ne doit pas sembler collé à la topbar */
+.site-header .header-main {
+    border-top: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+html[data-theme="light"] .site-header .header-main {
+    border-top: 1px solid rgba(45, 36, 28, 0.04);
+}
+
+/* Mobile : on cache la topbar, sinon ça surcharge */
+@media (max-width: 760px) {
+    .header-topbar {
+        display: none;
+    }
+}
+
+/* ================================
+   FORCE FIX TOPBAR MODE CLAIR
+   À garder tout en bas du fichier
+================================ */
+
+html[data-theme="light"] .site-header .header-topbar {
+    height: 30px !important;
+    background: rgba(255, 248, 237, 0.98) !important;
+    border-bottom: 1px solid rgba(45, 36, 28, 0.08) !important;
+    box-shadow: none !important;
+    backdrop-filter: blur(18px) !important;
+}
+
+html[data-theme="light"] .site-header .header-topbar-inner {
+    height: 30px !important;
+    min-height: 30px !important;
+}
+
+/* Texte gauche */
+html[data-theme="light"] .site-header .topbar-status strong {
+    color: rgba(35, 29, 25, 0.78) !important;
+    font-size: 0.66rem !important;
+    letter-spacing: 0.14em !important;
+}
+
+html[data-theme="light"] .site-header .topbar-status em {
+    color: rgba(35, 29, 25, 0.44) !important;
+    font-size: 0.66rem !important;
+    letter-spacing: 0.14em !important;
+}
+
+/* Point rouge plus subtil */
+html[data-theme="light"] .site-header .topbar-pulse {
+    width: 6px !important;
+    height: 6px !important;
+    background: #b32222 !important;
+    box-shadow: 0 0 10px rgba(179, 34, 34, 0.28) !important;
+}
+
+html[data-theme="light"] .site-header .topbar-pulse::after {
+    inset: -5px !important;
+    border-color: rgba(179, 34, 34, 0.18) !important;
+}
+
+/* Badges de droite */
+html[data-theme="light"] .site-header .topbar-services span {
+    height: 19px !important;
+    padding: 0 10px !important;
+    border: 1px solid rgba(45, 36, 28, 0.08) !important;
+    background: rgba(255, 255, 255, 0.68) !important;
+    color: rgba(35, 29, 25, 0.54) !important;
+    box-shadow: none !important;
+    font-size: 0.6rem !important;
+    letter-spacing: 0.13em !important;
+}
+
+/* En mode sombre, on garde une vraie barre sombre lisible */
+html[data-theme="dark"] .site-header .header-topbar,
+html:not([data-theme="light"]) .site-header .header-topbar {
+    height: 30px !important;
+    background: rgba(3, 3, 3, 0.94) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07) !important;
+}
+
+html[data-theme="dark"] .site-header .header-topbar-inner,
+html:not([data-theme="light"]) .site-header .header-topbar-inner {
+    height: 30px !important;
+    min-height: 30px !important;
+}
+
+html[data-theme="dark"] .site-header .topbar-status strong,
+html:not([data-theme="light"]) .site-header .topbar-status strong {
+    color: rgba(255, 255, 255, 0.78) !important;
+}
+
+html[data-theme="dark"] .site-header .topbar-status em,
+html:not([data-theme="light"]) .site-header .topbar-status em {
+    color: rgba(255, 255, 255, 0.42) !important;
+}
+
+
+/* ================================
+   FIX LIGHT — CARTE ZONE 69
+================================ */
+
+html[data-theme="light"] .company-zone-panel strong {
+    color: rgba(179, 34, 34, 0.10);
+    text-shadow: none;
+}
+
+html[data-theme="light"] .company-zone-panel {
+    background:
+        radial-gradient(circle at 85% 18%, rgba(179, 34, 34, 0.12), transparent 34%),
+        linear-gradient(145deg, rgba(255, 255, 255, 0.92), rgba(255, 248, 237, 0.70));
+    border-color: rgba(45, 36, 28, 0.10);
+    box-shadow:
+        0 28px 90px rgba(55, 38, 24, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.70);
+}
+
+html[data-theme="light"] .company-zone-panel span {
+    color: #b32222;
+}
+
+html[data-theme="light"] .company-zone-panel p {
+    color: rgba(40, 33, 28, 0.72);
+}
+html[data-theme="light"] .company-zone-panel strong {
+    color: rgba(179, 34, 34, 0.16);
+}
