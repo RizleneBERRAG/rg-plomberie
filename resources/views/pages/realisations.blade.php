@@ -1,0 +1,286 @@
+@extends('layouts.app', [
+    'title' => 'Réalisations - RG Plomberie',
+    'description' => 'Découvrez les réalisations RG Plomberie en plomberie, chauffage, climatisation, VMC et dépannage dans le Rhône.'
+])
+
+@push('styles')
+    <link rel="stylesheet" href="{{ asset('assets/css/pages/cinematic-realisations.css') }}">
+@endpush
+
+@section('content')
+
+    <section class="page-cinematic-hero">
+        <div
+            class="page-cinematic-bg"
+            style="background-image: url('{{ asset('assets/img/rg/works/work-1.jpg') }}');"
+        ></div>
+
+        <div class="page-cinematic-overlay"></div>
+
+        <div class="container page-cinematic-content">
+            <span class="section-label">Réalisations</span>
+
+            <h1>
+                Des chantiers visibles.<br>
+                Des résultats qui parlent.
+            </h1>
+
+            <p>
+                Découvrez un aperçu des interventions RG Plomberie :
+                installations, dépannages, remises au propre, finitions et transformations avant / après.
+            </p>
+        </div>
+    </section>
+
+    <section class="realisations-intro section-dark">
+        <div class="container realisations-intro-grid">
+            <div>
+                <span class="section-label">Savoir-faire</span>
+
+                <h2>Montrer le travail au lieu de seulement le promettre.</h2>
+            </div>
+
+            <p>
+                En plomberie, chauffage, climatisation ou VMC, la qualité se voit dans les détails :
+                une installation plus lisible, des raccordements propres, une pose maîtrisée et un chantier laissé net.
+            </p>
+        </div>
+    </section>
+
+    <section class="cinematic-before-projects">
+        <div class="container">
+            <div class="section-heading">
+                <span class="section-label">Avant / Après</span>
+
+                <h2>Glissez sur les images pour révéler le résultat.</h2>
+            </div>
+
+            <div class="before-project-list">
+
+                <article class="before-project-cinematic">
+                    <div class="before-project-media" data-cinematic-before-after>
+                        <div
+                            class="before-after-placeholder-inner"
+                            style="position: relative; width: 100%; height: 100%; min-height: 520px; overflow: hidden; border-radius: 26px;"
+                        >
+                            <div
+                                class="before-after-placeholder-before"
+                                data-before-layer
+                                style="
+                                    position: absolute;
+                                    inset: 0;
+                                    z-index: 1;
+                                    background-image: url('{{ asset('assets/img/rg/before-after/before/before-1.jpg') }}');
+                                    background-size: cover;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                "
+                            ></div>
+
+                            <div
+                                class="before-after-placeholder-after"
+                                data-after-layer
+                                style="
+                                    position: absolute;
+                                    inset: 0;
+                                    z-index: 2;
+                                    background-image: url('{{ asset('assets/img/rg/before-after/after/after-1.jpg') }}');
+                                    background-size: cover;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    clip-path: inset(0 0 0 50%);
+                                "
+                            ></div>
+
+                            <span class="before-label">Avant</span>
+                            <span class="after-label">Après</span>
+
+                            <div class="before-after-divider" data-ba-divider>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="before-project-text">
+                        <span>Projet 01 — Plomberie</span>
+
+                        <h3>Reprise complète d’une installation vieillissante.</h3>
+
+                        <p>
+                            Une intervention pensée pour rendre l’installation plus propre,
+                            plus lisible et plus rassurante au quotidien.
+                        </p>
+
+                        <ul>
+                            <li>Raccordements retravaillés</li>
+                            <li>Installation clarifiée</li>
+                            <li>Finition plus nette</li>
+                        </ul>
+                    </div>
+                </article>
+
+                <article class="before-project-cinematic reverse">
+                    <div class="before-project-media" data-cinematic-before-after>
+                        <div
+                            class="before-after-placeholder-inner"
+                            style="position: relative; width: 100%; height: 100%; min-height: 520px; overflow: hidden; border-radius: 26px;"
+                        >
+                            <div
+                                class="before-after-placeholder-before"
+                                data-before-layer
+                                style="
+                                    position: absolute;
+                                    inset: 0;
+                                    z-index: 1;
+                                    background-image: url('{{ asset('assets/img/rg/before-after/before/before-1.jpg') }}');
+                                    background-size: cover;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                "
+                            ></div>
+
+                            <div
+                                class="before-after-placeholder-after"
+                                data-after-layer
+                                style="
+                                    position: absolute;
+                                    inset: 0;
+                                    z-index: 2;
+                                    background-image: url('{{ asset('assets/img/rg/before-after/after/after-1.jpg') }}');
+                                    background-size: cover;
+                                    background-position: center;
+                                    background-repeat: no-repeat;
+                                    clip-path: inset(0 0 0 50%);
+                                "
+                            ></div>
+
+                            <span class="before-label">Avant</span>
+                            <span class="after-label">Après</span>
+
+                            <div class="before-after-divider" data-ba-divider>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="before-project-text">
+                        <span>Projet 02 — Climatisation</span>
+
+                        <h3>Pose propre, intégration discrète, rendu maîtrisé.</h3>
+
+                        <p>
+                            Une réalisation soignée permet de conserver une installation performante
+                            tout en respectant l’esthétique de l’espace intérieur.
+                        </p>
+
+                        <ul>
+                            <li>Pose soignée</li>
+                            <li>Intégration visuelle</li>
+                            <li>Résultat final valorisé</li>
+                        </ul>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    <section class="gallery-full-section section-dark">
+        <div class="container">
+            <div class="section-heading">
+                <span class="section-label">Galerie immersive</span>
+
+                <h2>Des photos en grand, pour apprécier les détails.</h2>
+
+                <p>
+                    Cliquez sur une image pour l’ouvrir en plein écran et observer les finitions,
+                    les installations et les interventions réalisées.
+                </p>
+            </div>
+
+            <div class="gallery-full-grid">
+                <article class="gallery-card gallery-xl" data-gallery-item>
+                    <img
+                        src="{{ asset('assets/img/rg/works/work-1.jpg') }}"
+                        alt="Réalisation RG Plomberie 1"
+                    >
+                </article>
+
+                <article class="gallery-card" data-gallery-item>
+                    <img
+                        src="{{ asset('assets/img/rg/works/work-2.jpg') }}"
+                        alt="Réalisation RG Plomberie 2"
+                    >
+                </article>
+
+                <article class="gallery-card" data-gallery-item>
+                    <img
+                        src="{{ asset('assets/img/rg/works/work-3.jpg') }}"
+                        alt="Réalisation RG Plomberie 3"
+                    >
+                </article>
+
+                <article class="gallery-card gallery-tall" data-gallery-item>
+                    <img
+                        src="{{ asset('assets/img/rg/works/work-4.jpg') }}"
+                        alt="Réalisation RG Plomberie 4"
+                    >
+                </article>
+
+                <article class="gallery-card" data-gallery-item>
+                    <img
+                        src="{{ asset('assets/img/rg/works/work-5.jpg') }}"
+                        alt="Réalisation RG Plomberie 5"
+                    >
+                </article>
+
+                <article class="gallery-card" data-gallery-item>
+                    <img
+                        src="{{ asset('assets/img/rg/works/work-6.jpg') }}"
+                        alt="Réalisation RG Plomberie 6"
+                    >
+                </article>
+
+                <article class="gallery-card gallery-wide" data-gallery-item>
+                    <img
+                        src="{{ asset('assets/img/rg/works/work-7.jpg') }}"
+                        alt="Réalisation RG Plomberie 7"
+                    >
+                </article>
+
+                <article class="gallery-card" data-gallery-item>
+                    <img
+                        src="{{ asset('assets/img/rg/works/work-8.jpg') }}"
+                        alt="Réalisation RG Plomberie 8"
+                    >
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="realisations-cta">
+        <div class="container realisations-cta-box">
+            <div>
+                <span class="section-label">Votre projet</span>
+
+                <h2>Une installation à refaire, une panne ou un chantier à prévoir ?</h2>
+
+                <p>
+                    Présentez votre besoin à RG Plomberie pour obtenir une réponse adaptée :
+                    dépannage, installation, entretien, remplacement ou demande de devis.
+                </p>
+            </div>
+
+            <div class="realisations-cta-actions">
+                <a href="tel:+33627997646" class="mega-phone small">
+                    06 27 99 76 46
+                </a>
+
+                <a href="{{ route('contact') }}" class="btn btn-primary">
+                    Demander un devis
+                </a>
+            </div>
+        </div>
+    </section>
+
+@endsection

@@ -1,0 +1,806 @@
+/* ================================
+   PAGE RÉALISATIONS — CINEMATIC
+================================ */
+
+.page-cinematic-hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: flex-end;
+    padding: 180px 0 90px;
+    overflow: hidden;
+    background: #000;
+}
+
+.page-cinematic-bg {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transform: scale(1.06);
+    filter: brightness(0.62) contrast(1.1);
+}
+
+.page-cinematic-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,0.94), rgba(0,0,0,0.56), rgba(0,0,0,0.86)),
+        linear-gradient(to top, rgba(0,0,0,1), transparent 52%);
+}
+
+.page-cinematic-content {
+    position: relative;
+    z-index: 2;
+}
+
+.page-cinematic-content p {
+    max-width: 720px;
+    margin-top: 24px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 1.08rem;
+}
+
+.realisations-intro {
+    padding: 110px 0;
+}
+
+.realisations-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 0.85fr;
+    gap: 54px;
+    align-items: end;
+}
+
+.realisations-intro-grid p {
+    font-size: 1.08rem;
+}
+
+.cinematic-before-projects {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at right, rgba(216, 7, 20, 0.16), transparent 26%),
+        #060606;
+}
+
+.before-project-list {
+    display: grid;
+    gap: 36px;
+}
+
+.before-project-cinematic {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 28px;
+    align-items: stretch;
+    padding: 18px;
+    border: 1px solid var(--rg-border);
+    border-radius: var(--radius-xl);
+    background:
+        linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
+        rgba(255,255,255,0.02);
+    box-shadow: var(--shadow-strong);
+}
+
+.before-project-cinematic.reverse {
+    grid-template-columns: 0.85fr 1.15fr;
+}
+
+.before-project-cinematic.reverse .before-project-media {
+    order: 2;
+}
+
+.before-project-cinematic.reverse .before-project-text {
+    order: 1;
+}
+
+.before-project-media {
+    --ba-position: 50%;
+    position: relative;
+    min-height: 520px;
+    border-radius: 26px;
+    overflow: hidden;
+    cursor: ew-resize;
+    background: #111;
+}
+
+.before-project-media .before-after-placeholder-inner {
+    min-height: 520px;
+}
+
+.before-project-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 34px;
+}
+
+.before-project-text span {
+    color: var(--rg-red);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+}
+
+.before-project-text h3 {
+    margin-top: 18px;
+    color: white;
+    font-family: "Space Grotesk", "Inter", sans-serif;
+    font-size: clamp(2rem, 3vw, 3.6rem);
+    line-height: 1;
+    letter-spacing: -0.06em;
+    text-transform: uppercase;
+}
+
+.before-project-text p {
+    margin-top: 22px;
+    color: rgba(255,255,255,0.68);
+}
+
+.before-project-text ul {
+    display: grid;
+    gap: 12px;
+    margin-top: 28px;
+}
+
+.before-project-text li {
+    list-style: none;
+    color: rgba(255,255,255,0.72);
+}
+
+.before-project-text li::before {
+    content: "—";
+    margin-right: 10px;
+    color: var(--rg-red);
+    font-weight: 900;
+}
+
+.gallery-full-section {
+    padding: 120px 0;
+    background: #020202;
+}
+
+.gallery-full-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-auto-rows: 260px;
+    gap: 18px;
+}
+
+.gallery-full-grid .gallery-card {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    background: #111;
+    box-shadow: var(--shadow-soft);
+}
+
+.gallery-full-grid .gallery-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.82) contrast(1.06);
+}
+
+.gallery-xl {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.gallery-tall {
+    grid-row: span 2;
+}
+
+.gallery-wide {
+    grid-column: span 2;
+}
+
+.realisations-cta {
+    padding: 120px 0;
+    background:
+        radial-gradient(circle at 80% 40%, rgba(216,7,20,0.2), transparent 28%),
+        #000;
+}
+
+.realisations-cta-box {
+    display: grid;
+    grid-template-columns: 1fr auto;
+    gap: 44px;
+    align-items: center;
+    padding: 44px;
+    border: 1px solid var(--rg-border);
+    border-radius: 32px;
+    background:
+        linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02));
+    box-shadow: var(--shadow-strong);
+}
+
+.realisations-cta-box p {
+    max-width: 680px;
+    margin-top: 18px;
+}
+
+.realisations-cta-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+    align-items: flex-end;
+}
+
+
+/* Responsive réalisations */
+
+@media (max-width: 1100px) {
+    .realisations-intro-grid,
+    .before-project-cinematic,
+    .before-project-cinematic.reverse,
+    .realisations-cta-box {
+        grid-template-columns: 1fr;
+    }
+
+    .before-project-cinematic.reverse .before-project-media,
+    .before-project-cinematic.reverse .before-project-text {
+        order: initial;
+    }
+
+    .gallery-full-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .realisations-cta-actions {
+        align-items: flex-start;
+    }
+}
+
+@media (max-width: 700px) {
+    .page-cinematic-hero {
+        min-height: auto;
+        padding: 150px 0 80px;
+    }
+
+    .before-project-media,
+    .before-project-media .before-after-placeholder-inner {
+        min-height: 360px;
+    }
+
+    .before-project-text {
+        padding: 24px 10px 10px;
+    }
+
+    .gallery-full-grid {
+        grid-template-columns: 1fr;
+        grid-auto-rows: 260px;
+    }
+
+    .gallery-xl,
+    .gallery-tall,
+    .gallery-wide {
+        grid-column: span 1;
+        grid-row: span 1;
+    }
+
+    .realisations-cta-box {
+        padding: 28px;
+    }
+}
+
+/* ================================
+   RÉALISATIONS — GALERIE MOBILE PREMIUM
+   Transforme la galerie en portfolio scrollable
+================================ */
+
+@media (max-width: 760px) {
+    .gallery-full-section {
+        padding: 76px 0 86px !important;
+        overflow: hidden !important;
+    }
+
+    .gallery-full-section .section-heading {
+        margin-bottom: 26px !important;
+    }
+
+    .gallery-full-section .section-heading h2 {
+        font-size: clamp(2.05rem, 10.5vw, 3.15rem) !important;
+        line-height: 0.92 !important;
+        letter-spacing: -0.075em !important;
+    }
+
+    .gallery-full-section .section-heading p {
+        max-width: 100% !important;
+        font-size: 0.94rem !important;
+        line-height: 1.75 !important;
+    }
+
+    .gallery-full-grid {
+        counter-reset: rgGallery;
+
+        display: flex !important;
+        grid-template-columns: none !important;
+        grid-auto-flow: column !important;
+
+        gap: 16px !important;
+
+        width: calc(100% + 24px) !important;
+        margin-left: 0 !important;
+        margin-right: -24px !important;
+
+        padding: 4px 24px 22px 0 !important;
+
+        overflow-x: auto !important;
+        overflow-y: hidden !important;
+
+        scroll-snap-type: x mandatory !important;
+        scroll-padding-left: 0 !important;
+
+        -webkit-overflow-scrolling: touch !important;
+    }
+
+    .gallery-full-grid::-webkit-scrollbar {
+        height: 7px;
+    }
+
+    .gallery-full-grid::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.08);
+        border-radius: 999px;
+    }
+
+    .gallery-full-grid::-webkit-scrollbar-thumb {
+        background: linear-gradient(90deg, #d80714, #9d0610);
+        border-radius: 999px;
+    }
+
+    .gallery-full-grid .gallery-card,
+    .gallery-full-grid .gallery-card.gallery-xl,
+    .gallery-full-grid .gallery-card.gallery-tall,
+    .gallery-full-grid .gallery-card.gallery-wide {
+        counter-increment: rgGallery;
+
+        position: relative !important;
+
+        flex: 0 0 min(82vw, 330px) !important;
+
+        width: auto !important;
+        height: 390px !important;
+        min-height: 390px !important;
+        max-height: 390px !important;
+
+        grid-column: auto !important;
+        grid-row: auto !important;
+
+        border-radius: 30px !important;
+        overflow: hidden !important;
+
+        scroll-snap-align: start !important;
+
+        background: rgba(255, 255, 255, 0.04) !important;
+
+        border: 1px solid rgba(255, 255, 255, 0.10) !important;
+
+        box-shadow:
+            0 26px 70px rgba(0, 0, 0, 0.34),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+    }
+
+    .gallery-full-grid .gallery-card:first-child {
+        flex-basis: min(88vw, 350px) !important;
+        height: 430px !important;
+        min-height: 430px !important;
+        max-height: 430px !important;
+    }
+
+    .gallery-full-grid .gallery-card img {
+        width: 100% !important;
+        height: 100% !important;
+
+        display: block !important;
+
+        object-fit: cover !important;
+        object-position: center !important;
+
+        transform: scale(1.02);
+        transition:
+            transform 0.5s ease,
+            filter 0.5s ease;
+    }
+
+    .gallery-full-grid .gallery-card::after {
+        content: "";
+
+        position: absolute;
+        inset: 0;
+        z-index: 2;
+
+        pointer-events: none;
+
+        background:
+            linear-gradient(180deg, rgba(0, 0, 0, 0.04) 0%, transparent 38%, rgba(0, 0, 0, 0.72) 100%),
+            radial-gradient(circle at 50% 18%, rgba(255, 255, 255, 0.10), transparent 34%);
+    }
+
+    .gallery-full-grid .gallery-card::before {
+        content: "Réalisation " counter(rgGallery, decimal-leading-zero);
+
+        position: absolute;
+        left: 18px;
+        bottom: 18px;
+        z-index: 3;
+
+        max-width: calc(100% - 36px);
+
+        display: inline-flex;
+        align-items: center;
+
+        min-height: 34px;
+        padding: 0 14px;
+
+        border-radius: 999px;
+
+        background:
+            linear-gradient(135deg, rgba(216, 7, 20, 0.92), rgba(151, 12, 19, 0.92));
+
+        color: #ffffff;
+
+        font-size: 0.68rem;
+        font-weight: 950;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+
+        box-shadow:
+            0 14px 34px rgba(216, 7, 20, 0.28),
+            inset 0 1px 0 rgba(255, 255, 255, 0.18);
+
+        pointer-events: none;
+    }
+
+    .gallery-full-grid .gallery-card:active img {
+        transform: scale(1.06);
+    }
+
+    .gallery-full-section::after {
+        content: "Glissez pour voir les autres réalisations";
+
+        display: block;
+
+        width: fit-content;
+        margin: 14px auto 0;
+        padding: 10px 14px;
+
+        border-radius: 999px;
+
+        background: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 255, 255, 0.62);
+
+        font-size: 0.68rem;
+        font-weight: 900;
+        text-transform: uppercase;
+        letter-spacing: 0.10em;
+    }
+}
+
+/* Mode clair */
+@media (max-width: 760px) {
+    html[data-theme="light"] .gallery-full-grid::-webkit-scrollbar-track {
+        background: rgba(40, 33, 28, 0.08);
+    }
+
+    html[data-theme="light"] .gallery-full-grid .gallery-card,
+    html[data-theme="light"] .gallery-full-grid .gallery-card.gallery-xl,
+    html[data-theme="light"] .gallery-full-grid .gallery-card.gallery-tall,
+    html[data-theme="light"] .gallery-full-grid .gallery-card.gallery-wide {
+        border-color: rgba(40, 33, 28, 0.08) !important;
+
+        background: rgba(255, 255, 255, 0.64) !important;
+
+        box-shadow:
+            0 24px 58px rgba(65, 42, 24, 0.14),
+            inset 0 1px 0 rgba(255, 255, 255, 0.86) !important;
+    }
+
+    html[data-theme="light"] .gallery-full-section::after {
+        background: rgba(255, 255, 255, 0.74);
+        color: rgba(31, 26, 23, 0.58);
+
+        box-shadow:
+            0 12px 28px rgba(65, 42, 24, 0.10),
+            inset 0 1px 0 rgba(255, 255, 255, 0.86);
+    }
+}
+
+/* Très petits téléphones */
+@media (max-width: 430px) {
+    .gallery-full-grid .gallery-card,
+    .gallery-full-grid .gallery-card.gallery-xl,
+    .gallery-full-grid .gallery-card.gallery-tall,
+    .gallery-full-grid .gallery-card.gallery-wide {
+        flex-basis: 82vw !important;
+
+        height: 350px !important;
+        min-height: 350px !important;
+        max-height: 350px !important;
+
+        border-radius: 26px !important;
+    }
+
+    .gallery-full-grid .gallery-card:first-child {
+        flex-basis: 86vw !important;
+
+        height: 390px !important;
+        min-height: 390px !important;
+        max-height: 390px !important;
+    }
+
+    .gallery-full-grid .gallery-card::before {
+        left: 14px;
+        bottom: 14px;
+
+        min-height: 32px;
+        padding: 0 12px;
+
+        font-size: 0.62rem;
+    }
+}
+
+/* ================================
+   RÉALISATIONS — BEFORE / AFTER FIX
+   Corrige les images invisibles
+================================ */
+
+.before-project-media {
+    position: relative !important;
+    overflow: hidden !important;
+    isolation: isolate !important;
+    background: #111 !important;
+}
+
+.before-project-media .before-after-placeholder-inner {
+    position: relative !important;
+    width: 100% !important;
+    height: 100% !important;
+    min-height: 520px !important;
+    overflow: hidden !important;
+    border-radius: 26px !important;
+    background: #111 !important;
+}
+
+.before-project-media .before-after-placeholder-before,
+.before-project-media .before-after-placeholder-after {
+    position: absolute !important;
+    inset: 0 !important;
+    z-index: 1 !important;
+
+    width: 100% !important;
+    height: 100% !important;
+
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+}
+
+.before-project-media .before-after-placeholder-before {
+    z-index: 1 !important;
+}
+
+.before-project-media .before-after-placeholder-after {
+    z-index: 2 !important;
+    clip-path: inset(0 0 0 50%) !important;
+}
+
+.before-project-media .before-label,
+.before-project-media .after-label {
+    position: absolute !important;
+    top: 20px !important;
+    z-index: 5 !important;
+
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+
+    min-height: 34px !important;
+    padding: 0 14px !important;
+
+    border-radius: 999px !important;
+
+    color: #ffffff !important;
+
+    font-size: 0.72rem !important;
+    font-weight: 950 !important;
+    text-transform: uppercase !important;
+    letter-spacing: 0.12em !important;
+
+    pointer-events: none !important;
+}
+
+.before-project-media .before-label {
+    left: 20px !important;
+
+    background: rgba(0, 0, 0, 0.62) !important;
+    border: 1px solid rgba(255, 255, 255, 0.12) !important;
+    backdrop-filter: blur(10px) !important;
+}
+
+.before-project-media .after-label {
+    right: 20px !important;
+
+    background: linear-gradient(135deg, #d80714, #9d0610) !important;
+    box-shadow: 0 16px 34px rgba(216, 7, 20, 0.32) !important;
+}
+
+.before-project-media .before-after-divider {
+    position: absolute !important;
+    top: 0 !important;
+    bottom: 0 !important;
+    left: 50% !important;
+    z-index: 4 !important;
+
+    width: 3px !important;
+
+    transform: translateX(-50%) !important;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(255, 255, 255, 0.92),
+        rgba(216, 7, 20, 1)
+    ) !important;
+
+    box-shadow: 0 0 36px rgba(216, 7, 20, 0.75) !important;
+
+    pointer-events: none !important;
+}
+
+.before-project-media .before-after-divider span {
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+
+    width: 62px !important;
+    height: 62px !important;
+
+    border-radius: 50% !important;
+
+    transform: translate(-50%, -50%) !important;
+
+    border: 2px solid rgba(255, 255, 255, 0.92) !important;
+
+    background:
+        radial-gradient(circle, rgba(216, 7, 20, 0.96), rgba(141, 2, 10, 1)) !important;
+
+    box-shadow:
+        0 0 0 10px rgba(216, 7, 20, 0.12),
+        0 0 30px rgba(216, 7, 20, 0.70) !important;
+}
+
+/* Mode clair */
+html[data-theme="light"] .before-project-media {
+    background: rgba(20, 20, 20, 0.96) !important;
+}
+
+html[data-theme="light"] .before-project-media .before-after-placeholder-inner {
+    background: rgba(20, 20, 20, 0.96) !important;
+}
+
+/* Responsive */
+@media (max-width: 700px) {
+    .before-project-media,
+    .before-project-media .before-after-placeholder-inner {
+        min-height: 360px !important;
+    }
+
+    .before-project-media .before-label,
+    .before-project-media .after-label {
+        top: 14px !important;
+        min-height: 30px !important;
+        padding: 0 12px !important;
+        font-size: 0.62rem !important;
+    }
+
+    .before-project-media .before-label {
+        left: 14px !important;
+    }
+
+    .before-project-media .after-label {
+        right: 14px !important;
+    }
+
+    .before-project-media .before-after-divider span {
+        width: 52px !important;
+        height: 52px !important;
+    }
+}
+
+/* ================================
+   RÉALISATIONS — BEFORE / AFTER GLISSANT
+================================ */
+
+.before-project-media,
+.before-project-media .before-after-placeholder-inner {
+    touch-action: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+.before-project-media .before-after-placeholder-inner {
+    cursor: ew-resize !important;
+}
+
+.before-project-media.is-dragging,
+.before-project-media .before-after-placeholder-inner.is-dragging {
+    cursor: grabbing !important;
+}
+
+.before-project-media .before-after-placeholder-after {
+    will-change: clip-path !important;
+}
+
+.before-project-media .before-after-divider {
+    will-change: left !important;
+    transition: left 0.08s linear !important;
+}
+
+.before-project-media .before-after-divider span {
+    cursor: grab !important;
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease !important;
+}
+
+.before-project-media.is-dragging .before-after-divider span,
+.before-project-media .before-after-placeholder-inner.is-dragging .before-after-divider span {
+    transform: translate(-50%, -50%) scale(1.08) !important;
+    box-shadow:
+        0 0 0 12px rgba(216, 7, 20, 0.16),
+        0 0 42px rgba(216, 7, 20, 0.86) !important;
+}
+
+/* ================================
+   RÉALISATIONS — BEFORE / AFTER DRAG FINAL
+================================ */
+
+.before-project-media,
+.before-project-media .before-after-placeholder-inner {
+    touch-action: none !important;
+    user-select: none !important;
+    -webkit-user-select: none !important;
+}
+
+.before-project-media .before-after-placeholder-inner {
+    cursor: ew-resize !important;
+}
+
+.before-project-media.is-dragging,
+.before-project-media .before-after-placeholder-inner.is-dragging {
+    cursor: grabbing !important;
+}
+
+.before-project-media .before-after-placeholder-before,
+.before-project-media .before-after-placeholder-after {
+    pointer-events: none !important;
+}
+
+.before-project-media .before-after-divider,
+.before-project-media .before-after-divider span {
+    pointer-events: auto !important;
+}
+
+.before-project-media .before-after-placeholder-after {
+    clip-path: inset(0 50% 0 0) !important;
+    will-change: clip-path !important;
+}
+
+.before-project-media .before-after-divider {
+    left: var(--ba-position, 50%) !important;
+    will-change: left !important;
+}
+
+.before-project-media .before-after-divider span {
+    cursor: grab !important;
+}
+
+.before-project-media.is-dragging .before-after-divider span,
+.before-project-media .before-after-placeholder-inner.is-dragging .before-after-divider span {
+    cursor: grabbing !important;
+    transform: translate(-50%, -50%) scale(1.08) !important;
+    box-shadow:
+        0 0 0 12px rgba(216, 7, 20, 0.16),
+        0 0 42px rgba(216, 7, 20, 0.86) !important;
+}
