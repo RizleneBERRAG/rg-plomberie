@@ -9,9 +9,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
     sliders.forEach((slider) => {
         const inner = slider.querySelector(".before-after-placeholder-inner");
-        const beforeLayer =
-            slider.querySelector("[data-before-layer]") ||
-            slider.querySelector(".before-after-placeholder-before");
 
         const afterLayer =
             slider.querySelector("[data-after-layer]") ||
@@ -21,32 +18,28 @@ document.addEventListener("DOMContentLoaded", () => {
             slider.querySelector("[data-ba-divider]") ||
             slider.querySelector(".before-after-divider");
 
-        if (!inner || !beforeLayer || !afterLayer || !divider) return;
+        if (!inner || !afterLayer || !divider) return;
 
         let isDragging = false;
         let currentPosition = 50;
 
         const applyPosition = (position) => {
-            currentPosition = clamp(position, 2, 98);
+            currentPosition = clamp(position, 3, 97);
 
-            inner.style.setProperty("--ba-position", `${currentPosition}%`, "important");
-            slider.style.setProperty("--ba-position", `${currentPosition}%`, "important");
+            inner.style.setProperty("--ba-position", `${currentPosition}%`);
+            slider.style.setProperty("--ba-position", `${currentPosition}%`);
 
-            /**
-             * Ici on affiche la couche "après" de gauche vers la droite.
-             * À 50%, on voit 50% après / 50% avant.
-             */
             afterLayer.style.setProperty(
                 "clip-path",
-                `inset(0 ${100 - currentPosition}% 0 0)`,
-                "important"
+                `inset(0 ${100 - currentPosition}% 0 0)`
             );
 
-            divider.style.setProperty("left", `${currentPosition}%`, "important");
+            divider.style.setProperty("left", `${currentPosition}%`);
+
             inner.setAttribute("aria-valuenow", Math.round(currentPosition));
         };
 
-        const getPositionFromEvent = (event) => {
+        const getPosition = (event) => {
             const rect = inner.getBoundingClientRect();
             const clientX = event.clientX;
             const x = clientX - rect.left;
@@ -62,23 +55,39 @@ document.addEventListener("DOMContentLoaded", () => {
             slider.classList.add("is-dragging");
             inner.classList.add("is-dragging");
 
-            applyPosition(getPositionFromEvent(event));
+            applyPosition(getPosition(event));
+
+            if (inner.setPointerCapture && event.pointerId !== undefined) {
+                try {
+                    inner.setPointerCapture(event.pointerId);
+                } catch (error) {
+                    // Rien à faire.
+                }
+            }
         };
 
         const moveDrag = (event) => {
             if (!isDragging) return;
 
             event.preventDefault();
-            applyPosition(getPositionFromEvent(event));
+            applyPosition(getPosition(event));
         };
 
-        const stopDrag = () => {
+        const stopDrag = (event) => {
             if (!isDragging) return;
 
             isDragging = false;
 
             slider.classList.remove("is-dragging");
             inner.classList.remove("is-dragging");
+
+            if (inner.releasePointerCapture && event.pointerId !== undefined) {
+                try {
+                    inner.releasePointerCapture(event.pointerId);
+                } catch (error) {
+                    // Rien à faire.
+                }
+            }
         };
 
         inner.setAttribute("role", "slider");
@@ -90,35 +99,34 @@ document.addEventListener("DOMContentLoaded", () => {
         applyPosition(50);
 
         inner.addEventListener("pointerdown", startDrag);
-        divider.addEventListener("pointerdown", startDrag);
-
-        window.addEventListener("pointermove", moveDrag, { passive: false });
-        window.addEventListener("pointerup", stopDrag);
-        window.addEventListener("pointercancel", stopDrag);
+        inner.addEventListener("pointermove", moveDrag);
+        inner.addEventListener("pointerup", stopDrag);
+        inner.addEventListener("pointercancel", stopDrag);
+        inner.addEventListener("lostpointercapture", stopDrag);
 
         inner.addEventListener("click", (event) => {
-            applyPosition(getPositionFromEvent(event));
+            applyPosition(getPosition(event));
         });
 
         inner.addEventListener("keydown", (event) => {
             if (event.key === "ArrowLeft") {
                 event.preventDefault();
-                applyPosition(currentPosition - 5);
+                applyPosition(currentPosition - 6);
             }
 
             if (event.key === "ArrowRight") {
                 event.preventDefault();
-                applyPosition(currentPosition + 5);
+                applyPosition(currentPosition + 6);
             }
 
             if (event.key === "Home") {
                 event.preventDefault();
-                applyPosition(2);
+                applyPosition(3);
             }
 
             if (event.key === "End") {
                 event.preventDefault();
-                applyPosition(98);
+                applyPosition(97);
             }
         });
     });

@@ -1,5 +1,9 @@
 /* ================================
-   PAGE RÉALISATIONS — CINEMATIC
+   PAGE RÉALISATIONS — CLEAN FINAL
+================================ */
+
+/* ================================
+   HERO
 ================================ */
 
 .page-cinematic-hero {
@@ -9,7 +13,7 @@
     align-items: flex-end;
     padding: 180px 0 90px;
     overflow: hidden;
-    background: #000;
+    background: #000000;
 }
 
 .page-cinematic-bg {
@@ -25,8 +29,8 @@
     position: absolute;
     inset: 0;
     background:
-        linear-gradient(90deg, rgba(0,0,0,0.94), rgba(0,0,0,0.56), rgba(0,0,0,0.86)),
-        linear-gradient(to top, rgba(0,0,0,1), transparent 52%);
+        linear-gradient(90deg, rgba(0, 0, 0, 0.94), rgba(0, 0, 0, 0.56), rgba(0, 0, 0, 0.86)),
+        linear-gradient(to top, rgba(0, 0, 0, 1), transparent 52%);
 }
 
 .page-cinematic-content {
@@ -40,6 +44,10 @@
     color: rgba(255, 255, 255, 0.72);
     font-size: 1.08rem;
 }
+
+/* ================================
+   INTRO
+================================ */
 
 .realisations-intro {
     padding: 110px 0;
@@ -56,8 +64,13 @@
     font-size: 1.08rem;
 }
 
+/* ================================
+   BEFORE / AFTER SECTION
+================================ */
+
 .cinematic-before-projects {
     padding: 120px 0;
+    overflow: hidden;
     background:
         radial-gradient(circle at right, rgba(216, 7, 20, 0.16), transparent 26%),
         #060606;
@@ -73,12 +86,16 @@
     grid-template-columns: 1.15fr 0.85fr;
     gap: 28px;
     align-items: stretch;
+
     padding: 18px;
+
     border: 1px solid var(--rg-border);
     border-radius: var(--radius-xl);
+
     background:
-        linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.018)),
-        rgba(255,255,255,0.02);
+        linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.018)),
+        rgba(255, 255, 255, 0.02);
+
     box-shadow: var(--shadow-strong);
 }
 
@@ -94,29 +111,240 @@
     order: 1;
 }
 
+/* ================================
+   BEFORE / AFTER — COMPARATEUR
+================================ */
+
 .before-project-media {
     --ba-position: 50%;
+
     position: relative;
     min-height: 520px;
-    border-radius: 26px;
+
     overflow: hidden;
+    isolation: isolate;
+
+    border-radius: 26px;
+
+    background: #111111;
     cursor: ew-resize;
-    background: #111;
+
+    box-shadow:
+        inset 0 1px 0 rgba(255, 255, 255, 0.06),
+        0 26px 70px rgba(0, 0, 0, 0.34);
 }
 
 .before-project-media .before-after-placeholder-inner {
+    position: relative;
+
+    width: 100%;
+    height: 100%;
     min-height: 520px;
+
+    overflow: hidden;
+
+    border-radius: inherit;
+
+    background: #111111;
+
+    cursor: ew-resize;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
+
+.before-project-media .before-after-placeholder-before,
+.before-project-media .before-after-placeholder-after {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    pointer-events: none;
+
+    transform: translateZ(0);
+    backface-visibility: hidden;
+
+    transition: none;
+}
+
+.before-project-media .before-after-placeholder-before {
+    z-index: 1;
+}
+
+.before-project-media .before-after-placeholder-after {
+    z-index: 2;
+    clip-path: inset(0 50% 0 0);
+    will-change: clip-path;
+}
+
+/* Labels avant / après */
+
+.before-project-media .before-label,
+.before-project-media .after-label {
+    position: absolute;
+    top: 18px;
+    z-index: 6;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 32px;
+    padding: 0 14px;
+
+    border-radius: 999px;
+
+    color: #ffffff;
+
+    font-size: 0.66rem;
+    font-weight: 950;
+    text-transform: uppercase;
+    letter-spacing: 0.10em;
+
+    pointer-events: none;
+}
+
+.before-project-media .before-label {
+    left: 18px;
+
+    background: rgba(0, 0, 0, 0.60);
+    border: 1px solid rgba(255, 255, 255, 0.14);
+
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+.before-project-media .after-label {
+    right: 18px;
+
+    background: linear-gradient(135deg, #d80714, #9d0610);
+
+    box-shadow: 0 14px 30px rgba(216, 7, 20, 0.28);
+}
+
+/* Barre centrale */
+
+.before-project-media .before-after-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--ba-position, 50%);
+    z-index: 5;
+
+    width: 2px;
+
+    transform: translateX(-50%) translateZ(0);
+
+    background:
+        linear-gradient(
+            to bottom,
+            rgba(255, 255, 255, 0.82),
+            rgba(216, 7, 20, 0.95)
+        );
+
+    box-shadow: 0 0 18px rgba(216, 7, 20, 0.50);
+
+    pointer-events: auto;
+
+    transition: none;
+    will-change: left;
+}
+
+/* Zone tactile invisible large autour de la barre */
+
+.before-project-media .before-after-divider::before {
+    content: "";
+
+    position: absolute;
+    top: 0;
+    left: 50%;
+
+    width: 120px;
+    height: 100%;
+
+    transform: translateX(-50%);
+
+    background: transparent;
+
+    pointer-events: auto;
+}
+
+/* Rond central */
+
+.before-project-media .before-after-divider span {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    width: 56px;
+    height: 56px;
+
+    border-radius: 50%;
+
+    transform: translate(-50%, -50%) translateZ(0);
+
+    border: 2px solid rgba(255, 255, 255, 0.86);
+
+    background:
+        radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.24), transparent 28%),
+        linear-gradient(135deg, #d80714, #8d020a);
+
+    box-shadow:
+        0 0 0 8px rgba(216, 7, 20, 0.10),
+        0 0 24px rgba(216, 7, 20, 0.52);
+
+    cursor: grab;
+
+    transition:
+        transform 0.14s ease,
+        box-shadow 0.14s ease;
+}
+
+.before-project-media.is-dragging,
+.before-project-media .before-after-placeholder-inner.is-dragging {
+    cursor: grabbing;
+}
+
+.before-project-media.is-dragging *,
+.before-project-media .before-after-placeholder-inner.is-dragging * {
+    transition: none !important;
+}
+
+.before-project-media.is-dragging .before-after-divider span,
+.before-project-media .before-after-placeholder-inner.is-dragging .before-after-divider span {
+    cursor: grabbing;
+
+    transform: translate(-50%, -50%) scale(1.03) translateZ(0);
+
+    box-shadow:
+        0 0 0 6px rgba(216, 7, 20, 0.10),
+        0 0 16px rgba(216, 7, 20, 0.38);
+}
+
+/* ================================
+   BEFORE / AFTER — TEXTE
+================================ */
 
 .before-project-text {
     display: flex;
     flex-direction: column;
     justify-content: center;
+
     padding: 34px;
 }
 
-.before-project-text span {
+.before-project-text > span {
     color: var(--rg-red);
+
     font-size: 0.78rem;
     font-weight: 900;
     letter-spacing: 0.16em;
@@ -125,7 +353,9 @@
 
 .before-project-text h3 {
     margin-top: 18px;
-    color: white;
+
+    color: #ffffff;
+
     font-family: "Space Grotesk", "Inter", sans-serif;
     font-size: clamp(2rem, 3vw, 3.6rem);
     line-height: 1;
@@ -135,7 +365,7 @@
 
 .before-project-text p {
     margin-top: 22px;
-    color: rgba(255,255,255,0.68);
+    color: rgba(255, 255, 255, 0.68);
 }
 
 .before-project-text ul {
@@ -146,7 +376,7 @@
 
 .before-project-text li {
     list-style: none;
-    color: rgba(255,255,255,0.72);
+    color: rgba(255, 255, 255, 0.72);
 }
 
 .before-project-text li::before {
@@ -155,6 +385,10 @@
     color: var(--rg-red);
     font-weight: 900;
 }
+
+/* ================================
+   GALERIE
+================================ */
 
 .gallery-full-section {
     padding: 120px 0;
@@ -170,17 +404,34 @@
 
 .gallery-full-grid .gallery-card {
     position: relative;
-    border-radius: var(--radius-lg);
+
     overflow: hidden;
-    background: #111;
+
+    border-radius: var(--radius-lg);
+
+    background: #111111;
+
     box-shadow: var(--shadow-soft);
 }
 
 .gallery-full-grid .gallery-card img {
+    display: block;
+
     width: 100%;
     height: 100%;
+
     object-fit: cover;
+
     filter: brightness(0.82) contrast(1.06);
+
+    transition:
+        transform 0.5s ease,
+        filter 0.5s ease;
+}
+
+.gallery-full-grid .gallery-card:hover img {
+    transform: scale(1.04);
+    filter: brightness(0.92) contrast(1.08);
 }
 
 .gallery-xl {
@@ -196,11 +447,16 @@
     grid-column: span 2;
 }
 
+/* ================================
+   CTA
+================================ */
+
 .realisations-cta {
     padding: 120px 0;
+
     background:
-        radial-gradient(circle at 80% 40%, rgba(216,7,20,0.2), transparent 28%),
-        #000;
+        radial-gradient(circle at 80% 40%, rgba(216, 7, 20, 0.2), transparent 28%),
+        #000000;
 }
 
 .realisations-cta-box {
@@ -208,11 +464,15 @@
     grid-template-columns: 1fr auto;
     gap: 44px;
     align-items: center;
+
     padding: 44px;
+
     border: 1px solid var(--rg-border);
     border-radius: 32px;
+
     background:
-        linear-gradient(145deg, rgba(255,255,255,0.055), rgba(255,255,255,0.02));
+        linear-gradient(145deg, rgba(255, 255, 255, 0.055), rgba(255, 255, 255, 0.02));
+
     box-shadow: var(--shadow-strong);
 }
 
@@ -228,8 +488,70 @@
     align-items: flex-end;
 }
 
+/* ================================
+   MODE CLAIR
+================================ */
 
-/* Responsive réalisations */
+html[data-theme="light"] .page-cinematic-hero,
+html[data-theme="light"] .cinematic-before-projects,
+html[data-theme="light"] .gallery-full-section,
+html[data-theme="light"] .realisations-cta {
+    background:
+        radial-gradient(circle at 12% 12%, rgba(179, 34, 34, 0.065), transparent 26%),
+        linear-gradient(180deg, #fff8ed, #f3e9db);
+}
+
+html[data-theme="light"] .page-cinematic-overlay {
+    background:
+        linear-gradient(90deg, rgba(255, 248, 237, 0.94), rgba(255, 248, 237, 0.72), rgba(255, 248, 237, 0.88)),
+        linear-gradient(to top, rgba(255, 248, 237, 1), transparent 58%);
+}
+
+html[data-theme="light"] .page-cinematic-bg {
+    opacity: 0.72;
+    filter: brightness(1.03) contrast(1.02) saturate(0.95);
+}
+
+html[data-theme="light"] .page-cinematic-content p,
+html[data-theme="light"] .realisations-intro-grid p,
+html[data-theme="light"] .before-project-text p,
+html[data-theme="light"] .before-project-text li,
+html[data-theme="light"] .realisations-cta-box p {
+    color: rgba(40, 33, 28, 0.74);
+}
+
+html[data-theme="light"] .before-project-cinematic,
+html[data-theme="light"] .realisations-cta-box {
+    border-color: rgba(40, 33, 28, 0.10);
+
+    background:
+        linear-gradient(145deg, rgba(255, 255, 255, 0.82), rgba(255, 250, 242, 0.58));
+
+    box-shadow: 0 28px 90px rgba(55, 38, 24, 0.13);
+}
+
+html[data-theme="light"] .before-project-text h3 {
+    color: #1f1a17;
+}
+
+html[data-theme="light"] .before-project-media,
+html[data-theme="light"] .before-project-media .before-after-placeholder-inner {
+    background: rgba(20, 20, 20, 0.96);
+}
+
+html[data-theme="light"] .gallery-full-grid .gallery-card {
+    border: 1px solid rgba(40, 33, 28, 0.08);
+
+    background: rgba(255, 255, 255, 0.64);
+
+    box-shadow:
+        0 24px 58px rgba(65, 42, 24, 0.14),
+        inset 0 1px 0 rgba(255, 255, 255, 0.86);
+}
+
+/* ================================
+   RESPONSIVE TABLETTE
+================================ */
 
 @media (max-width: 1100px) {
     .realisations-intro-grid,
@@ -253,87 +575,220 @@
     }
 }
 
-@media (max-width: 700px) {
+/* ================================
+   RESPONSIVE MOBILE — GLOBAL
+================================ */
+
+@media (max-width: 760px) {
     .page-cinematic-hero {
         min-height: auto;
         padding: 150px 0 80px;
     }
 
-    .before-project-media,
+    .page-cinematic-content p {
+        max-width: 100%;
+        font-size: 0.96rem;
+        line-height: 1.75;
+    }
+
+    .realisations-intro {
+        padding: 82px 0;
+    }
+
+    .realisations-intro-grid {
+        gap: 24px;
+    }
+
+    .realisations-intro-grid p {
+        font-size: 0.96rem;
+        line-height: 1.75;
+    }
+
+    .cinematic-before-projects {
+        padding: 80px 0 92px;
+    }
+
+    .cinematic-before-projects .section-heading {
+        margin-bottom: 26px;
+    }
+
+    .cinematic-before-projects .section-heading h2 {
+        font-size: clamp(2rem, 10vw, 3rem);
+        line-height: 0.92;
+        letter-spacing: -0.075em;
+    }
+
+    .before-project-list {
+        gap: 34px;
+    }
+
+    .before-project-cinematic,
+    .before-project-cinematic.reverse {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 24px;
+
+        padding: 14px;
+
+        border-radius: 32px;
+
+        background:
+            linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018));
+
+        border: 1px solid rgba(255, 255, 255, 0.10);
+
+        box-shadow:
+            0 28px 70px rgba(0, 0, 0, 0.35),
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    }
+
+    .before-project-cinematic.reverse .before-project-media {
+        order: 1;
+    }
+
+    .before-project-cinematic.reverse .before-project-text {
+        order: 2;
+    }
+
+    .before-project-media {
+        width: 100%;
+        height: auto;
+        min-height: unset;
+
+        overflow: hidden;
+
+        border-radius: 26px;
+
+        box-shadow: none;
+    }
+
     .before-project-media .before-after-placeholder-inner {
-        min-height: 360px;
+        aspect-ratio: 4 / 5;
+        height: auto;
+        min-height: unset;
+
+        border-radius: 24px;
+
+        touch-action: none;
+    }
+
+    .before-project-media .before-label,
+    .before-project-media .after-label {
+        top: 14px;
+
+        min-height: 28px;
+        padding: 0 11px;
+
+        font-size: 0.56rem;
+    }
+
+    .before-project-media .before-label {
+        left: 14px;
+    }
+
+    .before-project-media .after-label {
+        right: 14px;
+    }
+
+    .before-project-media .before-after-divider {
+        width: 2px;
+        box-shadow: 0 0 14px rgba(216, 7, 20, 0.38);
+    }
+
+    .before-project-media .before-after-divider::before {
+        width: 128px;
+    }
+
+    .before-project-media .before-after-divider span {
+        width: 50px;
+        height: 50px;
+
+        box-shadow:
+            0 0 0 6px rgba(216, 7, 20, 0.10),
+            0 0 18px rgba(216, 7, 20, 0.42);
     }
 
     .before-project-text {
-        padding: 24px 10px 10px;
+        padding: 6px 6px 12px;
     }
 
-    .gallery-full-grid {
-        grid-template-columns: 1fr;
-        grid-auto-rows: 260px;
+    .before-project-text > span {
+        display: block;
+        margin-bottom: 12px;
+
+        font-size: 0.66rem;
+        letter-spacing: 0.14em;
     }
 
-    .gallery-xl,
-    .gallery-tall,
-    .gallery-wide {
-        grid-column: span 1;
-        grid-row: span 1;
+    .before-project-text h3 {
+        margin-top: 0;
+
+        font-size: clamp(1.55rem, 7.5vw, 2.35rem);
+        line-height: 0.96;
+        letter-spacing: -0.06em;
     }
 
-    .realisations-cta-box {
-        padding: 28px;
+    .before-project-text p {
+        margin-top: 14px;
+
+        font-size: 0.92rem;
+        line-height: 1.65;
+    }
+
+    .before-project-text ul {
+        margin-top: 16px;
+        gap: 8px;
     }
 }
 
 /* ================================
-   RÉALISATIONS — GALERIE MOBILE PREMIUM
-   Transforme la galerie en portfolio scrollable
+   GALERIE MOBILE PREMIUM
 ================================ */
 
 @media (max-width: 760px) {
     .gallery-full-section {
-        padding: 76px 0 86px !important;
-        overflow: hidden !important;
+        padding: 76px 0 86px;
+        overflow: hidden;
     }
 
     .gallery-full-section .section-heading {
-        margin-bottom: 26px !important;
+        margin-bottom: 26px;
     }
 
     .gallery-full-section .section-heading h2 {
-        font-size: clamp(2.05rem, 10.5vw, 3.15rem) !important;
-        line-height: 0.92 !important;
-        letter-spacing: -0.075em !important;
+        font-size: clamp(2.05rem, 10.5vw, 3.15rem);
+        line-height: 0.92;
+        letter-spacing: -0.075em;
     }
 
     .gallery-full-section .section-heading p {
-        max-width: 100% !important;
-        font-size: 0.94rem !important;
-        line-height: 1.75 !important;
+        max-width: 100%;
+
+        font-size: 0.94rem;
+        line-height: 1.75;
     }
 
     .gallery-full-grid {
         counter-reset: rgGallery;
 
-        display: flex !important;
-        grid-template-columns: none !important;
-        grid-auto-flow: column !important;
+        display: flex;
+        grid-template-columns: none;
+        grid-auto-flow: column;
 
-        gap: 16px !important;
+        gap: 16px;
 
-        width: calc(100% + 24px) !important;
-        margin-left: 0 !important;
-        margin-right: -24px !important;
+        width: calc(100% + 24px);
+        margin-right: -24px;
 
-        padding: 4px 24px 22px 0 !important;
+        padding: 4px 24px 22px 0;
 
-        overflow-x: auto !important;
-        overflow-y: hidden !important;
+        overflow-x: auto;
+        overflow-y: hidden;
 
-        scroll-snap-type: x mandatory !important;
-        scroll-padding-left: 0 !important;
+        scroll-snap-type: x mandatory;
+        scroll-padding-left: 0;
 
-        -webkit-overflow-scrolling: touch !important;
+        -webkit-overflow-scrolling: touch;
     }
 
     .gallery-full-grid::-webkit-scrollbar {
@@ -356,52 +811,49 @@
     .gallery-full-grid .gallery-card.gallery-wide {
         counter-increment: rgGallery;
 
-        position: relative !important;
+        position: relative;
 
-        flex: 0 0 min(82vw, 330px) !important;
+        flex: 0 0 min(82vw, 330px);
 
-        width: auto !important;
-        height: 390px !important;
-        min-height: 390px !important;
-        max-height: 390px !important;
+        width: auto;
+        height: 390px;
+        min-height: 390px;
+        max-height: 390px;
 
-        grid-column: auto !important;
-        grid-row: auto !important;
+        grid-column: auto;
+        grid-row: auto;
 
-        border-radius: 30px !important;
-        overflow: hidden !important;
+        overflow: hidden;
 
-        scroll-snap-align: start !important;
+        border-radius: 30px;
 
-        background: rgba(255, 255, 255, 0.04) !important;
+        scroll-snap-align: start;
 
-        border: 1px solid rgba(255, 255, 255, 0.10) !important;
+        background: rgba(255, 255, 255, 0.04);
+
+        border: 1px solid rgba(255, 255, 255, 0.10);
 
         box-shadow:
             0 26px 70px rgba(0, 0, 0, 0.34),
-            inset 0 1px 0 rgba(255, 255, 255, 0.08) !important;
+            inset 0 1px 0 rgba(255, 255, 255, 0.08);
     }
 
     .gallery-full-grid .gallery-card:first-child {
-        flex-basis: min(88vw, 350px) !important;
-        height: 430px !important;
-        min-height: 430px !important;
-        max-height: 430px !important;
+        flex-basis: min(88vw, 350px);
+
+        height: 430px;
+        min-height: 430px;
+        max-height: 430px;
     }
 
     .gallery-full-grid .gallery-card img {
-        width: 100% !important;
-        height: 100% !important;
+        width: 100%;
+        height: 100%;
 
-        display: block !important;
-
-        object-fit: cover !important;
-        object-position: center !important;
+        object-fit: cover;
+        object-position: center;
 
         transform: scale(1.02);
-        transition:
-            transform 0.5s ease,
-            filter 0.5s ease;
     }
 
     .gallery-full-grid .gallery-card::after {
@@ -478,23 +930,60 @@
     }
 }
 
-/* Mode clair */
+/* ================================
+   CTA MOBILE
+================================ */
+
 @media (max-width: 760px) {
-    html[data-theme="light"] .gallery-full-grid::-webkit-scrollbar-track {
-        background: rgba(40, 33, 28, 0.08);
+    .realisations-cta {
+        padding: 86px 0;
     }
 
-    html[data-theme="light"] .gallery-full-grid .gallery-card,
-    html[data-theme="light"] .gallery-full-grid .gallery-card.gallery-xl,
-    html[data-theme="light"] .gallery-full-grid .gallery-card.gallery-tall,
-    html[data-theme="light"] .gallery-full-grid .gallery-card.gallery-wide {
-        border-color: rgba(40, 33, 28, 0.08) !important;
+    .realisations-cta-box {
+        grid-template-columns: 1fr;
+        gap: 28px;
 
-        background: rgba(255, 255, 255, 0.64) !important;
+        padding: 28px;
+
+        border-radius: 28px;
+    }
+
+    .realisations-cta-actions {
+        width: 100%;
+        align-items: stretch;
+    }
+
+    .realisations-cta-actions .btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .realisations-cta-actions .mega-phone {
+        width: 100%;
+        text-align: left;
+        white-space: normal;
+    }
+}
+
+/* ================================
+   MOBILE MODE CLAIR
+================================ */
+
+@media (max-width: 760px) {
+    html[data-theme="light"] .before-project-cinematic,
+    html[data-theme="light"] .before-project-cinematic.reverse {
+        background:
+            linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(255, 250, 242, 0.58));
+
+        border-color: rgba(40, 33, 28, 0.08);
 
         box-shadow:
             0 24px 58px rgba(65, 42, 24, 0.14),
-            inset 0 1px 0 rgba(255, 255, 255, 0.86) !important;
+            inset 0 1px 0 rgba(255, 255, 255, 0.86);
+    }
+
+    html[data-theme="light"] .gallery-full-grid::-webkit-scrollbar-track {
+        background: rgba(40, 33, 28, 0.08);
     }
 
     html[data-theme="light"] .gallery-full-section::after {
@@ -507,27 +996,50 @@
     }
 }
 
-/* Très petits téléphones */
+/* ================================
+   TRÈS PETITS TÉLÉPHONES
+================================ */
+
 @media (max-width: 430px) {
+    .before-project-cinematic,
+    .before-project-cinematic.reverse {
+        padding: 12px;
+        border-radius: 28px;
+    }
+
+    .before-project-media .before-after-placeholder-inner {
+        aspect-ratio: 4 / 4.6;
+        border-radius: 22px;
+    }
+
+    .before-project-media .before-after-divider::before {
+        width: 138px;
+    }
+
+    .before-project-media .before-after-divider span {
+        width: 48px;
+        height: 48px;
+    }
+
     .gallery-full-grid .gallery-card,
     .gallery-full-grid .gallery-card.gallery-xl,
     .gallery-full-grid .gallery-card.gallery-tall,
     .gallery-full-grid .gallery-card.gallery-wide {
-        flex-basis: 82vw !important;
+        flex-basis: 82vw;
 
-        height: 350px !important;
-        min-height: 350px !important;
-        max-height: 350px !important;
+        height: 350px;
+        min-height: 350px;
+        max-height: 350px;
 
-        border-radius: 26px !important;
+        border-radius: 26px;
     }
 
     .gallery-full-grid .gallery-card:first-child {
-        flex-basis: 86vw !important;
+        flex-basis: 86vw;
 
-        height: 390px !important;
-        min-height: 390px !important;
-        max-height: 390px !important;
+        height: 390px;
+        min-height: 390px;
+        max-height: 390px;
     }
 
     .gallery-full-grid .gallery-card::before {
@@ -539,268 +1051,4 @@
 
         font-size: 0.62rem;
     }
-}
-
-/* ================================
-   RÉALISATIONS — BEFORE / AFTER FIX
-   Corrige les images invisibles
-================================ */
-
-.before-project-media {
-    position: relative !important;
-    overflow: hidden !important;
-    isolation: isolate !important;
-    background: #111 !important;
-}
-
-.before-project-media .before-after-placeholder-inner {
-    position: relative !important;
-    width: 100% !important;
-    height: 100% !important;
-    min-height: 520px !important;
-    overflow: hidden !important;
-    border-radius: 26px !important;
-    background: #111 !important;
-}
-
-.before-project-media .before-after-placeholder-before,
-.before-project-media .before-after-placeholder-after {
-    position: absolute !important;
-    inset: 0 !important;
-    z-index: 1 !important;
-
-    width: 100% !important;
-    height: 100% !important;
-
-    background-size: cover !important;
-    background-position: center !important;
-    background-repeat: no-repeat !important;
-}
-
-.before-project-media .before-after-placeholder-before {
-    z-index: 1 !important;
-}
-
-.before-project-media .before-after-placeholder-after {
-    z-index: 2 !important;
-    clip-path: inset(0 0 0 50%) !important;
-}
-
-.before-project-media .before-label,
-.before-project-media .after-label {
-    position: absolute !important;
-    top: 20px !important;
-    z-index: 5 !important;
-
-    display: inline-flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-
-    min-height: 34px !important;
-    padding: 0 14px !important;
-
-    border-radius: 999px !important;
-
-    color: #ffffff !important;
-
-    font-size: 0.72rem !important;
-    font-weight: 950 !important;
-    text-transform: uppercase !important;
-    letter-spacing: 0.12em !important;
-
-    pointer-events: none !important;
-}
-
-.before-project-media .before-label {
-    left: 20px !important;
-
-    background: rgba(0, 0, 0, 0.62) !important;
-    border: 1px solid rgba(255, 255, 255, 0.12) !important;
-    backdrop-filter: blur(10px) !important;
-}
-
-.before-project-media .after-label {
-    right: 20px !important;
-
-    background: linear-gradient(135deg, #d80714, #9d0610) !important;
-    box-shadow: 0 16px 34px rgba(216, 7, 20, 0.32) !important;
-}
-
-.before-project-media .before-after-divider {
-    position: absolute !important;
-    top: 0 !important;
-    bottom: 0 !important;
-    left: 50% !important;
-    z-index: 4 !important;
-
-    width: 3px !important;
-
-    transform: translateX(-50%) !important;
-
-    background: linear-gradient(
-        to bottom,
-        rgba(255, 255, 255, 0.92),
-        rgba(216, 7, 20, 1)
-    ) !important;
-
-    box-shadow: 0 0 36px rgba(216, 7, 20, 0.75) !important;
-
-    pointer-events: none !important;
-}
-
-.before-project-media .before-after-divider span {
-    position: absolute !important;
-    left: 50% !important;
-    top: 50% !important;
-
-    width: 62px !important;
-    height: 62px !important;
-
-    border-radius: 50% !important;
-
-    transform: translate(-50%, -50%) !important;
-
-    border: 2px solid rgba(255, 255, 255, 0.92) !important;
-
-    background:
-        radial-gradient(circle, rgba(216, 7, 20, 0.96), rgba(141, 2, 10, 1)) !important;
-
-    box-shadow:
-        0 0 0 10px rgba(216, 7, 20, 0.12),
-        0 0 30px rgba(216, 7, 20, 0.70) !important;
-}
-
-/* Mode clair */
-html[data-theme="light"] .before-project-media {
-    background: rgba(20, 20, 20, 0.96) !important;
-}
-
-html[data-theme="light"] .before-project-media .before-after-placeholder-inner {
-    background: rgba(20, 20, 20, 0.96) !important;
-}
-
-/* Responsive */
-@media (max-width: 700px) {
-    .before-project-media,
-    .before-project-media .before-after-placeholder-inner {
-        min-height: 360px !important;
-    }
-
-    .before-project-media .before-label,
-    .before-project-media .after-label {
-        top: 14px !important;
-        min-height: 30px !important;
-        padding: 0 12px !important;
-        font-size: 0.62rem !important;
-    }
-
-    .before-project-media .before-label {
-        left: 14px !important;
-    }
-
-    .before-project-media .after-label {
-        right: 14px !important;
-    }
-
-    .before-project-media .before-after-divider span {
-        width: 52px !important;
-        height: 52px !important;
-    }
-}
-
-/* ================================
-   RÉALISATIONS — BEFORE / AFTER GLISSANT
-================================ */
-
-.before-project-media,
-.before-project-media .before-after-placeholder-inner {
-    touch-action: none !important;
-    user-select: none !important;
-    -webkit-user-select: none !important;
-}
-
-.before-project-media .before-after-placeholder-inner {
-    cursor: ew-resize !important;
-}
-
-.before-project-media.is-dragging,
-.before-project-media .before-after-placeholder-inner.is-dragging {
-    cursor: grabbing !important;
-}
-
-.before-project-media .before-after-placeholder-after {
-    will-change: clip-path !important;
-}
-
-.before-project-media .before-after-divider {
-    will-change: left !important;
-    transition: left 0.08s linear !important;
-}
-
-.before-project-media .before-after-divider span {
-    cursor: grab !important;
-    transition:
-        transform 0.2s ease,
-        box-shadow 0.2s ease !important;
-}
-
-.before-project-media.is-dragging .before-after-divider span,
-.before-project-media .before-after-placeholder-inner.is-dragging .before-after-divider span {
-    transform: translate(-50%, -50%) scale(1.08) !important;
-    box-shadow:
-        0 0 0 12px rgba(216, 7, 20, 0.16),
-        0 0 42px rgba(216, 7, 20, 0.86) !important;
-}
-
-/* ================================
-   RÉALISATIONS — BEFORE / AFTER DRAG FINAL
-================================ */
-
-.before-project-media,
-.before-project-media .before-after-placeholder-inner {
-    touch-action: none !important;
-    user-select: none !important;
-    -webkit-user-select: none !important;
-}
-
-.before-project-media .before-after-placeholder-inner {
-    cursor: ew-resize !important;
-}
-
-.before-project-media.is-dragging,
-.before-project-media .before-after-placeholder-inner.is-dragging {
-    cursor: grabbing !important;
-}
-
-.before-project-media .before-after-placeholder-before,
-.before-project-media .before-after-placeholder-after {
-    pointer-events: none !important;
-}
-
-.before-project-media .before-after-divider,
-.before-project-media .before-after-divider span {
-    pointer-events: auto !important;
-}
-
-.before-project-media .before-after-placeholder-after {
-    clip-path: inset(0 50% 0 0) !important;
-    will-change: clip-path !important;
-}
-
-.before-project-media .before-after-divider {
-    left: var(--ba-position, 50%) !important;
-    will-change: left !important;
-}
-
-.before-project-media .before-after-divider span {
-    cursor: grab !important;
-}
-
-.before-project-media.is-dragging .before-after-divider span,
-.before-project-media .before-after-placeholder-inner.is-dragging .before-after-divider span {
-    cursor: grabbing !important;
-    transform: translate(-50%, -50%) scale(1.08) !important;
-    box-shadow:
-        0 0 0 12px rgba(216, 7, 20, 0.16),
-        0 0 42px rgba(216, 7, 20, 0.86) !important;
 }

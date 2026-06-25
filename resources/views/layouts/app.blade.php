@@ -282,7 +282,7 @@
 <script src="{{ asset('assets/js/cinematic-header.js') }}?v=50"></script>
 <script src="{{ asset('assets/js/cinematic-motion.js') }}?v=50"></script>
 <script src="{{ asset('assets/js/cinematic-gallery.js') }}?v=50"></script>
-<script src="{{ asset('assets/js/cinematic-before-after.js') }}?v=90"></script>
+<script src="{{ asset('assets/js/cinematic-before-after.js') }}?v=200"></script>
 <script src="{{ asset('assets/js/cinematic-theme.js') }}?v=50"></script>
 
 @stack('scripts')
