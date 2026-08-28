@@ -1,350 +1,266 @@
 @extends('layouts.app', [
-    'title' => 'RG Plomberie - Plomberie, chauffage, climatisation et VMC dans le Rhône',
-    'description' => 'RG Plomberie intervient dans le Rhône pour vos besoins en plomberie, chauffage, climatisation, VMC, dépannage, installation et entretien.'
+    'title' => 'RG Plomberie — Plombier chauffagiste à Lyon et dans le Rhône',
+    'description' => 'RG Plomberie intervient à Lyon, dans le Rhône et l’Est lyonnais pour vos travaux de plomberie, chauffage, climatisation, VMC et dépannage.'
 ])
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/pages/cinematic-home.css') }}">
-@endpush
-
 @section('content')
-
-    <section class="hero-cinematic">
-        <div class="hero-background">
-            <div class="hero-layer hero-layer-1" style="background-image: url('{{ asset('assets/img/rg/hero/hero-1.jpg') }}');"></div>
-            <div class="hero-layer hero-layer-2" style="background-image: url('{{ asset('assets/img/rg/hero/hero-2.jpg') }}');"></div>
-            <div class="hero-overlay"></div>
-            <div class="hero-grid-overlay"></div>
-        </div>
-
-        <div class="container hero-content">
-            <div class="hero-copy">
-                <span class="eyebrow">Rhône 69 • Dépannage • Installation</span>
-
-                <h1>
-                    L’exigence<br>
-                    d’une installation propre.
-                </h1>
-
-                <p>
-                    RG Plomberie accompagne les particuliers et professionnels pour leurs besoins
-                    en plomberie, chauffage, climatisation et VMC. Chaque intervention est réalisée
-                    avec soin, précision et souci du détail.
+    <section class="home-hero">
+        <div class="container home-hero__grid">
+            <div class="home-hero__copy" data-reveal>
+                <p class="eyebrow">Plombier · Chauffagiste · Climatisation · VMC</p>
+                <h1>Le confort technique,<br>réalisé proprement.</h1>
+                <p class="lead">
+                    RG Plomberie accompagne particuliers et professionnels à Lyon, dans le Rhône
+                    et l’Est lyonnais, de la recherche de panne à l’installation complète.
                 </p>
-
-                <div class="hero-actions">
-                    <a href="{{ route('contact') }}" class="btn btn-primary">Demander un devis</a>
-                    <a href="{{ route('realisations') }}" class="btn btn-ghost">Voir les réalisations</a>
+                <div class="button-row">
+                    <a class="button button--primary" href="{{ route('contact') }}">
+                        Décrire mon projet <span aria-hidden="true">↗</span>
+                    </a>
+                    <a class="button button--outline" href="tel:+33627997646">
+                        06 27 99 76 46
+                    </a>
                 </div>
+                <ul class="hero-checks" aria-label="Engagements">
+                    <li>Échange clair avant intervention</li>
+                    <li>Solutions adaptées à l’existant</li>
+                    <li>Finitions propres et lisibles</li>
+                </ul>
             </div>
 
-            <div class="hero-side-panel">
-                <span class="panel-kicker">Interventions</span>
-
-                <div class="hero-side-panel-list">
-                    <article>
-                        <strong>Plomberie</strong>
-                        <p>Fuites, sanitaires, raccordements, robinetterie et ballon d’eau chaude.</p>
-                    </article>
-
-                    <article>
-                        <strong>Chauffage</strong>
-                        <p>Installation, remplacement, entretien et amélioration du confort thermique.</p>
-                    </article>
-
-                    <article>
-                        <strong>Climatisation</strong>
-                        <p>Pose, maintenance, nettoyage et optimisation des performances.</p>
-                    </article>
-
-                    <article>
-                        <strong>VMC</strong>
-                        <p>Ventilation, renouvellement de l’air et amélioration du confort intérieur.</p>
-                    </article>
+            <div class="home-hero__media" data-reveal>
+                <img
+                    src="{{ asset('assets/img/rg/web/hero-team.webp') }}"
+                    width="847"
+                    height="486"
+                    alt="Techniciens intervenant sur une installation de plomberie et de chauffage"
+                    fetchpriority="high"
+                >
+                <div class="hero-callout">
+                    <span>Une urgence ?</span>
+                    <strong>Appelez pour vérifier la disponibilité</strong>
+                    <a href="tel:+33627997646">Appeler maintenant <span aria-hidden="true">→</span></a>
                 </div>
-            </div>
-        </div>
-
-        <div class="hero-bottom-strip">
-            <div class="hero-marquee">
-                <div class="hero-marquee-track">
-                    <div class="hero-marquee-group">
-                        <span>Plomberie</span>
-                        <span>Chauffage</span>
-                        <span>Climatisation</span>
-                        <span>VMC</span>
-                        <span>Dépannage</span>
-                        <span>Installation</span>
-                        <span>Entretien</span>
-                    </div>
-
-                    <div class="hero-marquee-group" aria-hidden="true">
-                        <span>Plomberie</span>
-                        <span>Chauffage</span>
-                        <span>Climatisation</span>
-                        <span>VMC</span>
-                        <span>Dépannage</span>
-                        <span>Installation</span>
-                        <span>Entretien</span>
-                    </div>
-
-                    <div class="hero-marquee-group" aria-hidden="true">
-                        <span>Plomberie</span>
-                        <span>Chauffage</span>
-                        <span>Climatisation</span>
-                        <span>VMC</span>
-                        <span>Dépannage</span>
-                        <span>Installation</span>
-                        <span>Entretien</span>
-                    </div>
-                </div>
+                <p class="image-index" aria-hidden="true">RG / 69</p>
             </div>
         </div>
     </section>
 
-    <section class="cinematic-intro section-dark">
-        <div class="container cinematic-intro-grid">
-            <div class="cinematic-intro-text">
-                <span class="section-label">Savoir-faire</span>
-
-                <h2>Des interventions soignées, pensées pour durer.</h2>
-
-                <p>
-                    Derrière chaque installation, chaque réparation et chaque dépannage, RG Plomberie
-                    met en avant une méthode claire : comprendre le besoin, proposer une solution adaptée
-                    et réaliser un travail propre, fiable et durable.
-                </p>
-            </div>
-
-            <div class="cinematic-stats">
-                <article>
-                    <strong>69</strong>
-                    <span>Rhône</span>
-                </article>
-
-                <article>
-                    <strong>4</strong>
-                    <span>Pôles métier</span>
-                </article>
-
-                <article>
-                    <strong>100%</strong>
-                    <span>Travail soigné</span>
-                </article>
-            </div>
+    <section class="proof-strip" aria-label="Repères sur l’entreprise">
+        <div class="container proof-strip__grid">
+            <article>
+                <strong>2017</strong>
+                <span>Année de création</span>
+            </article>
+            <article>
+                <strong>4</strong>
+                <span>Expertises techniques</span>
+            </article>
+            <article>
+                <strong>Local</strong>
+                <span>Rhône & Est lyonnais</span>
+            </article>
+            <article>
+                <strong>Direct</strong>
+                <span>Un numéro pour échanger</span>
+            </article>
         </div>
     </section>
 
-    <section class="film-strip-section">
+    <section class="section" id="prestations">
         <div class="container">
-            <div class="section-heading">
-                <span class="section-label">Interventions</span>
-
-                <h2>Des chantiers propres, lisibles et maîtrisés.</h2>
-            </div>
-
-            <div class="film-strip-grid">
-                <article class="film-card large">
-                    <img src="{{ asset('assets/img/rg/works/work-1.jpg') }}" alt="Dépannage RG Plomberie">
-                    <div class="film-card-content">
-                        <span>Intervention 01</span>
-                        <strong>Dépannage rapide</strong>
-                    </div>
-                </article>
-
-                <article class="film-card">
-                    <img src="{{ asset('assets/img/rg/works/work-2.jpg') }}" alt="Installation propre RG Plomberie">
-                    <div class="film-card-content">
-                        <span>Intervention 02</span>
-                        <strong>Installation propre</strong>
-                    </div>
-                </article>
-
-                <article class="film-card">
-                    <img src="{{ asset('assets/img/rg/works/work-3.jpg') }}" alt="Finition maîtrisée RG Plomberie">
-                    <div class="film-card-content">
-                        <span>Intervention 03</span>
-                        <strong>Finition maîtrisée</strong>
-                    </div>
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="services-cinematic section-dark">
-        <div class="container">
-            <div class="section-heading">
-                <span class="section-label">Prestations</span>
-
-                <h2>Une expertise complète pour votre confort intérieur.</h2>
-            </div>
-
-            <div class="services-cinematic-grid">
-                <a href="{{ route('prestations.plomberie') }}" class="service-cinematic-card">
-                    <img src="{{ asset('assets/img/rg/works/work-4.jpg') }}" alt="Plomberie RG Plomberie">
-                    <div class="service-cinematic-overlay"></div>
-
-                    <div class="service-cinematic-content">
-                        <span>01</span>
-                        <strong>Plomberie</strong>
-                        <p>Fuites, robinetterie, sanitaires, raccordements et ballon d’eau chaude.</p>
-                    </div>
-                </a>
-
-                <a href="{{ route('prestations.chauffage') }}" class="service-cinematic-card">
-                    <img src="{{ asset('assets/img/rg/works/work-5.jpg') }}" alt="Chauffage RG Plomberie">
-                    <div class="service-cinematic-overlay"></div>
-
-                    <div class="service-cinematic-content">
-                        <span>02</span>
-                        <strong>Chauffage</strong>
-                        <p>Installation, remplacement, entretien et confort thermique au quotidien.</p>
-                    </div>
-                </a>
-
-                <a href="{{ route('prestations.climatisation') }}" class="service-cinematic-card">
-                    <img src="{{ asset('assets/img/rg/works/work-6.jpg') }}" alt="Climatisation RG Plomberie">
-                    <div class="service-cinematic-overlay"></div>
-
-                    <div class="service-cinematic-content">
-                        <span>03</span>
-                        <strong>Climatisation</strong>
-                        <p>Pose, mise en service, maintenance et nettoyage des systèmes.</p>
-                    </div>
-                </a>
-
-                <a href="{{ route('prestations.vmc') }}" class="service-cinematic-card">
-                    <img src="{{ asset('assets/img/rg/works/work-7.jpg') }}" alt="VMC RG Plomberie">
-                    <div class="service-cinematic-overlay"></div>
-
-                    <div class="service-cinematic-content">
-                        <span>04</span>
-                        <strong>VMC</strong>
-                        <p>Ventilation, renouvellement de l’air et amélioration du confort intérieur.</p>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <section class="before-after-signature">
-        <div class="container before-after-signature-grid">
-            <div class="before-after-signature-text">
-                <span class="section-label">Avant / Après</span>
-
-                <h2>Un résultat visible dès le premier regard.</h2>
-
+            <header class="section-heading section-heading--split" data-reveal>
+                <div>
+                    <p class="eyebrow">Nos métiers</p>
+                    <h2>Quatre expertises.<br>Une seule exigence.</h2>
+                </div>
                 <p>
-                    Les réalisations permettent de visualiser la qualité d’une intervention :
-                    installation plus propre, équipements mieux intégrés et finitions plus nettes.
+                    Réparer ce qui doit l’être, remplacer lorsque c’est nécessaire
+                    et concevoir une installation claire, durable et simple à entretenir.
                 </p>
+            </header>
 
-                <a href="{{ route('realisations') }}" class="btn btn-primary">Explorer les chantiers</a>
+            <div class="service-grid">
+                <a class="service-card" href="{{ route('prestations.plomberie') }}" data-reveal>
+                    <span class="service-card__number">01</span>
+                    <div>
+                        <h3>Plomberie</h3>
+                        <p>Fuites, sanitaires, robinetterie, chauffe-eau et réseaux.</p>
+                    </div>
+                    <span class="service-card__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="service-card" href="{{ route('prestations.chauffage') }}" data-reveal>
+                    <span class="service-card__number">02</span>
+                    <div>
+                        <h3>Chauffage</h3>
+                        <p>Installation, remplacement, entretien et recherche de panne.</p>
+                    </div>
+                    <span class="service-card__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="service-card" href="{{ route('prestations.climatisation') }}" data-reveal>
+                    <span class="service-card__number">03</span>
+                    <div>
+                        <h3>Climatisation</h3>
+                        <p>Pose, mise en service, nettoyage et maintenance.</p>
+                    </div>
+                    <span class="service-card__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a class="service-card" href="{{ route('prestations.vmc') }}" data-reveal>
+                    <span class="service-card__number">04</span>
+                    <div>
+                        <h3>Ventilation</h3>
+                        <p>VMC, renouvellement de l’air et traitement de l’humidité.</p>
+                    </div>
+                    <span class="service-card__arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="section section--ink">
+        <div class="container comparison-layout">
+            <div class="comparison-copy" data-reveal>
+                <p class="eyebrow eyebrow--light">Interaction signature</p>
+                <h2>Avant. Après.<br>La différence se mesure.</h2>
+                <p>
+                    Faites glisser le curseur ou utilisez les boutons pour comparer l’état initial
+                    et une projection de rénovation pensée au même endroit.
+                </p>
+                <div class="comparison-controls" data-compare-controls>
+                    <button type="button" data-compare-set="0">Voir l’avant</button>
+                    <button type="button" data-compare-set="100">Voir l’après</button>
+                </div>
+                <p class="media-note">
+                    Projection visuelle de rénovation. Elle sera remplacée par un duo de photos
+                    prises sur un même chantier RG Plomberie dès qu’il sera disponible.
+                </p>
             </div>
 
-            <div class="before-after-placeholder" data-cinematic-before-after>
-                <div class="before-after-placeholder-inner">
-                    <div
-                        class="before-after-placeholder-before"
-                        data-before-layer
-                        style="background-image: url('{{ asset('assets/img/rg/before-after/before/before-1.jpg') }}');"
-                    ></div>
-
-                    <div
-                        class="before-after-placeholder-after"
-                        data-after-layer
-                        style="background-image: url('{{ asset('assets/img/rg/before-after/after/after-1.jpg') }}');"
-                    ></div>
-
-                    <span class="before-label">Avant</span>
-                    <span class="after-label">Après</span>
-
-                    <div class="before-after-divider" data-ba-divider>
-                        <span></span>
+            <div class="comparison-frame" data-reveal>
+                <div class="compare" data-compare style="--position: 52%;">
+                    <img
+                        class="compare__base"
+                        src="{{ asset('assets/img/rg/web/before-bathroom.webp') }}"
+                        width="1168"
+                        height="784"
+                        alt="Salle de bain avant rénovation"
+                        loading="lazy"
+                    >
+                    <div class="compare__after" data-compare-after>
+                        <img
+                            src="{{ asset('assets/img/rg/web/after-bathroom-projection.webp') }}"
+                            width="1168"
+                            height="784"
+                            alt="Projection de la même salle de bain après rénovation"
+                            loading="lazy"
+                        >
                     </div>
+                    <span class="compare__label compare__label--before">Avant</span>
+                    <span class="compare__label compare__label--after">Après</span>
+                    <span class="compare__line" aria-hidden="true"><i></i></span>
+                    <input
+                        class="compare__range"
+                        data-compare-range
+                        type="range"
+                        min="0"
+                        max="100"
+                        value="52"
+                        aria-label="Comparer la salle de bain avant et après rénovation"
+                    >
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="gallery-teaser section-dark">
+    <section class="section">
         <div class="container">
-            <div class="section-heading">
-                <span class="section-label">Galerie</span>
-
-                <h2>Un aperçu des interventions et finitions réalisées.</h2>
-            </div>
-
-            <div class="gallery-teaser-grid">
-                <article class="gallery-card gallery-large" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-1.jpg') }}" alt="Réalisation RG Plomberie 1">
-                </article>
-
-                <article class="gallery-card" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-2.jpg') }}" alt="Réalisation RG Plomberie 2">
-                </article>
-
-                <article class="gallery-card" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-3.jpg') }}" alt="Réalisation RG Plomberie 3">
-                </article>
-
-                <article class="gallery-card" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-4.jpg') }}" alt="Réalisation RG Plomberie 4">
-                </article>
-
-                <article class="gallery-card wide" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-5.jpg') }}" alt="Réalisation RG Plomberie 5">
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="emergency-cinematic">
-        <div class="container emergency-cinematic-box">
-            <div class="emergency-cinematic-text">
-                <span class="section-label">Urgence</span>
-
-                <h2>
-                    Une fuite ?<br>
-                    Une panne ?<br>
-                    Un équipement à remplacer ?
-                </h2>
-
+            <header class="section-heading" data-reveal>
+                <p class="eyebrow">Types d’intervention</p>
+                <h2>Du technique au visible.</h2>
                 <p>
-                    Pour une demande urgente, l’appel reste le moyen le plus rapide.
-                    RG Plomberie vous accompagne pour identifier le problème et organiser une intervention adaptée.
+                    Une sélection visuelle des univers sur lesquels l’entreprise intervient :
+                    salle de bains, production d’eau chaude, chauffage, climatisation et ventilation.
                 </p>
+            </header>
+
+            <div class="project-grid">
+                <button class="project-card project-card--wide" type="button" data-lightbox-trigger data-caption="Rénovation de salle de bains — visuel d’illustration" data-reveal>
+                    <img src="{{ asset('assets/img/rg/web/bathroom-1.webp') }}" width="1600" height="1067" alt="Salle de bains avec douche, baignoire et meuble vasque" loading="lazy">
+                    <span><small>Salle de bains</small><strong>Réseaux & équipements sanitaires</strong></span>
+                </button>
+                <button class="project-card" type="button" data-lightbox-trigger data-caption="Entretien d’un équipement de chauffage — visuel d’illustration" data-reveal>
+                    <img src="{{ asset('assets/img/rg/web/heating-technician.webp') }}" width="1168" height="784" alt="Technicien contrôlant un équipement de chauffage" loading="lazy">
+                    <span><small>Chauffage</small><strong>Contrôle & maintenance</strong></span>
+                </button>
+                <button class="project-card" type="button" data-lightbox-trigger data-caption="Installation d’une climatisation — visuel d’illustration" data-reveal>
+                    <img src="{{ asset('assets/img/rg/web/air-conditioning.webp') }}" width="1168" height="784" alt="Technicien intervenant sur une unité extérieure de climatisation" loading="lazy">
+                    <span><small>Climatisation</small><strong>Installation & mise en service</strong></span>
+                </button>
             </div>
 
-            <div class="emergency-cinematic-action">
-                <a href="tel:+33627997646" class="mega-phone">06 27 99 76 46</a>
-                <a href="{{ route('depannage') }}" class="btn btn-ghost">Accéder au dépannage</a>
+            <div class="section-action">
+                <a class="text-link" href="{{ route('realisations') }}">Voir toute la galerie <span aria-hidden="true">→</span></a>
             </div>
         </div>
     </section>
 
-    <section class="contact-cinematic section-dark">
-        <div class="container contact-cinematic-grid">
-            <div class="contact-cinematic-visual">
-                <img src="{{ asset('assets/img/rg/works/work-8.jpg') }}" alt="Contact RG Plomberie">
+    <section class="section section--sand">
+        <div class="container method-layout">
+            <div class="method-intro" data-reveal>
+                <p class="eyebrow">Méthode</p>
+                <h2>Un chantier cadré, du premier échange aux finitions.</h2>
+                <p>Une bonne intervention commence par les bonnes questions et se termine par un résultat compréhensible.</p>
             </div>
+            <ol class="method-list">
+                <li data-reveal>
+                    <span>01</span>
+                    <div><h3>Comprendre</h3><p>Besoin, urgence, équipement, ville et contraintes sont précisés.</p></div>
+                </li>
+                <li data-reveal>
+                    <span>02</span>
+                    <div><h3>Diagnostiquer</h3><p>La situation est analysée avant de proposer la solution adaptée.</p></div>
+                </li>
+                <li data-reveal>
+                    <span>03</span>
+                    <div><h3>Intervenir</h3><p>Le travail est réalisé avec attention pour l’existant et les finitions.</p></div>
+                </li>
+                <li data-reveal>
+                    <span>04</span>
+                    <div><h3>Expliquer</h3><p>Vous savez ce qui a été fait et comment préserver l’installation.</p></div>
+                </li>
+            </ol>
+        </div>
+    </section>
 
-            <div class="contact-cinematic-panel">
-                <span class="section-label">Contact</span>
-
-                <h2>Demander un devis ou une intervention.</h2>
-
+    <section class="section review-prompt">
+        <div class="container review-prompt__grid" data-reveal>
+            <div>
+                <p class="eyebrow">Réputation</p>
+                <h2>Des avis à consulter à la source.</h2>
+            </div>
+            <div>
                 <p>
-                    Présentez votre besoin, votre ville et le type d’intervention souhaité.
-                    RG Plomberie vous répondra avec une solution adaptée à votre situation.
+                    Plutôt que d’afficher des témoignages anonymes, le site vous dirige vers
+                    la fiche publique de l’entreprise pour consulter les retours disponibles.
                 </p>
-
-                <div class="contact-shortcuts">
-                    <a href="{{ route('contact') }}" class="btn btn-primary">Ouvrir le formulaire</a>
-                    <a href="tel:+33627997646" class="btn btn-ghost">Appeler</a>
-                </div>
+                <a class="button button--outline" href="https://www.google.com/maps/search/?api=1&query=RG+PLOMBERIE+06+27+99+76+46" rel="noopener noreferrer" target="_blank">
+                    Consulter les avis publics <span aria-hidden="true">↗</span>
+                </a>
             </div>
         </div>
     </section>
 
+    <section class="cta-section">
+        <div class="container cta-panel" data-reveal>
+            <div>
+                <p class="eyebrow eyebrow--light">Votre projet</p>
+                <h2>Parlons de votre installation.</h2>
+                <p>Indiquez votre ville, le besoin et, si possible, préparez quelques photos.</p>
+            </div>
+            <div class="cta-panel__actions">
+                <a class="button button--light" href="{{ route('contact') }}">Demander un devis</a>
+                <a class="cta-phone" href="tel:+33627997646">06 27 99 76 46</a>
+            </div>
+        </div>
+    </section>
 @endsection

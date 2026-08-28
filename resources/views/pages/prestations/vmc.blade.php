@@ -1,70 +1,83 @@
-@php
-    $service = [
-        'meta_title' => 'VMC - RG Plomberie',
-        'meta_description' => 'RG Plomberie intervient dans le Rhône pour la VMC, la ventilation, le renouvellement de l’air et les problèmes d’humidité.',
-        'kicker' => 'VMC',
-        'title' => 'Respirer<br>un air<br>plus sain.',
-        'lead' => 'La ventilation joue un rôle essentiel dans le confort intérieur, la qualité de l’air et la protection du logement contre l’humidité.',
-        'hero' => 'assets/img/rg/works/work-7.jpg',
-
-        'intro_title' => 'Une bonne ventilation protège le logement.',
-        'intro_text' => 'La VMC permet de renouveler l’air, de limiter l’humidité et d’améliorer le confort intérieur. RG Plomberie intervient pour installer, remplacer ou améliorer un système de ventilation adapté au logement.',
-        'tags' => ['Ventilation', 'Qualité de l’air', 'Humidité', 'Renouvellement', 'Confort'],
-
-        'features_title' => 'Les besoins liés à la VMC.',
-        'features' => [
-            [
-                'title' => 'Installation de VMC',
-                'text' => 'Mettre en place un système de ventilation adapté au logement ou au local.'
-            ],
-            [
-                'title' => 'Remplacement',
-                'text' => 'Remplacer un équipement vieillissant, insuffisant ou mal adapté au besoin.'
-            ],
-            [
-                'title' => 'Humidité',
-                'text' => 'Améliorer la ventilation pour limiter les problèmes d’humidité et d’air stagnant.'
-            ],
-            [
-                'title' => 'Qualité de l’air',
-                'text' => 'Favoriser un renouvellement d’air plus régulier pour un intérieur plus sain.'
-            ],
-        ],
-
-        'proof_image' => 'assets/img/rg/works/work-7.jpg',
-        'proof_alt' => 'Intervention VMC RG Plomberie',
-        'proof_title' => 'Une prestation discrète mais essentielle.',
-        'proof_text' => 'La VMC se voit peu, mais elle joue un rôle important dans le confort, la qualité de l’air et la protection du logement.',
-        'proof_points' => [
-            'Air renouvelé',
-            'Humidité limitée',
-            'Confort amélioré',
-            'Installation adaptée'
-        ],
-
-        'gallery_title' => 'Des systèmes discrets mais essentiels.',
-        'gallery' => [
-            ['src' => 'assets/img/rg/works/work-7.jpg', 'alt' => 'Intervention VMC RG Plomberie 1'],
-            ['src' => 'assets/img/rg/works/work-8.jpg', 'alt' => 'Intervention VMC RG Plomberie 2'],
-            ['src' => 'assets/img/rg/works/work-5.jpg', 'alt' => 'Intervention VMC RG Plomberie 3'],
-            ['src' => 'assets/img/rg/works/work-1.jpg', 'alt' => 'Intervention VMC RG Plomberie 4'],
-        ],
-
-        'cta_kicker' => 'Besoin VMC',
-        'cta_title' => 'Votre logement manque de ventilation ou présente de l’humidité ?',
-        'cta_text' => 'RG Plomberie peut vous accompagner vers une solution de ventilation adaptée à votre situation.',
-    ];
-@endphp
-
 @extends('layouts.app', [
-    'title' => $service['meta_title'],
-    'description' => $service['meta_description']
+    'title' => 'VMC et ventilation à Lyon et dans le Rhône — RG Plomberie',
+    'description' => 'Installation, remplacement et entretien de VMC à Lyon, dans le Rhône et l’Est lyonnais avec RG Plomberie.'
 ])
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/pages/cinematic-service-detail.css') }}">
-@endpush
-
 @section('content')
-    @include('pages.prestations.partials.service-detail', ['service' => $service])
+    <section class="service-hero">
+        <div class="container service-hero__grid">
+            <div class="service-hero__copy" data-reveal>
+                <nav class="breadcrumb" aria-label="Fil d’Ariane">
+                    <a href="{{ route('home') }}">Accueil</a><span aria-hidden="true">/</span>
+                    <a href="{{ route('prestations') }}">Prestations</a><span aria-hidden="true">/</span><span>VMC</span>
+                </nav>
+                <p class="eyebrow">Ventilation · 04</p>
+                <h1>Un air renouvelé.<br>Un bâti préservé.</h1>
+                <p class="lead">Diagnostic, installation, remplacement et entretien de ventilation mécanique contrôlée.</p>
+                <div class="button-row">
+                    <a class="button button--primary" href="{{ route('contact') }}">Demander un diagnostic</a>
+                    <a class="button button--outline" href="tel:+33627997646">Appeler</a>
+                </div>
+            </div>
+            <figure class="service-hero__media" data-reveal>
+                <img src="{{ asset('assets/img/rg/web/ventilation.webp') }}" width="1168" height="784" alt="Réseau de ventilation mécanique dans une construction" fetchpriority="high">
+                <figcaption>Renouvellement d’air · Humidité · Entretien</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container service-intro">
+            <div data-reveal><p class="eyebrow">Qualité de l’air</p><h2>Ventiler sans créer de nouveaux désordres.</h2></div>
+            <div class="prose" data-reveal>
+                <p>Une ventilation insuffisante favorise l’humidité, les odeurs et la dégradation de certaines surfaces.</p>
+                <p>Le système doit être adapté au logement, correctement raccordé et complété par des entrées d’air cohérentes pour assurer une circulation réelle.</p>
+            </div>
+        </div>
+        <div class="container intervention-grid">
+            <article data-reveal><span>01</span><h3>Diagnostic</h3><p>Symptômes d’humidité, débit, bruit et état des bouches.</p></article>
+            <article data-reveal><span>02</span><h3>Installation</h3><p>Pose du groupe, des gaines, bouches et sorties.</p></article>
+            <article data-reveal><span>03</span><h3>Remplacement</h3><p>Reprise d’un système ancien ou insuffisamment performant.</p></article>
+            <article data-reveal><span>04</span><h3>Réseau</h3><p>Contrôle du cheminement, des raccords et de l’isolation.</p></article>
+            <article data-reveal><span>05</span><h3>Bouches</h3><p>Nettoyage, remplacement et vérification du passage d’air.</p></article>
+            <article data-reveal><span>06</span><h3>Entretien</h3><p>Maintenance régulière pour conserver un fonctionnement correct.</p></article>
+        </div>
+    </section>
+
+    <section class="section section--ink">
+        <div class="container media-split">
+            <figure class="media-split__image" data-reveal>
+                <img src="{{ asset('assets/img/rg/web/bathroom-4.webp') }}" width="1168" height="784" alt="Salle de bains, pièce nécessitant une ventilation adaptée" loading="lazy">
+                <figcaption>Pièce humide — visuel d’illustration</figcaption>
+            </figure>
+            <div class="media-split__copy" data-reveal>
+                <p class="eyebrow eyebrow--light">Système complet</p>
+                <h2>Une VMC ne se résume pas à un moteur.</h2>
+                <ul class="feature-list">
+                    <li><strong>Entrées d’air</strong><span>Passage d’air cohérent entre les pièces.</span></li>
+                    <li><strong>Gaines</strong><span>Réseau étanche, organisé et adapté.</span></li>
+                    <li><strong>Extraction</strong><span>Bouches positionnées dans les pièces humides.</span></li>
+                    <li><strong>Sortie</strong><span>Rejet extérieur correctement prévu.</span></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container faq-layout">
+            <header data-reveal><p class="eyebrow">Questions fréquentes</p><h2>Comprendre les symptômes.</h2></header>
+            <div class="faq-list" data-reveal>
+                <details><summary>De la condensation signifie-t-elle que la VMC est en panne ?</summary><p>Pas toujours. Le défaut peut aussi venir d’entrées d’air obstruées, d’une gaine débranchée, d’un débit insuffisant ou des usages du logement.</p></details>
+                <details><summary>Pourquoi une VMC devient-elle bruyante ?</summary><p>L’encrassement, les vibrations, le réseau de gaines ou l’usure du groupe peuvent être en cause. Un contrôle permet de localiser le problème.</p></details>
+                <details><summary>À quelle fréquence nettoyer les bouches ?</summary><p>Un contrôle visuel régulier est conseillé. La fréquence exacte dépend du système, de l’environnement et des recommandations du fabricant.</p></details>
+            </div>
+        </div>
+    </section>
+
+    <section class="cta-section">
+        <div class="container cta-panel" data-reveal>
+            <div><p class="eyebrow eyebrow--light">Ventilation</p><h2>Humidité, bruit ou air mal renouvelé ?</h2><p>Décrivez les symptômes, les pièces concernées et l’installation existante.</p></div>
+            <div class="cta-panel__actions"><a class="button button--light" href="{{ route('contact') }}">Demander un diagnostic</a><a class="cta-phone" href="tel:+33627997646">06 27 99 76 46</a></div>
+        </div>
+    </section>
 @endsection

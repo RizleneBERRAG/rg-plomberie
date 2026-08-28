@@ -1,0 +1,17 @@
+{
+  "name": "RG Plomberie",
+  "short_name": "RG Plomberie",
+  "description": "Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.",
+  "start_url": "/rg-plomberie/",
+  "scope": "/rg-plomberie/",
+  "display": "standalone",
+  "background_color": "#f4f0e8",
+  "theme_color": "#181816",
+  "icons": [
+    {
+      "src": "/rg-plomberie/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

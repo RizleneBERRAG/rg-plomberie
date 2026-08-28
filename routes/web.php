@@ -17,7 +17,9 @@ Route::view('/realisations', 'pages.realisations')->name('realisations');
 Route::view('/depannage', 'pages.depannage')->name('depannage');
 Route::view('/avis', 'pages.avis')->name('avis');
 Route::view('/contact', 'pages.contact')->name('contact');
-Route::post('/contact', [ContactController::class, 'send'])->name('contact.send');
+Route::post('/contact', [ContactController::class, 'send'])
+    ->middleware('throttle:5,1')
+    ->name('contact.send');
 Route::view('/mentions-legales', 'pages.mentions-legales')->name('mentions');
 
 Route::get('/sitemap.xml', function () {
@@ -73,13 +75,18 @@ Route::get('/sitemap.xml', function () {
             'changefreq' => 'monthly',
         ],
         [
+            'url' => route('avis'),
+            'priority' => '0.60',
+            'changefreq' => 'monthly',
+        ],
+        [
             'url' => route('mentions'),
             'priority' => '0.30',
             'changefreq' => 'yearly',
         ],
     ];
 
-    $lastmod = now()->toDateString();
+    $lastmod = '2026-08-28';
 
     $xml = '<?xml version="1.0" encoding="UTF-8"?>' . "\n";
     $xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' . "\n";

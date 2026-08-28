@@ -1,24 +1,16 @@
 {
-    "name": "RG Plomberie",
-    "short_name": "RG Plomberie",
-    "description": "Plomberie, chauffage, climatisation, VMC et dépannage dans le Rhône.",
-    "start_url": "/",
-    "scope": "/",
-    "display": "standalone",
-    "background_color": "#050505",
-    "theme_color": "#d80714",
-    "icons": [
-        {
-            "src": "/favicon.svg",
-            "sizes": "any",
-            "type": "image/svg+xml",
-            "purpose": "any"
-        },
-        {
-            "src": "/apple-touch-icon.png",
-            "sizes": "180x180",
-            "type": "image/png",
-            "purpose": "any"
-        }
-    ]
+  "name": "RG Plomberie",
+  "short_name": "RG Plomberie",
+  "description": "Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f4f0e8",
+  "theme_color": "#181816",
+  "icons": [
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
 }

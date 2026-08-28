@@ -4,17 +4,32 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Validation\Rule;
+use Throwable;
 
 class ContactController extends Controller
 {
     public function send(Request $request)
     {
+        if ($request->filled('website')) {
+            return back()->with('success', 'Votre demande a bien été prise en compte.');
+        }
+
+        $allowedServices = [
+            'plomberie',
+            'chauffage',
+            'climatisation',
+            'vmc',
+            'depannage',
+            'autre',
+        ];
+
         $data = $request->validate([
             'name' => ['required', 'string', 'max:120'],
             'phone' => ['required', 'string', 'max:30'],
             'email' => ['nullable', 'email', 'max:160'],
             'city' => ['required', 'string', 'max:120'],
-            'service' => ['required', 'string', 'max:80'],
+            'service' => ['required', Rule::in($allowedServices)],
             'message' => ['required', 'string', 'max:3000'],
             'privacy' => ['accepted'],
         ], [
@@ -82,15 +97,25 @@ class ContactController extends Controller
                 ->withInput();
         }
 
-        Mail::html($html, function ($message) use ($data, $service, $recipient) {
-            $message
-                ->to($recipient)
-                ->subject('Nouvelle demande RG Plomberie - ' . $service);
+        try {
+            Mail::html($html, function ($message) use ($data, $service, $recipient) {
+                $message
+                    ->to($recipient)
+                    ->subject('Nouvelle demande RG Plomberie - ' . $service);
 
-            if (!empty($data['email'])) {
-                $message->replyTo($data['email'], $data['name']);
-            }
-        });
+                if (!empty($data['email'])) {
+                    $message->replyTo($data['email'], $data['name']);
+                }
+            });
+        } catch (Throwable $exception) {
+            report($exception);
+
+            return back()
+                ->withErrors([
+                    'mail' => 'L’envoi n’a pas abouti. Appelez RG Plomberie au 06 27 99 76 46.'
+                ])
+                ->withInput();
+        }
 
         return back()->with('success', 'Votre demande a bien été envoyée. RG Plomberie vous recontactera rapidement.');
     }
