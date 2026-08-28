@@ -1,271 +1,146 @@
 @extends('layouts.app', [
-    'title' => 'Entreprise - RG Plomberie',
-    'description' => 'Découvrez RG Plomberie, entreprise spécialisée en plomberie, chauffage, climatisation, VMC et dépannage dans le Rhône.'
+    'title' => 'L’entreprise — RG Plomberie',
+    'description' => 'Découvrez RG Plomberie, artisan plombier-chauffagiste créé en 2017, intervenant dans le Rhône et l’Est lyonnais.'
 ])
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/pages/cinematic-entreprise.css') }}">
-@endpush
-
 @section('content')
+    <section class="page-hero">
+        <div class="container page-hero__grid">
+            <div class="page-hero__copy" data-reveal>
+                <nav class="breadcrumb" aria-label="Fil d’Ariane">
+                    <a href="{{ route('home') }}">Accueil</a><span aria-hidden="true">/</span><span>Entreprise</span>
+                </nav>
+                <p class="eyebrow">L’entreprise</p>
+                <h1>La technique,<br>sans approximation.</h1>
+                <p class="lead">
+                    RG Plomberie est une entreprise artisanale créée en 2017, spécialisée
+                    en plomberie, chauffage, sanitaire, climatisation et ventilation.
+                </p>
+                <div class="button-row">
+                    <a class="button button--primary" href="{{ route('contact') }}">Présenter mon besoin</a>
+                    <a class="button button--outline" href="{{ route('prestations') }}">Voir les prestations</a>
+                </div>
+            </div>
+            <figure class="page-hero__media" data-reveal>
+                <img src="{{ asset('assets/img/rg/web/hero-bathroom.webp') }}" width="900" height="675" alt="Salle de bains contemporaine, exemple d’univers d’intervention" fetchpriority="high">
+                <figcaption>Plomberie · Sanitaire · Confort thermique</figcaption>
+            </figure>
+        </div>
+    </section>
 
-    <section class="company-hero">
-        <div class="company-hero-bg" style="background-image: url('{{ asset('assets/img/rg/works/work-8.jpg') }}');"></div>
-        <div class="company-hero-overlay"></div>
+    <section class="identity-band">
+        <div class="container identity-band__grid">
+            <div><span>Création</span><strong>2017</strong></div>
+            <div><span>Forme</span><strong>SASU artisanale</strong></div>
+            <div><span>Siège</span><strong>Janneyrias</strong></div>
+            <div><span>Interventions</span><strong>Rhône & Est lyonnais</strong></div>
+        </div>
+    </section>
 
-        <div class="container company-hero-content">
-            <span class="section-label">Entreprise</span>
-
-            <h1>
-                Une entreprise locale.<br>
-                Une exigence visible.
-            </h1>
-
-            <p>
-                RG Plomberie intervient dans le Rhône pour accompagner les particuliers et professionnels
-                dans leurs besoins en plomberie, chauffage, climatisation, VMC et dépannage.
-            </p>
-
-            <div class="company-hero-actions">
-                <a href="{{ route('prestations') }}" class="btn btn-primary">Découvrir les prestations</a>
-                <a href="{{ route('realisations') }}" class="btn btn-ghost">Voir les réalisations</a>
+    <section class="section">
+        <div class="container editorial-split">
+            <div data-reveal>
+                <p class="eyebrow">Positionnement</p>
+                <h2>Un artisan que l’on appelle pour résoudre, installer et durer.</h2>
+            </div>
+            <div class="prose" data-reveal>
+                <p>
+                    Derrière une installation fiable, il y a d’abord un diagnostic juste.
+                    RG Plomberie prend en compte l’existant, l’usage du lieu et les contraintes
+                    techniques avant de recommander une intervention.
+                </p>
+                <p>
+                    Le même niveau d’attention est porté aux éléments que l’on ne voit plus
+                    après le chantier qu’aux finitions visibles au quotidien.
+                </p>
             </div>
         </div>
     </section>
 
-    <section class="company-manifesto section-dark">
-        <div class="container company-manifesto-grid">
-            <div>
-                <span class="section-label">Savoir-faire</span>
-
-                <h2>Un métier technique au service du confort quotidien.</h2>
-            </div>
-
-            <div class="company-manifesto-text">
-                <p>
-                    Une installation de plomberie, de chauffage, de climatisation ou de ventilation joue un rôle
-                    essentiel dans le confort d’un logement ou d’un local professionnel. RG Plomberie intervient
-                    avec une approche sérieuse, claire et soignée.
-                </p>
-
-                <p>
-                    Chaque demande est traitée avec attention : comprendre la situation, identifier la bonne solution
-                    et réaliser une intervention propre, fiable et adaptée au besoin du client.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <section class="company-values">
+    <section class="section section--sand">
         <div class="container">
-            <div class="section-heading">
-                <span class="section-label">Exigence</span>
-
-                <h2>Trois engagements au cœur de chaque intervention.</h2>
-            </div>
-
-            <div class="company-values-grid">
-                <article class="company-value-card">
+            <header class="section-heading" data-reveal>
+                <p class="eyebrow">Engagements</p>
+                <h2>Ce qui doit rester constant.</h2>
+            </header>
+            <div class="value-grid">
+                <article data-reveal>
                     <span>01</span>
-
                     <h3>Clarté</h3>
-
-                    <p>
-                        Chaque intervention commence par une compréhension du besoin :
-                        problème rencontré, équipement concerné et solution adaptée.
-                    </p>
+                    <p>Un besoin reformulé, une solution expliquée et un interlocuteur identifiable.</p>
                 </article>
-
-                <article class="company-value-card">
+                <article data-reveal>
                     <span>02</span>
-
                     <h3>Propreté</h3>
-
-                    <p>
-                        RG Plomberie accorde une attention particulière au rendu final :
-                        installation lisible, finitions nettes et chantier respecté.
-                    </p>
+                    <p>Une intervention organisée, respectueuse du lieu et attentive au rendu final.</p>
                 </article>
-
-                <article class="company-value-card">
+                <article data-reveal>
                     <span>03</span>
-
-                    <h3>Confiance</h3>
-
-                    <p>
-                        L’objectif est d’apporter une réponse claire, professionnelle et rassurante,
-                        que ce soit pour un dépannage, une installation ou un entretien.
-                    </p>
+                    <h3>Fiabilité</h3>
+                    <p>Des choix cohérents avec l’installation existante et l’usage attendu.</p>
                 </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="company-scene section-dark">
-        <div class="container company-scene-grid">
-            <div class="company-scene-media">
-                <img src="{{ asset('assets/img/rg/works/work-1.jpg') }}" alt="Intervention RG Plomberie dans le Rhône">
-            </div>
-
-            <div class="company-scene-content">
-                <span class="section-label">Méthode</span>
-
-                <h2>Comprendre, intervenir, livrer un résultat propre.</h2>
-
-                <p>
-                    Fuite, panne, remplacement, installation ou entretien : chaque situation demande une lecture précise.
-                    RG Plomberie prend le temps d’identifier le besoin afin d’apporter une réponse adaptée et durable.
-                </p>
-
-                <ul>
-                    <li>Analyse de la demande et du contexte d’intervention</li>
-                    <li>Identification du domaine concerné : plomberie, chauffage, climatisation ou VMC</li>
-                    <li>Proposition d’une solution claire et cohérente</li>
-                    <li>Intervention soignée avec attention portée aux finitions</li>
-                </ul>
-            </div>
-        </div>
-    </section>
-
-    <section class="company-timeline">
-        <div class="container">
-            <div class="section-heading">
-                <span class="section-label">Accompagnement</span>
-
-                <h2>Un parcours simple, du premier contact à l’intervention.</h2>
-            </div>
-
-            <div class="company-timeline-list">
-                <article class="company-timeline-item">
-                    <span>01</span>
-
-                    <div>
-                        <h3>Premier échange</h3>
-
-                        <p>
-                            Le besoin est présenté par téléphone ou via le formulaire :
-                            dépannage, installation, entretien ou remplacement.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="company-timeline-item">
-                    <span>02</span>
-
-                    <div>
-                        <h3>Analyse du besoin</h3>
-
-                        <p>
-                            Les informations utiles sont recueillies : ville, type d’équipement,
-                            urgence éventuelle, photos et contraintes du chantier.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="company-timeline-item">
-                    <span>03</span>
-
-                    <div>
-                        <h3>Solution adaptée</h3>
-
-                        <p>
-                            RG Plomberie oriente vers la solution la plus cohérente selon la situation,
-                            le niveau d’urgence et le type d’intervention.
-                        </p>
-                    </div>
-                </article>
-
-                <article class="company-timeline-item">
+                <article data-reveal>
                     <span>04</span>
-
-                    <div>
-                        <h3>Intervention</h3>
-
-                        <p>
-                            Le travail est réalisé avec soin, en privilégiant la propreté,
-                            la fiabilité et la qualité du rendu final.
-                        </p>
-                    </div>
+                    <h3>Suivi</h3>
+                    <p>Des explications utiles pour comprendre et entretenir les équipements.</p>
                 </article>
             </div>
         </div>
     </section>
 
-    <section class="company-zone section-dark">
-        <div class="container company-zone-grid">
+    <section class="section section--ink">
+        <div class="container media-split">
+            <figure class="media-split__image" data-reveal>
+                <img src="{{ asset('assets/img/rg/web/heating-technician.webp') }}" width="1168" height="784" alt="Technicien effectuant un contrôle sur un appareil de chauffage" loading="lazy">
+                <figcaption>Diagnostic · Entretien · Dépannage</figcaption>
+            </figure>
+            <div class="media-split__copy" data-reveal>
+                <p class="eyebrow eyebrow--light">Organisation</p>
+                <h2>Une intervention en quatre temps.</h2>
+                <ol class="compact-steps">
+                    <li><span>1</span><p><strong>Qualification</strong> du besoin par téléphone ou formulaire.</p></li>
+                    <li><span>2</span><p><strong>Analyse</strong> des symptômes, photos et contraintes.</p></li>
+                    <li><span>3</span><p><strong>Proposition</strong> adaptée au niveau d’urgence.</p></li>
+                    <li><span>4</span><p><strong>Réalisation</strong> et explication du travail effectué.</p></li>
+                </ol>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container zone-panel" data-reveal>
             <div>
-                <span class="section-label">Zone d’intervention</span>
-
-                <h2>Une présence locale dans le Rhône.</h2>
-
+                <p class="eyebrow">Secteur</p>
+                <h2>Une entreprise proche du terrain.</h2>
                 <p>
-                    RG Plomberie intervient dans le Rhône et le secteur lyonnais pour les besoins
-                    en plomberie, chauffage, climatisation, VMC et dépannage, auprès des particuliers
-                    comme des professionnels.
+                    Le siège social est situé à Janneyrias. Les interventions sont organisées
+                    sur déplacement dans le Rhône, la métropole lyonnaise et l’Est lyonnais,
+                    selon la nature du besoin et les disponibilités.
                 </p>
-
-                <a href="{{ route('contact') }}" class="btn btn-primary">Demander une intervention</a>
+                <a class="text-link" href="{{ route('contact') }}">Vérifier votre secteur <span aria-hidden="true">→</span></a>
             </div>
-
-            <div class="company-zone-panel">
-                <strong>69</strong>
-
-                <span>Rhône</span>
-
-                <p>
-                    Une entreprise locale, proche de ses clients, avec une intervention adaptée
-                    aux besoins du secteur.
-                </p>
+            <div class="zone-panel__map" aria-label="Secteurs habituels">
+                <span>Lyon</span>
+                <span>Villeurbanne</span>
+                <span>Décines</span>
+                <span>Bron</span>
+                <span>Meyzieu</span>
+                <span>Janneyrias</span>
             </div>
         </div>
     </section>
 
-    <section class="company-gallery">
-        <div class="container">
-            <div class="section-heading">
-                <span class="section-label">Réalisations</span>
-
-                <h2>Des interventions visibles à travers les détails.</h2>
-            </div>
-
-            <div class="company-gallery-grid">
-                <article class="company-gallery-card large" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-2.jpg') }}" alt="Chantier RG Plomberie 1">
-                </article>
-
-                <article class="company-gallery-card" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-3.jpg') }}" alt="Chantier RG Plomberie 2">
-                </article>
-
-                <article class="company-gallery-card" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-4.jpg') }}" alt="Chantier RG Plomberie 3">
-                </article>
-
-                <article class="company-gallery-card wide" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-5.jpg') }}" alt="Chantier RG Plomberie 4">
-                </article>
-            </div>
-        </div>
-    </section>
-
-    <section class="company-cta">
-        <div class="container company-cta-box">
+    <section class="cta-section">
+        <div class="container cta-panel" data-reveal>
             <div>
-                <span class="section-label">Contact</span>
-
-                <h2>Un besoin en plomberie, chauffage, climatisation ou VMC ?</h2>
-
-                <p>
-                    Présentez votre demande à RG Plomberie pour obtenir une réponse adaptée :
-                    dépannage, installation, remplacement, entretien ou demande de devis.
-                </p>
+                <p class="eyebrow eyebrow--light">Besoin d’un artisan ?</p>
+                <h2>Expliquez la situation simplement.</h2>
+                <p>Ville, équipement concerné, urgence et photos : nous allons droit à l’essentiel.</p>
             </div>
-
-            <div class="company-cta-actions">
-                <a href="tel:+33627997646" class="mega-phone small">06 27 99 76 46</a>
-                <a href="{{ route('contact') }}" class="btn btn-primary">Contacter RG Plomberie</a>
+            <div class="cta-panel__actions">
+                <a class="button button--light" href="{{ route('contact') }}">Demander un devis</a>
+                <a class="cta-phone" href="tel:+33627997646">06 27 99 76 46</a>
             </div>
         </div>
     </section>
-
 @endsection

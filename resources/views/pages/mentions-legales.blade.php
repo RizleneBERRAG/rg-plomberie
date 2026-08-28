@@ -1,257 +1,117 @@
 @extends('layouts.app', [
-    'title' => 'Mentions légales - RG Plomberie',
-    'description' => 'Mentions légales, informations éditeur, hébergement, données personnelles et confidentialité du site RG Plomberie.'
+    'title' => 'Mentions légales et confidentialité — RG Plomberie',
+    'description' => 'Mentions légales, identité de l’éditeur, hébergement et politique de confidentialité du site RG Plomberie.'
 ])
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/pages/cinematic-legal.css') }}">
-@endpush
-
 @section('content')
-
     <section class="legal-hero">
-        <div class="legal-hero-bg" style="background-image: url('{{ asset('assets/img/rg/works/work-4.jpg') }}');"></div>
-        <div class="legal-hero-overlay"></div>
-
-        <div class="container legal-hero-content">
-            <span class="section-label">Informations légales</span>
-
-            <h1>
-                Mentions légales<br>
-                & confidentialité.
-            </h1>
-
-            <p>
-                Retrouvez les informations relatives à l’éditeur du site, à l’hébergement,
-                à la propriété intellectuelle et au traitement des données personnelles.
-            </p>
+        <div class="container" data-reveal>
+            <nav class="breadcrumb breadcrumb--light" aria-label="Fil d’Ariane">
+                <a href="{{ route('home') }}">Accueil</a><span aria-hidden="true">/</span><span>Mentions légales</span>
+            </nav>
+            <p class="eyebrow eyebrow--light">Informations légales</p>
+            <h1>Mentions légales<br>& confidentialité.</h1>
+            <p>Identité de l’éditeur, hébergement, propriété intellectuelle et traitement des données.</p>
         </div>
     </section>
 
-    <section class="legal-main">
-        <div class="container legal-grid">
-
-            <aside class="legal-summary">
-                <span>RG Plomberie</span>
-
-                <h2>Informations légales du site.</h2>
-
-                <p>
-                    Cette page présente les informations obligatoires relatives au site RG Plomberie
-                    et à l’utilisation des données transmises via le formulaire de contact.
-                </p>
-
-                <div class="legal-summary-tags">
-                    <strong>Éditeur</strong>
-                    <strong>Hébergement</strong>
-                    <strong>Confidentialité</strong>
-                    <strong>Cookies</strong>
-                </div>
+    <section class="section legal-section">
+        <div class="container legal-layout">
+            <aside class="legal-summary" data-reveal>
+                <p class="eyebrow">Sommaire</p>
+                <nav aria-label="Sommaire des mentions légales">
+                    <a href="#editeur">Éditeur</a>
+                    <a href="#hebergement">Hébergement</a>
+                    <a href="#donnees">Données personnelles</a>
+                    <a href="#cookies">Cookies</a>
+                    <a href="#mediation">Médiation</a>
+                </nav>
+                <p class="legal-update">Mise à jour : {{ date('d/m/Y') }}</p>
             </aside>
 
             <div class="legal-content">
-
-                <article class="legal-card">
+                <article id="editeur" data-reveal>
                     <span>01</span>
-
                     <h2>Éditeur du site</h2>
-
-                    <p>
-                        Le présent site est édité par :
-                    </p>
-
-                    <ul>
-                        <li><strong>Nom commercial :</strong> RG Plomberie</li>
-                        <li><strong>Raison sociale :</strong> RG Plomberie</li>
-                        <li><strong>Statut juridique :</strong> Information à compléter par l’entreprise</li>
-                        <li><strong>SIRET :</strong> Information à compléter par l’entreprise</li>
-                        <li><strong>Adresse du siège :</strong> Information à compléter par l’entreprise</li>
-                        <li><strong>Téléphone :</strong> 06 27 99 76 46</li>
-                        <li><strong>Email :</strong> Information à compléter par l’entreprise</li>
-                    </ul>
+                    <dl>
+                        <div><dt>Raison sociale</dt><dd>RG PLOMBERIE</dd></div>
+                        <div><dt>Forme juridique</dt><dd>SASU — société par actions simplifiée unipersonnelle</dd></div>
+                        <div><dt>Capital social</dt><dd>5 000 €</dd></div>
+                        <div><dt>SIREN</dt><dd>833 160 617</dd></div>
+                        <div><dt>SIRET du siège</dt><dd>833 160 617 00035</dd></div>
+                        <div><dt>RCS</dt><dd>833 160 617 R.C.S. Vienne</dd></div>
+                        <div><dt>TVA intracommunautaire</dt><dd>FR25 833160617</dd></div>
+                        <div><dt>Adresse</dt><dd>4 B chemin de la Batterie, 38280 Janneyrias, France</dd></div>
+                        <div><dt>Téléphone</dt><dd><a href="tel:+33627997646">06 27 99 76 46</a></dd></div>
+                        <div><dt>Contact électronique</dt><dd><a href="{{ route('contact') }}">Formulaire de contact du site</a></dd></div>
+                    </dl>
                 </article>
 
-                <article class="legal-card">
+                <article data-reveal>
                     <span>02</span>
-
-                    <h2>Directeur de la publication</h2>
-
-                    <p>
-                        Le directeur de la publication est le représentant légal de RG Plomberie.
-                    </p>
-
-                    <ul>
-                        <li><strong>Nom :</strong> Information à compléter par l’entreprise</li>
-                        <li><strong>Qualité :</strong> Représentant légal de RG Plomberie</li>
-                    </ul>
+                    <h2>Direction de la publication</h2>
+                    <p>Le directeur de la publication est Raphaël Giguet, président et représentant légal de RG PLOMBERIE.</p>
                 </article>
 
-                <article class="legal-card">
+                <article id="hebergement" data-reveal>
                     <span>03</span>
-
                     <h2>Hébergement</h2>
-
-                    <p>
-                        Le site est hébergé par le prestataire d’hébergement choisi pour la mise en ligne.
-                    </p>
-
-                    <ul>
-                        <li><strong>Hébergeur :</strong> Information à compléter selon l’hébergeur final</li>
-                        <li><strong>Adresse :</strong> Information à compléter selon l’hébergeur final</li>
-                        <li><strong>Téléphone :</strong> Information à compléter selon l’hébergeur final</li>
-                        <li><strong>Site internet :</strong> Information à compléter selon l’hébergeur final</li>
-                    </ul>
+                    <p>Dans sa version publiée via GitHub Pages, le site est hébergé par :</p>
+                    <dl>
+                        <div><dt>Hébergeur</dt><dd>GitHub, Inc.</dd></div>
+                        <div><dt>Adresse</dt><dd>88 Colin P Kelly Jr Street, San Francisco, CA 94107, États-Unis</dd></div>
+                        <div><dt>Site</dt><dd><a href="https://github.com" rel="noopener noreferrer" target="_blank">github.com</a></dd></div>
+                    </dl>
+                    <p class="legal-callout">À actualiser si le site est déplacé vers un autre hébergeur ou relié à une infrastructure différente.</p>
                 </article>
 
-                <article class="legal-card">
+                <article data-reveal>
                     <span>04</span>
-
                     <h2>Conception et développement</h2>
-
-                    <p>
-                        Le site a été conçu et développé par :
-                    </p>
-
-                    <ul>
-                        <li><strong>Développeuse :</strong> Rizlene Berrag</li>
-                        <li><strong>Prestation :</strong> Conception, développement web, intégration et mise en ligne</li>
-                        <li><strong>Technologies :</strong> Laravel, Blade, CSS, JavaScript</li>
-                    </ul>
+                    <p>Conception, direction artistique, intégration et développement : Rizlene Berrag. Technologies principales : Laravel, Blade, HTML, CSS et JavaScript.</p>
                 </article>
 
-                <article class="legal-card">
+                <article data-reveal>
                     <span>05</span>
-
                     <h2>Propriété intellectuelle</h2>
-
-                    <p>
-                        L’ensemble des contenus présents sur ce site, incluant notamment les textes,
-                        images, éléments graphiques, logos, icônes, animations, structure et code,
-                        est protégé par le droit de la propriété intellectuelle.
-                    </p>
-
-                    <p>
-                        Toute reproduction, représentation, modification, diffusion ou exploitation,
-                        totale ou partielle, sans autorisation préalable, est interdite.
-                    </p>
+                    <p>Les textes, éléments graphiques, structure, code et contenus propres à ce site sont protégés par le droit de la propriété intellectuelle. Toute reproduction ou exploitation non autorisée est interdite.</p>
+                    <p>Certains visuels de présentation ne constituent pas des photographies de chantiers RG Plomberie. Leur remplacement par des contenus dont les droits et autorisations sont documentés est recommandé avant toute campagne commerciale.</p>
                 </article>
 
-                <article class="legal-card">
+                <article id="donnees" data-reveal>
                     <span>06</span>
-
                     <h2>Données personnelles</h2>
-
-                    <p>
-                        Le site peut collecter des données personnelles via le formulaire de contact,
-                        notamment le nom, le téléphone, l’adresse email, la ville, le type de besoin
-                        et le message transmis.
-                    </p>
-
-                    <p>
-                        Ces données sont utilisées uniquement afin de répondre aux demandes envoyées
-                        via le formulaire ou par téléphone. Elles ne sont pas vendues ni transmises
-                        à des tiers à des fins commerciales.
-                    </p>
-
-                    <ul>
-                        <li><strong>Responsable du traitement :</strong> RG Plomberie</li>
-                        <li><strong>Finalité :</strong> Réponse aux demandes de contact, devis ou intervention</li>
-                        <li><strong>Base légale :</strong> Consentement de l’utilisateur et/ou demande précontractuelle</li>
-                        <li><strong>Destinataire :</strong> RG Plomberie</li>
-                        <li><strong>Durée de conservation :</strong> 3 ans maximum après le dernier échange, sauf obligation légale contraire</li>
-                    </ul>
+                    <p>Le formulaire peut recueillir le nom, le téléphone, l’adresse e-mail, la ville, le type de besoin et le message transmis.</p>
+                    <dl>
+                        <div><dt>Responsable</dt><dd>RG PLOMBERIE</dd></div>
+                        <div><dt>Finalité</dt><dd>Répondre aux demandes de contact, de devis et d’intervention</dd></div>
+                        <div><dt>Base légale</dt><dd>Mesures précontractuelles demandées par la personne et, le cas échéant, consentement</dd></div>
+                        <div><dt>Destinataire</dt><dd>RG PLOMBERIE et ses prestataires techniques strictement nécessaires</dd></div>
+                        <div><dt>Conservation</dt><dd>Durée nécessaire au traitement, puis au maximum trois ans après le dernier échange, sauf obligation légale différente</dd></div>
+                    </dl>
+                    <p>Vous pouvez demander l’accès, la rectification, l’effacement, la limitation ou l’opposition lorsque ces droits s’appliquent, via le <a href="{{ route('contact') }}">formulaire</a> ou par téléphone. Vous pouvez également saisir la <a href="https://www.cnil.fr" rel="noopener noreferrer" target="_blank">CNIL</a>.</p>
                 </article>
 
-                <article class="legal-card">
+                <article id="cookies" data-reveal>
                     <span>07</span>
-
-                    <h2>Droits des utilisateurs</h2>
-
-                    <p>
-                        Conformément à la réglementation applicable en matière de protection des données,
-                        l’utilisateur peut demander l’accès, la rectification ou la suppression des données
-                        personnelles le concernant.
-                    </p>
-
-                    <p>
-                        Pour exercer ces droits, l’utilisateur peut contacter RG Plomberie via le formulaire
-                        de contact du site ou par téléphone au <strong>06 27 99 76 46</strong>.
-                    </p>
-
-                    <p>
-                        L’utilisateur dispose également du droit d’introduire une réclamation auprès de la CNIL
-                        si nécessaire.
-                    </p>
+                    <h2>Cookies et services tiers</h2>
+                    <p>La version actuelle n’intègre ni outil publicitaire, ni mesure d’audience, ni carte interactive tierce. Elle n’installe donc pas de cookie publicitaire. Les liens externes s’ouvrent uniquement à la demande de l’utilisateur.</p>
+                    <p>Tout ajout futur d’un service nécessitant un consentement devra être accompagné d’une information et d’un mécanisme adaptés avant son activation.</p>
                 </article>
 
-                <article class="legal-card">
+                <article data-reveal>
                     <span>08</span>
-
-                    <h2>Cookies et mesure d’audience</h2>
-
-                    <p>
-                        Le site peut utiliser des cookies strictement nécessaires à son bon fonctionnement
-                        ou à la sécurité de la navigation.
-                    </p>
-
-                    <p>
-                        Aucun cookie publicitaire ou outil de suivi avancé n’est utilisé sans information préalable.
-                        Si un outil de mesure d’audience ou de publicité est ajouté ultérieurement,
-                        un mécanisme de consentement adapté devra être mis en place.
-                    </p>
-                </article>
-
-                <article class="legal-card">
-                    <span>09</span>
-
                     <h2>Responsabilité</h2>
-
-                    <p>
-                        RG Plomberie s’efforce de fournir des informations fiables et mises à jour.
-                        Toutefois, des erreurs, omissions ou informations devenues inexactes peuvent exister.
-                    </p>
-
-                    <p>
-                        Les informations présentes sur le site sont données à titre indicatif.
-                        Pour toute demande précise, le visiteur est invité à contacter directement l’entreprise.
-                    </p>
+                    <p>Les informations sont fournies à titre général et peuvent évoluer. Un diagnostic et un devis adaptés restent nécessaires avant toute intervention. RG PLOMBERIE ne peut garantir l’absence totale d’erreur ou l’accessibilité permanente du site.</p>
                 </article>
 
-                <article class="legal-card">
-                    <span>10</span>
-
+                <article id="mediation" data-reveal>
+                    <span>09</span>
                     <h2>Médiation de la consommation</h2>
-
-                    <p>
-                        En cas de litige avec un consommateur, et après démarche préalable écrite auprès
-                        de l’entreprise, le client peut avoir recours gratuitement à un médiateur de la consommation.
-                    </p>
-
-                    <p>
-                        Les coordonnées du médiateur compétent devront être complétées par l’entreprise
-                        avant la mise en ligne définitive du site.
-                    </p>
-
-                    <ul>
-                        <li><strong>Médiateur :</strong> Information à compléter par l’entreprise</li>
-                        <li><strong>Adresse :</strong> Information à compléter par l’entreprise</li>
-                        <li><strong>Site :</strong> Information à compléter par l’entreprise</li>
-                    </ul>
+                    <p>Après une réclamation écrite préalable restée sans solution, un consommateur peut recourir gratuitement au médiateur de la consommation dont relève l’entreprise.</p>
+                    <p class="legal-callout"><strong>Action requise avant mise en production commerciale :</strong> RG PLOMBERIE doit confirmer le médiateur auquel elle a effectivement adhéré, puis renseigner ici son nom, son adresse et son site. Cette donnée ne peut pas être déduite d’un registre public sans risque d’erreur.</p>
                 </article>
-
-                <article class="legal-card last-update">
-                    <span>MAJ</span>
-
-                    <h2>Dernière mise à jour</h2>
-
-                    <p>
-                        Dernière mise à jour de cette page :
-                        <strong>{{ date('d/m/Y') }}</strong>
-                    </p>
-                </article>
-
             </div>
         </div>
     </section>
-
 @endsection

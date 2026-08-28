@@ -1,290 +1,181 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ $title ?? 'RG Plomberie - Plomberie, chauffage, climatisation dans le Rhône' }}</title>
-    <meta name="description" content="{{ $description ?? 'RG Plomberie - plomberie, chauffage, climatisation, VMC et dépannage dans le Rhône.' }}">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{{ $title ?? 'RG Plomberie — Plombier chauffagiste dans le Rhône' }}</title>
+    <meta name="description" content="{{ $description ?? 'RG Plomberie intervient en plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.' }}">
+    <meta name="robots" content="{{ $robots ?? 'index, follow' }}">
+    <meta name="theme-color" content="#181816">
 
+    <link rel="canonical" href="{{ url()->current() }}">
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
+    <link rel="icon" href="{{ asset('favicon.ico') }}" sizes="any">
     <link rel="apple-touch-icon" href="{{ asset('apple-touch-icon.png') }}">
     <link rel="manifest" href="{{ asset('site.webmanifest') }}">
 
-    <meta name="theme-color" content="#d80714">
-    <meta name="msapplication-TileColor" content="#050505">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="RG Plomberie">
+    <meta property="og:title" content="{{ $title ?? 'RG Plomberie — Plombier chauffagiste dans le Rhône' }}">
+    <meta property="og:description" content="{{ $description ?? 'Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.' }}">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:image" content="{{ asset('assets/img/rg/web/hero-team.webp') }}">
+    <meta property="og:image:alt" content="Intervention technique en plomberie et chauffage">
+    <meta name="twitter:card" content="summary_large_image">
 
-    <script>
-        (function () {
-            const savedTheme = localStorage.getItem("rg-theme");
-            document.documentElement.dataset.theme = savedTheme || "dark";
-        })();
-    </script>
-
-
-    <link rel="stylesheet" href="{{ asset('assets/css/cinematic-global.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/cinematic-header.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/cinematic-footer.css') }}">
-
-    @stack('styles')
-
-    <link rel="stylesheet" href="{{ asset('assets/css/cinematic-motion.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/cinematic-theme.css') }}">
-
-    <link rel="canonical" href="{{ url()->current() }}">
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="stylesheet" href="{{ asset('assets/css/rg-premium.css') }}?v=1">
 
     @php
-        $localBusinessSchema = [
+        $businessSchema = [
             '@context' => 'https://schema.org',
-            '@type' => 'Plumber',
-            '@id' => url('/') . '#rg-plomberie',
+            '@type' => ['Plumber', 'HVACBusiness'],
+            '@id' => url('/') . '#entreprise',
             'name' => 'RG Plomberie',
+            'legalName' => 'RG PLOMBERIE',
             'url' => url('/'),
             'telephone' => '+33627997646',
-            'image' => asset('assets/img/rg/logo.png'),
-            'logo' => asset('assets/img/rg/logo.png'),
-            'description' => 'RG Plomberie intervient dans le Rhône pour la plomberie, le chauffage, la climatisation, la VMC, le dépannage, l’installation et l’entretien.',
+            'image' => asset('assets/img/rg/web/hero-team.webp'),
+            'logo' => asset('assets/img/rg/brand-mark.svg'),
+            'description' => 'Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.',
+            'foundingDate' => '2017',
             'priceRange' => '€€',
+            'address' => [
+                '@type' => 'PostalAddress',
+                'streetAddress' => '4 B chemin de la Batterie',
+                'postalCode' => '38280',
+                'addressLocality' => 'Janneyrias',
+                'addressCountry' => 'FR',
+            ],
             'areaServed' => [
-                [
-                    '@type' => 'AdministrativeArea',
-                    'name' => 'Rhône',
-                ],
-                [
-                    '@type' => 'City',
-                    'name' => 'Lyon',
-                ],
-                [
-                    '@type' => 'City',
-                    'name' => 'Villeurbanne',
-                ],
-                [
-                    '@type' => 'City',
-                    'name' => 'Vénissieux',
-                ],
-                [
-                    '@type' => 'City',
-                    'name' => 'Bron',
-                ],
+                ['@type' => 'AdministrativeArea', 'name' => 'Rhône'],
+                ['@type' => 'City', 'name' => 'Lyon'],
+                ['@type' => 'City', 'name' => 'Décines-Charpieu'],
+                ['@type' => 'City', 'name' => 'Villeurbanne'],
+                ['@type' => 'City', 'name' => 'Bron'],
             ],
             'hasOfferCatalog' => [
                 '@type' => 'OfferCatalog',
                 'name' => 'Prestations RG Plomberie',
                 'itemListElement' => [
-                    [
-                        '@type' => 'Offer',
-                        'itemOffered' => [
-                            '@type' => 'Service',
-                            'name' => 'Plomberie',
-                            'url' => route('prestations.plomberie'),
-                        ],
-                    ],
-                    [
-                        '@type' => 'Offer',
-                        'itemOffered' => [
-                            '@type' => 'Service',
-                            'name' => 'Chauffage',
-                            'url' => route('prestations.chauffage'),
-                        ],
-                    ],
-                    [
-                        '@type' => 'Offer',
-                        'itemOffered' => [
-                            '@type' => 'Service',
-                            'name' => 'Climatisation',
-                            'url' => route('prestations.climatisation'),
-                        ],
-                    ],
-                    [
-                        '@type' => 'Offer',
-                        'itemOffered' => [
-                            '@type' => 'Service',
-                            'name' => 'VMC',
-                            'url' => route('prestations.vmc'),
-                        ],
-                    ],
-                    [
-                        '@type' => 'Offer',
-                        'itemOffered' => [
-                            '@type' => 'Service',
-                            'name' => 'Dépannage plomberie, chauffage, climatisation et VMC',
-                            'url' => route('depannage'),
-                        ],
-                    ],
-                ],
-            ],
-            'contactPoint' => [
-                [
-                    '@type' => 'ContactPoint',
-                    'telephone' => '+33627997646',
-                    'contactType' => 'customer service',
-                    'areaServed' => 'FR',
-                    'availableLanguage' => ['fr'],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Plomberie']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Chauffage']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Climatisation']],
+                    ['@type' => 'Offer', 'itemOffered' => ['@type' => 'Service', 'name' => 'Ventilation mécanique contrôlée']],
                 ],
             ],
         ];
     @endphp
-
-    <script type="application/ld+json">
-        {!! json_encode($localBusinessSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
-    </script>
+    <script type="application/ld+json">{!! json_encode($businessSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
 </head>
 <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-<div class="site-preloader" id="sitePreloader">
-    <div class="site-preloader-inner">
-        <span class="preloader-line"></span>
-        <img src="{{ asset('assets/img/rg/logo.png') }}" alt="Logo RG Plomberie" class="preloader-logo">
-        <strong>RG PLOMBERIE</strong>
-        <small>Plomberie • Chauffage • Climatisation • VMC</small>
-    </div>
-</div>
-
-<header class="site-header" data-header>
-    <div class="header-topbar">
-        <div class="container header-topbar-inner">
-            <div class="topbar-status">
-                <span class="topbar-pulse"></span>
-                <strong>RG Plomberie</strong>
-                <em>Rhône 69</em>
-            </div>
-
-            <div class="topbar-services">
-                <span>Dépannage</span>
-                <span>Installation</span>
-                <span>Entretien</span>
-            </div>
+    <div class="utility-bar">
+        <div class="container utility-bar__inner">
+            <p><span class="status-dot" aria-hidden="true"></span> Artisan plombier-chauffagiste depuis 2017</p>
+            <p class="utility-bar__zone">Rhône · Métropole de Lyon · Est lyonnais</p>
         </div>
     </div>
 
-    <div class="container header-inner">
-        <a href="{{ route('home') }}" class="brand">
-            <span class="brand-media">
-                <img src="{{ asset('assets/img/rg/logo.png') }}" alt="Logo RG Plomberie">
-            </span>
-
-            <span class="brand-text">
-                <strong>RG Plomberie</strong>
-                <small>Plomberie • Chauffage • Climatisation</small>
-            </span>
-        </a>
-
-        <nav class="main-nav" aria-label="Navigation principale">
-            <a href="{{ route('home') }}">Accueil</a>
-            <a href="{{ route('entreprise') }}">Entreprise</a>
-            <a href="{{ route('prestations') }}">Prestations</a>
-            <a href="{{ route('realisations') }}">Réalisations</a>
-            <a href="{{ route('depannage') }}">Dépannage</a>
-        </nav>
-
-        <div class="header-actions">
-            <a href="tel:+33627997646" class="header-phone">06 27 99 76 46</a>
-
-            <a href="{{ route('contact') }}" class="header-cta">
-                Demander un devis
+    <header class="site-header" data-header>
+        <div class="container site-header__inner">
+            <a class="brand" href="{{ route('home') }}" aria-label="RG Plomberie — Accueil">
+                <img class="brand__mark" src="{{ asset('assets/img/rg/brand-mark.svg') }}" width="48" height="48" alt="">
+                <span class="brand__copy">
+                    <strong>RG PLOMBERIE</strong>
+                    <small>Plomberie · Chauffage · Climatisation</small>
+                </span>
             </a>
 
-            <button
-                class="menu-toggle"
-                data-menu-toggle
-                type="button"
-                aria-label="Ouvrir le menu"
-                aria-expanded="false"
-            >
-                <span></span>
-                <span></span>
+            <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-navigation" aria-expanded="false">
+                <span class="sr-only">Ouvrir le menu</span>
+                <span aria-hidden="true"></span>
+                <span aria-hidden="true"></span>
             </button>
+
+            <nav class="site-nav" id="site-navigation" data-nav aria-label="Navigation principale">
+                <a href="{{ route('home') }}" data-nav-key="home">Accueil</a>
+                <a href="{{ route('entreprise') }}" data-nav-key="entreprise">Entreprise</a>
+                <a href="{{ route('prestations') }}" data-nav-key="prestations">Prestations</a>
+                <a href="{{ route('realisations') }}" data-nav-key="realisations">Réalisations</a>
+                <a href="{{ route('depannage') }}" data-nav-key="depannage">Dépannage</a>
+            </nav>
+
+            <div class="header-actions">
+                <a class="header-phone" href="tel:+33627997646">
+                    <span>Appeler</span>
+                    <strong>06 27 99 76 46</strong>
+                </a>
+                <a class="button button--primary button--compact" href="{{ route('contact') }}">Demander un devis</a>
+            </div>
         </div>
-    </div>
+    </header>
 
-    <div class="mobile-menu" data-mobile-menu aria-hidden="true">
-        <div class="mobile-menu-top">
-            <span class="mobile-menu-title">Menu</span>
+    <main id="contenu">
+        @yield('content')
+    </main>
 
-            <button
-                class="mobile-menu-close"
-                type="button"
-                data-menu-close
-                aria-label="Fermer le menu"
-            >
-                <span></span>
-                <span></span>
-            </button>
-        </div>
-
-        <div class="mobile-menu-links">
-            <a href="{{ route('home') }}">Accueil</a>
-            <a href="{{ route('entreprise') }}">Entreprise</a>
-            <a href="{{ route('prestations') }}">Prestations</a>
-            <a href="{{ route('realisations') }}">Réalisations</a>
-            <a href="{{ route('depannage') }}">Dépannage</a>
-
-            <a href="{{ route('contact') }}" class="mobile-devis">
-                Demander un devis
-            </a>
-
-            <a href="tel:+33627997646" class="mobile-call">
-                Appeler maintenant
-            </a>
-        </div>
-    </div>
-</header>
-
-<button class="theme-switch" type="button" data-theme-toggle aria-label="Basculer le thème">
-    <span class="theme-switch-thumb">
-        <span class="theme-switch-icon" data-theme-icon></span>
-    </span>
-
-    <span class="sr-only" data-theme-label>Activer le mode clair</span>
-</button>
-
-<main>
-    @yield('content')
-</main>
-
-<footer class="site-footer">
-    <div class="container footer-grid">
-        <div class="footer-brand">
-            <div class="footer-brand-top">
-                    <span class="footer-logo">
-                        <img src="{{ asset('assets/img/rg/logo.png') }}" alt="Logo RG Plomberie">
+    <footer class="site-footer">
+        <div class="container footer-grid">
+            <div class="footer-intro">
+                <a class="brand brand--footer" href="{{ route('home') }}">
+                    <img class="brand__mark" src="{{ asset('assets/img/rg/brand-mark.svg') }}" width="48" height="48" alt="">
+                    <span class="brand__copy">
+                        <strong>RG PLOMBERIE</strong>
+                        <small>L’exigence d’un travail propre</small>
                     </span>
-
-                <div>
-                    <strong>RG Plomberie</strong>
-                    <small>Plomberie • Chauffage • Climatisation • VMC</small>
-                </div>
+                </a>
+                <p>Installation, rénovation, entretien et dépannage en plomberie, chauffage, climatisation et VMC.</p>
+                <a class="footer-phone" href="tel:+33627997646">06 27 99 76 46</a>
             </div>
 
-            <p>
-                Installation, dépannage, entretien et remplacement dans le Rhône.
-                Un site pensé comme une vitrine immersive pour montrer le sérieux du travail.
-            </p>
-        </div>
+            <div class="footer-column">
+                <h2>Navigation</h2>
+                <a href="{{ route('entreprise') }}">L’entreprise</a>
+                <a href="{{ route('prestations') }}">Les prestations</a>
+                <a href="{{ route('realisations') }}">Les réalisations</a>
+                <a href="{{ route('avis') }}">Avis clients</a>
+                <a href="{{ route('contact') }}">Contact</a>
+            </div>
 
-        <div class="footer-links">
-            <span>Navigation</span>
-            <a href="{{ route('entreprise') }}">Entreprise</a>
-            <a href="{{ route('prestations') }}">Prestations</a>
-            <a href="{{ route('realisations') }}">Réalisations</a>
-            <a href="{{ route('contact') }}">Contact</a>
-        </div>
+            <div class="footer-column">
+                <h2>Prestations</h2>
+                <a href="{{ route('prestations.plomberie') }}">Plomberie</a>
+                <a href="{{ route('prestations.chauffage') }}">Chauffage</a>
+                <a href="{{ route('prestations.climatisation') }}">Climatisation</a>
+                <a href="{{ route('prestations.vmc') }}">VMC</a>
+                <a href="{{ route('depannage') }}">Dépannage</a>
+            </div>
 
-        <div class="footer-links">
-            <span>Contact</span>
-            <a href="tel:+33627997646">06 27 99 76 46</a>
-            <a href="{{ route('depannage') }}">Dépannage</a>
-            <a href="{{ route('mentions') }}">Mentions légales</a>
+            <div class="footer-column footer-column--legal">
+                <h2>RG Plomberie</h2>
+                <p>SASU au capital de 5 000 €</p>
+                <p>SIREN 833 160 617</p>
+                <p>Siège : Janneyrias (38280)</p>
+                <a href="{{ route('mentions') }}">Mentions légales</a>
+            </div>
         </div>
+        <div class="container footer-bottom">
+            <p>© {{ date('Y') }} RG Plomberie. Tous droits réservés.</p>
+            <p>Site conçu et développé par Rizlene Berrag.</p>
+        </div>
+    </footer>
+
+    <div class="mobile-action-bar" aria-label="Actions rapides">
+        <a href="tel:+33627997646">Appeler</a>
+        <a href="{{ route('contact') }}">Demander un devis</a>
     </div>
-</footer>
 
-<script src="{{ asset('assets/js/cinematic-header.js') }}?v=50"></script>
-<script src="{{ asset('assets/js/cinematic-motion.js') }}?v=50"></script>
-<script src="{{ asset('assets/js/cinematic-gallery.js') }}?v=50"></script>
-<script src="{{ asset('assets/js/cinematic-before-after.js') }}?v=200"></script>
-<script src="{{ asset('assets/js/cinematic-theme.js') }}?v=50"></script>
+    <dialog class="lightbox" data-lightbox>
+        <button class="lightbox__close" type="button" data-lightbox-close aria-label="Fermer l’image">×</button>
+        <figure>
+            <img src="" width="1100" height="780" alt="" data-lightbox-image>
+            <figcaption data-lightbox-caption></figcaption>
+        </figure>
+    </dialog>
 
-@stack('scripts')
+    <script src="{{ asset('assets/js/rg-premium.js') }}?v=1" defer></script>
 </body>
 </html>

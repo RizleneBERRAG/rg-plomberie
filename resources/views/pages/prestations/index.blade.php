@@ -1,300 +1,134 @@
 @extends('layouts.app', [
-    'title' => 'Prestations - RG Plomberie',
-    'description' => 'RG Plomberie intervient dans le Rhône pour la plomberie, le chauffage, la climatisation, la VMC, le dépannage, l’installation et l’entretien.'
+    'title' => 'Prestations plomberie, chauffage, climatisation et VMC — RG Plomberie',
+    'description' => 'Découvrez les prestations RG Plomberie : plomberie, chauffage, climatisation, VMC, installation, entretien et dépannage dans le Rhône.'
 ])
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('assets/css/pages/cinematic-prestations.css') }}">
-@endpush
-
 @section('content')
-
-    <section class="page-cinematic-hero prestations-hero">
-        <div class="page-cinematic-bg" style="background-image: url('{{ asset('assets/img/rg/works/work-5.jpg') }}');"></div>
-        <div class="page-cinematic-overlay"></div>
-
-        <div class="container page-cinematic-content prestations-hero-content">
-            <span class="section-label">Prestations</span>
-
-            <h1>
-                Quatre métiers.<br>
-                Une même exigence.
-            </h1>
-
-            <p>
-                Plomberie, chauffage, climatisation et VMC : RG Plomberie intervient sur les installations
-                essentielles du confort intérieur avec une approche claire, soignée et durable.
-            </p>
-
-            <div class="prestations-hero-actions">
-                <a href="{{ route('contact') }}" class="btn btn-primary">Demander un devis</a>
-                <a href="{{ route('realisations') }}" class="btn btn-ghost">Voir les réalisations</a>
+    <section class="page-hero page-hero--compact">
+        <div class="container page-hero__grid">
+            <div class="page-hero__copy" data-reveal>
+                <nav class="breadcrumb" aria-label="Fil d’Ariane">
+                    <a href="{{ route('home') }}">Accueil</a><span aria-hidden="true">/</span><span>Prestations</span>
+                </nav>
+                <p class="eyebrow">Prestations</p>
+                <h1>Quatre métiers.<br>Un service complet.</h1>
+                <p class="lead">
+                    De la fuite visible au confort thermique global, RG Plomberie intervient
+                    sur les équipements essentiels du logement et des locaux professionnels.
+                </p>
+                <a class="button button--primary" href="{{ route('contact') }}">Demander une étude</a>
             </div>
+            <figure class="page-hero__media" data-reveal>
+                <img src="{{ asset('assets/img/rg/web/hvac-installation.webp') }}" width="996" height="664" alt="Pose d’un équipement de climatisation intérieur" fetchpriority="high">
+                <figcaption>Installation · Entretien · Dépannage</figcaption>
+            </figure>
         </div>
     </section>
 
-    <section class="prestations-intro section-dark">
-        <div class="container prestations-intro-grid">
-            <div>
-                <span class="section-label">Approche</span>
-
-                <h2>Des interventions pensées pour être claires, propres et fiables.</h2>
-            </div>
-
-            <p>
-                Chaque demande mérite une réponse adaptée. RG Plomberie accompagne ses clients
-                en identifiant précisément le besoin, en proposant une solution cohérente et en réalisant
-                une intervention soignée, que ce soit pour un dépannage, une installation, un remplacement
-                ou un entretien.
-            </p>
-        </div>
-    </section>
-
-    <section class="service-chapters">
-        <div class="container service-chapters-list">
-
-            <article class="service-chapter">
-                <a href="{{ route('prestations.plomberie') }}" class="service-chapter-media">
-                    <img src="{{ asset('assets/img/rg/works/work-4.jpg') }}" alt="Prestation plomberie RG Plomberie">
-                    <span class="service-chapter-number">01</span>
+    <section class="section">
+        <div class="container service-chapters">
+            <article class="service-chapter" data-reveal>
+                <a class="service-chapter__media" href="{{ route('prestations.plomberie') }}">
+                    <img src="{{ asset('assets/img/rg/web/bathroom-2.webp') }}" width="1600" height="897" alt="Salle de bains avec équipements sanitaires" loading="lazy">
+                    <span>01</span>
                 </a>
-
-                <div class="service-chapter-content">
-                    <span class="section-label">Plomberie</span>
-
-                    <h2>Réparer, raccorder, sécuriser.</h2>
-
-                    <p>
-                        Fuite, robinetterie, sanitaire, ballon d’eau chaude, raccordement ou remplacement :
-                        la plomberie demande une intervention nette, fiable et durable.
-                    </p>
-
-                    <ul>
+                <div class="service-chapter__copy">
+                    <p class="eyebrow">Plomberie</p>
+                    <h2>Réparer, raccorder, rénover.</h2>
+                    <p>Fuites, robinetterie, sanitaires, chauffe-eau, réseaux d’alimentation et évacuations.</p>
+                    <ul class="tick-list">
                         <li>Recherche et réparation de fuite</li>
-                        <li>Sanitaire, robinetterie et raccordements</li>
-                        <li>Ballon d’eau chaude et équipements associés</li>
-                        <li>Remplacement ou remise au propre d’installation</li>
+                        <li>Création ou reprise de réseaux</li>
+                        <li>Pose d’équipements sanitaires</li>
                     </ul>
-
-                    <a href="{{ route('prestations.plomberie') }}" class="chapter-link">
-                        Découvrir la plomberie
-                    </a>
+                    <a class="text-link" href="{{ route('prestations.plomberie') }}">Voir la plomberie <span aria-hidden="true">→</span></a>
                 </div>
             </article>
 
-            <article class="service-chapter reverse">
-                <a href="{{ route('prestations.chauffage') }}" class="service-chapter-media">
-                    <img src="{{ asset('assets/img/rg/works/work-5.jpg') }}" alt="Prestation chauffage RG Plomberie">
-                    <span class="service-chapter-number">02</span>
+            <article class="service-chapter service-chapter--reverse" data-reveal>
+                <a class="service-chapter__media" href="{{ route('prestations.chauffage') }}">
+                    <img src="{{ asset('assets/img/rg/web/heating-technician.webp') }}" width="1168" height="784" alt="Technicien travaillant sur un équipement de chauffage" loading="lazy">
+                    <span>02</span>
                 </a>
-
-                <div class="service-chapter-content">
-                    <span class="section-label">Chauffage</span>
-
-                    <h2>Retrouver le confort thermique.</h2>
-
-                    <p>
-                        Une installation de chauffage doit être fiable, adaptée au logement et correctement entretenue.
-                        RG Plomberie intervient pour améliorer le confort thermique et répondre aux besoins de chauffage.
-                    </p>
-
-                    <ul>
-                        <li>Dépannage chauffage</li>
+                <div class="service-chapter__copy">
+                    <p class="eyebrow">Chauffage</p>
+                    <h2>Installer, entretenir, dépanner.</h2>
+                    <p>Production de chaleur, eau chaude, radiateurs et amélioration du confort thermique.</p>
+                    <ul class="tick-list">
+                        <li>Diagnostic de panne</li>
                         <li>Remplacement d’équipement</li>
                         <li>Entretien et contrôle</li>
-                        <li>Optimisation du confort intérieur</li>
                     </ul>
-
-                    <a href="{{ route('prestations.chauffage') }}" class="chapter-link">
-                        Découvrir le chauffage
-                    </a>
+                    <a class="text-link" href="{{ route('prestations.chauffage') }}">Voir le chauffage <span aria-hidden="true">→</span></a>
                 </div>
             </article>
 
-            <article class="service-chapter">
-                <a href="{{ route('prestations.climatisation') }}" class="service-chapter-media">
-                    <img src="{{ asset('assets/img/rg/works/work-6.jpg') }}" alt="Prestation climatisation RG Plomberie">
-                    <span class="service-chapter-number">03</span>
-                </a>
-
-                <div class="service-chapter-content">
-                    <span class="section-label">Climatisation</span>
-
-                    <h2>Installer, entretenir, améliorer.</h2>
-
-                    <p>
-                        La climatisation participe au confort intérieur toute l’année. RG Plomberie intervient
-                        pour la pose, la mise en service, l’entretien et le nettoyage des systèmes.
-                    </p>
-
-                    <ul>
-                        <li>Installation de climatisation</li>
-                        <li>Mise en service</li>
-                        <li>Nettoyage et entretien</li>
-                        <li>Amélioration du confort été / hiver</li>
-                    </ul>
-
-                    <a href="{{ route('prestations.climatisation') }}" class="chapter-link">
-                        Découvrir la climatisation
-                    </a>
-                </div>
-            </article>
-
-            <article class="service-chapter reverse">
-                <a href="{{ route('prestations.vmc') }}" class="service-chapter-media">
-                    <img src="{{ asset('assets/img/rg/works/work-7.jpg') }}" alt="Prestation VMC RG Plomberie">
-                    <span class="service-chapter-number">04</span>
-                </a>
-
-                <div class="service-chapter-content">
-                    <span class="section-label">VMC</span>
-
-                    <h2>Respirer un air plus sain.</h2>
-
-                    <p>
-                        Une bonne ventilation protège le logement, améliore le confort intérieur et limite
-                        les problèmes d’humidité. RG Plomberie intervient sur l’installation, le remplacement
-                        et l’amélioration des systèmes de VMC.
-                    </p>
-
-                    <ul>
-                        <li>Installation ou remplacement de VMC</li>
-                        <li>Ventilation et renouvellement de l’air</li>
-                        <li>Lutte contre l’humidité</li>
-                        <li>Amélioration du confort intérieur</li>
-                    </ul>
-
-                    <a href="{{ route('prestations.vmc') }}" class="chapter-link">
-                        Découvrir la VMC
-                    </a>
-                </div>
-            </article>
-
-        </div>
-    </section>
-
-    <section class="prestations-process section-dark">
-        <div class="container">
-            <div class="section-heading">
-                <span class="section-label">Méthode</span>
-
-                <h2>Une demande claire, une intervention maîtrisée.</h2>
-            </div>
-
-            <div class="prestations-process-grid">
-                <article class="prestations-process-card">
-                    <span>01</span>
-
-                    <h3>Comprendre</h3>
-
-                    <p>
-                        Le besoin est identifié avec précision : type d’intervention, niveau d’urgence,
-                        ville, équipement concerné et contraintes éventuelles.
-                    </p>
-                </article>
-
-                <article class="prestations-process-card">
-                    <span>02</span>
-
-                    <h3>Diagnostiquer</h3>
-
-                    <p>
-                        RG Plomberie analyse la situation afin d’orienter vers la solution la plus adaptée :
-                        dépannage, remplacement, entretien ou installation.
-                    </p>
-                </article>
-
-                <article class="prestations-process-card">
+            <article class="service-chapter" data-reveal>
+                <a class="service-chapter__media" href="{{ route('prestations.climatisation') }}">
+                    <img src="{{ asset('assets/img/rg/web/air-conditioning.webp') }}" width="1168" height="784" alt="Intervention sur une unité extérieure de climatisation" loading="lazy">
                     <span>03</span>
+                </a>
+                <div class="service-chapter__copy">
+                    <p class="eyebrow">Climatisation</p>
+                    <h2>Dimensionner, poser, maintenir.</h2>
+                    <p>Solutions de climatisation adaptées aux volumes, à l’usage et au bâtiment existant.</p>
+                    <ul class="tick-list">
+                        <li>Installation et mise en service</li>
+                        <li>Nettoyage et maintenance</li>
+                        <li>Diagnostic de fonctionnement</li>
+                    </ul>
+                    <a class="text-link" href="{{ route('prestations.climatisation') }}">Voir la climatisation <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
 
-                    <h3>Intervenir</h3>
-
-                    <p>
-                        L’intervention est réalisée avec soin, en privilégiant la propreté,
-                        la fiabilité et la qualité du rendu final.
-                    </p>
-                </article>
-
-                <article class="prestations-process-card">
+            <article class="service-chapter service-chapter--reverse" data-reveal>
+                <a class="service-chapter__media" href="{{ route('prestations.vmc') }}">
+                    <img src="{{ asset('assets/img/rg/web/ventilation.webp') }}" width="1168" height="784" alt="Réseau de ventilation mécanique dans une construction" loading="lazy">
                     <span>04</span>
-
-                    <h3>Accompagner</h3>
-
-                    <p>
-                        Les explications restent claires afin que le client comprenne le travail effectué
-                        et les éventuelles recommandations à suivre.
-                    </p>
-                </article>
-            </div>
+                </a>
+                <div class="service-chapter__copy">
+                    <p class="eyebrow">VMC</p>
+                    <h2>Renouveler l’air correctement.</h2>
+                    <p>Installation, remplacement et entretien de systèmes de ventilation mécanique contrôlée.</p>
+                    <ul class="tick-list">
+                        <li>Diagnostic d’humidité et d’aération</li>
+                        <li>Pose ou remplacement de VMC</li>
+                        <li>Entretien des bouches et réseaux</li>
+                    </ul>
+                    <a class="text-link" href="{{ route('prestations.vmc') }}">Voir la VMC <span aria-hidden="true">→</span></a>
+                </div>
+            </article>
         </div>
     </section>
 
-    <section class="prestations-gallery">
+    <section class="section section--sand">
         <div class="container">
-            <div class="section-heading">
-                <span class="section-label">Images métier</span>
-
-                <h2>Des interventions visibles à travers les détails.</h2>
-            </div>
-
-            <div class="prestations-gallery-grid">
-                <article class="prestations-gallery-card large" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-1.jpg') }}" alt="Installation plomberie RG Plomberie">
-
-                    <div>
-                        <span>Plomberie</span>
-                        <strong>Installation propre</strong>
-                    </div>
-                </article>
-
-                <article class="prestations-gallery-card" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-2.jpg') }}" alt="Chauffage RG Plomberie">
-
-                    <div>
-                        <span>Chauffage</span>
-                        <strong>Confort thermique</strong>
-                    </div>
-                </article>
-
-                <article class="prestations-gallery-card" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-3.jpg') }}" alt="Dépannage RG Plomberie">
-
-                    <div>
-                        <span>Dépannage</span>
-                        <strong>Intervention rapide</strong>
-                    </div>
-                </article>
-
-                <article class="prestations-gallery-card wide" data-gallery-item>
-                    <img src="{{ asset('assets/img/rg/works/work-8.jpg') }}" alt="Finition RG Plomberie">
-
-                    <div>
-                        <span>Finition</span>
-                        <strong>Travail maîtrisé</strong>
-                    </div>
-                </article>
+            <header class="section-heading section-heading--split" data-reveal>
+                <div>
+                    <p class="eyebrow">Pour chaque demande</p>
+                    <h2>Le bon niveau d’intervention.</h2>
+                </div>
+                <p>Un dépannage, un entretien et une rénovation complète ne se préparent pas de la même façon. La première étape consiste à qualifier précisément le besoin.</p>
+            </header>
+            <div class="value-grid value-grid--three">
+                <article data-reveal><span>A</span><h3>Dépannage</h3><p>Identifier l’origine, sécuriser et remettre en service lorsque c’est possible.</p></article>
+                <article data-reveal><span>B</span><h3>Entretien</h3><p>Contrôler, nettoyer et anticiper les dysfonctionnements des équipements.</p></article>
+                <article data-reveal><span>C</span><h3>Installation</h3><p>Dimensionner une solution cohérente et soigner son intégration.</p></article>
             </div>
         </div>
     </section>
 
-    <section class="prestations-cta">
-        <div class="container prestations-cta-box">
+    <section class="cta-section">
+        <div class="container cta-panel" data-reveal>
             <div>
-                <span class="section-label">Besoin d’une intervention ?</span>
-
-                <h2>Plomberie, chauffage, climatisation ou VMC : parlons de votre besoin.</h2>
-
-                <p>
-                    Présentez votre demande à RG Plomberie pour obtenir une réponse adaptée :
-                    dépannage, installation, remplacement, entretien ou demande de devis.
-                </p>
+                <p class="eyebrow eyebrow--light">Vous hésitez ?</p>
+                <h2>Décrivez simplement le symptôme.</h2>
+                <p>RG Plomberie vous aidera à identifier la prestation correspondant à votre situation.</p>
             </div>
-
-            <div class="prestations-cta-actions">
-                <a href="tel:+33627997646" class="mega-phone small">06 27 99 76 46</a>
-                <a href="{{ route('contact') }}" class="btn btn-primary">Demander un devis</a>
+            <div class="cta-panel__actions">
+                <a class="button button--light" href="{{ route('contact') }}">Faire une demande</a>
+                <a class="cta-phone" href="tel:+33627997646">06 27 99 76 46</a>
             </div>
         </div>
     </section>
-
 @endsection
