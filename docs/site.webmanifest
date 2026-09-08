@@ -6,7 +6,7 @@
   "scope": "/rg-plomberie/",
   "display": "standalone",
   "background_color": "#f2f5f5",
-  "theme_color": "#08131b",
+  "theme_color": "#0b0d10",
   "icons": [
     {
       "src": "/rg-plomberie/apple-touch-icon.png",

@@ -133,7 +133,7 @@ function staticSchema() {
         url: siteUrl,
         telephone: "+33627997646",
         image: siteUrl + "assets/img/rg/web/hero-team.webp",
-        logo: siteUrl + "assets/img/rg/brand-mark.svg",
+        logo: siteUrl + "assets/img/rg/logo-brand.webp",
         description: "Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.",
         foundingDate: "2017",
         priceRange: "€€",
@@ -211,6 +211,7 @@ function copyAssets() {
         "assets/css/rg-direction.css",
         "assets/js/rg-premium.js",
         "assets/img/rg/brand-mark.svg",
+        "assets/img/rg/logo-brand.webp",
         "favicon.svg",
         "favicon.ico",
         "apple-touch-icon.png"
@@ -234,7 +235,7 @@ function copyAssets() {
         scope: basePath,
         display: "standalone",
         background_color: "#f2f5f5",
-        theme_color: "#08131b",
+        theme_color: "#0b0d10",
         icons: [
             {
                 src: basePath + "apple-touch-icon.png",

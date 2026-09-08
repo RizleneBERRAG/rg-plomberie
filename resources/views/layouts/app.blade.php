@@ -6,7 +6,7 @@
     <title>{{ $title ?? 'RG Plomberie — Plombier chauffagiste dans le Rhône' }}</title>
     <meta name="description" content="{{ $description ?? 'RG Plomberie intervient en plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.' }}">
     <meta name="robots" content="{{ $robots ?? 'index, follow' }}">
-    <meta name="theme-color" content="#08131b">
+    <meta name="theme-color" content="#0b0d10">
 
     <link rel="canonical" href="{{ url()->current() }}">
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
@@ -41,7 +41,7 @@
             'url' => url('/'),
             'telephone' => '+33627997646',
             'image' => asset('assets/img/rg/web/hero-team.webp'),
-            'logo' => asset('assets/img/rg/brand-mark.svg'),
+            'logo' => asset('assets/img/rg/logo-brand.webp'),
             'description' => 'Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.',
             'foundingDate' => '2017',
             'priceRange' => '€€',
@@ -79,11 +79,7 @@
     <header class="site-header" data-header>
         <div class="container site-header__inner">
             <a class="brand" href="{{ route('home') }}" aria-label="RG Plomberie — Accueil">
-                <img class="brand__mark" src="{{ asset('assets/img/rg/brand-mark.svg') }}" width="48" height="48" alt="">
-                <span class="brand__copy">
-                    <strong>RG PLOMBERIE</strong>
-                    <small>Plomberie · Chauffage · Climatisation · VMC</small>
-                </span>
+                <img class="brand__logo" src="{{ asset('assets/img/rg/logo-brand.webp') }}" width="624" height="416" alt="RG Plomberie">
             </a>
 
             <button class="nav-toggle" type="button" data-nav-toggle aria-controls="site-navigation" aria-expanded="false">
@@ -118,11 +114,7 @@
         <div class="container footer-grid">
             <div class="footer-intro">
                 <a class="brand brand--footer" href="{{ route('home') }}">
-                    <img class="brand__mark" src="{{ asset('assets/img/rg/brand-mark.svg') }}" width="48" height="48" alt="">
-                    <span class="brand__copy">
-                        <strong>RG PLOMBERIE</strong>
-                        <small>Technique · Propre · Durable</small>
-                    </span>
+                    <img class="brand__logo" src="{{ asset('assets/img/rg/logo-brand.webp') }}" width="624" height="416" alt="RG Plomberie">
                 </a>
                 <p>Installation, rénovation, entretien et dépannage en plomberie, chauffage, climatisation et VMC.</p>
                 <a class="footer-phone" href="tel:+33627997646">06 27 99 76 46</a>
