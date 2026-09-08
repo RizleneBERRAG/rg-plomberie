@@ -7,11 +7,11 @@
     <section class="home-hero">
         <div class="container home-hero__grid">
             <div class="home-hero__copy" data-reveal>
-                <p class="eyebrow">Plombier · Chauffagiste · Climatisation · VMC</p>
-                <h1>Le confort technique,<br>réalisé proprement.</h1>
+                <p class="eyebrow">Plomberie · Chauffage · Climatisation · VMC</p>
+                <h1>Votre confort.<br><em>Notre savoir-faire.</em></h1>
                 <p class="lead">
-                    RG Plomberie accompagne particuliers et professionnels à Lyon, dans le Rhône
-                    et l’Est lyonnais, de la recherche de panne à l’installation complète.
+                    Installation, rénovation, entretien ou dépannage : RG Plomberie accompagne
+                    particuliers et professionnels avec un travail précis, propre et durable.
                 </p>
                 <div class="button-row">
                     <a class="button button--primary" href="{{ route('contact') }}">
@@ -131,8 +131,7 @@
                     <button type="button" data-compare-set="100">Voir l’après</button>
                 </div>
                 <p class="media-note">
-                    Projection visuelle de rénovation. Elle sera remplacée par un duo de photos
-                    prises sur un même chantier RG Plomberie dès qu’il sera disponible.
+                    Simulation d’aménagement permettant de visualiser le potentiel d’une rénovation complète.
                 </p>
             </div>
 

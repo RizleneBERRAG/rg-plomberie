@@ -37,7 +37,7 @@
             'url' => url('/'),
             'telephone' => '+33627997646',
             'image' => asset('assets/img/rg/web/hero-team.webp'),
-            'logo' => asset('assets/img/rg/brand-mark.svg'),
+            'logo' => asset('assets/img/rg/logo-official.webp'),
             'description' => 'Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.',
             'foundingDate' => '2017',
             'priceRange' => '€€',
@@ -82,10 +82,8 @@
     <header class="site-header" data-header>
         <div class="container site-header__inner">
             <a class="brand" href="{{ route('home') }}" aria-label="RG Plomberie — Accueil">
-                <img class="brand__mark" src="{{ asset('assets/img/rg/brand-mark.svg') }}" width="48" height="48" alt="">
-                <span class="brand__copy">
-                    <strong>RG PLOMBERIE</strong>
-                    <small>Plomberie · Chauffage · Climatisation</small>
+                <span class="brand__logo-crop" aria-hidden="true">
+                    <img src="{{ asset('assets/img/rg/logo-official.webp') }}" width="900" height="600" alt="">
                 </span>
             </a>
 
@@ -121,11 +119,7 @@
         <div class="container footer-grid">
             <div class="footer-intro">
                 <a class="brand brand--footer" href="{{ route('home') }}">
-                    <img class="brand__mark" src="{{ asset('assets/img/rg/brand-mark.svg') }}" width="48" height="48" alt="">
-                    <span class="brand__copy">
-                        <strong>RG PLOMBERIE</strong>
-                        <small>L’exigence d’un travail propre</small>
-                    </span>
+                    <img class="brand__official" src="{{ asset('assets/img/rg/logo-official.webp') }}" width="900" height="600" alt="RG Plomberie — plomberie, chauffage, climatisation et VMC">
                 </a>
                 <p>Installation, rénovation, entretien et dépannage en plomberie, chauffage, climatisation et VMC.</p>
                 <a class="footer-phone" href="tel:+33627997646">06 27 99 76 46</a>
