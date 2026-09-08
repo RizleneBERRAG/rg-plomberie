@@ -18,6 +18,7 @@
     --white: #ffffff;
     --rg-blue: #38acd5;
     --rg-blue-light: #79cee9;
+    --rg-blue-dark: #187da3;
     --rg-dark: #08131b;
     --rg-dark-soft: #0d1b24;
     --container: 1440px;
@@ -307,7 +308,7 @@ p {
 .home-hero h1 {
     max-width: 960px;
     margin-bottom: 30px;
-    font-size: clamp(3.85rem, 5.25vw, 5.6rem);
+    font-size: clamp(3.2rem, 4.9vw, 5.35rem);
     font-weight: 700;
     line-height: 0.94;
     letter-spacing: -0.058em;
@@ -956,7 +957,7 @@ p {
     }
 
     .home-hero h1 {
-        font-size: clamp(3.6rem, 5.4vw, 4.6rem);
+        font-size: clamp(3.15rem, 4.8vw, 4.45rem);
     }
 }
 
