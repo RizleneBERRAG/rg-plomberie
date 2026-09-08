@@ -5,10 +5,19 @@
 
 @section('content')
     <section class="home-hero">
-        <div class="container home-hero__grid">
+        <div class="home-hero__background" aria-hidden="true">
+            <img src="{{ asset('assets/img/rg/web/hero-team.webp') }}" width="847" height="486" alt="">
+        </div>
+        <div class="home-hero__overlay" aria-hidden="true"></div>
+
+        <div class="container home-hero__stage">
             <div class="home-hero__copy" data-reveal>
-                <p class="eyebrow">Plomberie · Chauffage · Climatisation · VMC</p>
-                <h1>Votre confort.<br><em>Notre savoir-faire.</em></h1>
+                <div class="home-hero__eyebrow">
+                    <span></span>
+                    <p>Plombier-chauffagiste</p>
+                    <small>Janneyrias · Est lyonnais</small>
+                </div>
+                <h1>Votre confort.<em>Notre métier.</em></h1>
                 <p class="lead">
                     Installation, rénovation, entretien ou dépannage : RG Plomberie accompagne
                     particuliers et professionnels avec un travail précis, propre et durable.
@@ -21,28 +30,19 @@
                         06 27 99 76 46
                     </a>
                 </div>
-                <ul class="hero-checks" aria-label="Engagements">
-                    <li>Échange clair avant intervention</li>
-                    <li>Solutions adaptées à l’existant</li>
-                    <li>Finitions propres et lisibles</li>
-                </ul>
             </div>
 
-            <div class="home-hero__media" data-reveal>
-                <img
-                    src="{{ asset('assets/img/rg/web/hero-team.webp') }}"
-                    width="847"
-                    height="486"
-                    alt="Techniciens intervenant sur une installation de plomberie et de chauffage"
-                    fetchpriority="high"
-                >
-                <div class="hero-callout">
-                    <span>Une urgence ?</span>
-                    <strong>Appelez pour vérifier la disponibilité</strong>
-                    <a href="tel:+33627997646">Appeler maintenant <span aria-hidden="true">→</span></a>
+            <aside class="home-hero__aside" data-reveal>
+                <div class="home-hero__aside-head">
+                    <span class="brand__monogram brand__monogram--large" aria-hidden="true">RG</span>
+                    <div>
+                        <span>Entreprise locale</span>
+                        <strong>Depuis 2017</strong>
+                    </div>
                 </div>
-                <p class="image-index" aria-hidden="true">RG / 69</p>
-            </div>
+                <p>Un interlocuteur direct pour vos installations, rénovations et dépannages.</p>
+                <a href="{{ route('entreprise') }}">Découvrir l’entreprise <span aria-hidden="true">↗</span></a>
+            </aside>
         </div>
     </section>
 

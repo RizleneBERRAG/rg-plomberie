@@ -82,8 +82,10 @@
     <header class="site-header" data-header>
         <div class="container site-header__inner">
             <a class="brand" href="{{ route('home') }}" aria-label="RG Plomberie — Accueil">
-                <span class="brand__logo-crop" aria-hidden="true">
-                    <img src="{{ asset('assets/img/rg/logo-official.webp') }}" width="900" height="600" alt="">
+                <span class="brand__monogram" aria-hidden="true">RG</span>
+                <span class="brand__copy">
+                    <strong>RG PLOMBERIE</strong>
+                    <small>Plomberie · Chauffage · Climatisation</small>
                 </span>
             </a>
 
@@ -119,7 +121,11 @@
         <div class="container footer-grid">
             <div class="footer-intro">
                 <a class="brand brand--footer" href="{{ route('home') }}">
-                    <img class="brand__official" src="{{ asset('assets/img/rg/logo-official.webp') }}" width="900" height="600" alt="RG Plomberie — plomberie, chauffage, climatisation et VMC">
+                    <span class="brand__monogram" aria-hidden="true">RG</span>
+                    <span class="brand__copy">
+                        <strong>RG PLOMBERIE</strong>
+                        <small>L’exigence d’un travail propre</small>
+                    </span>
                 </a>
                 <p>Installation, rénovation, entretien et dépannage en plomberie, chauffage, climatisation et VMC.</p>
                 <a class="footer-phone" href="tel:+33627997646">06 27 99 76 46</a>
