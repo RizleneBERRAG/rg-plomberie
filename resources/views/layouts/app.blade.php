@@ -6,7 +6,7 @@
     <title>{{ $title ?? 'RG Plomberie — Plombier chauffagiste dans le Rhône' }}</title>
     <meta name="description" content="{{ $description ?? 'RG Plomberie intervient en plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.' }}">
     <meta name="robots" content="{{ $robots ?? 'index, follow' }}">
-    <meta name="theme-color" content="#181816">
+    <meta name="theme-color" content="#08131b">
 
     <link rel="canonical" href="{{ url()->current() }}">
     <link rel="icon" href="{{ asset('favicon.svg') }}" type="image/svg+xml">
@@ -24,8 +24,12 @@
     <meta property="og:image:alt" content="Intervention technique en plomberie et chauffage">
     <meta name="twitter:card" content="summary_large_image">
 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;family=Manrope:wght@500;600;700;800&amp;display=swap" rel="stylesheet">
     <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="{{ asset('assets/css/rg-premium.css') }}?v=1">
+    <link rel="stylesheet" href="{{ asset('assets/css/rg-premium.css') }}?v=2">
+    <link rel="stylesheet" href="{{ asset('assets/css/rg-direction.css') }}?v=1">
 
     @php
         $businessSchema = [
@@ -72,20 +76,13 @@
 <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-    <div class="utility-bar">
-        <div class="container utility-bar__inner">
-            <p><span class="status-dot" aria-hidden="true"></span> Artisan plombier-chauffagiste depuis 2017</p>
-            <p class="utility-bar__zone">Rhône · Métropole de Lyon · Est lyonnais</p>
-        </div>
-    </div>
-
     <header class="site-header" data-header>
         <div class="container site-header__inner">
             <a class="brand" href="{{ route('home') }}" aria-label="RG Plomberie — Accueil">
                 <img class="brand__mark" src="{{ asset('assets/img/rg/brand-mark.svg') }}" width="48" height="48" alt="">
                 <span class="brand__copy">
                     <strong>RG PLOMBERIE</strong>
-                    <small>Plomberie · Chauffage · Climatisation</small>
+                    <small>Plomberie · Chauffage · Climatisation · VMC</small>
                 </span>
             </a>
 
@@ -105,7 +102,7 @@
 
             <div class="header-actions">
                 <a class="header-phone" href="tel:+33627997646">
-                    <span>Appeler</span>
+                    <span>Besoin d’un conseil ?</span>
                     <strong>06 27 99 76 46</strong>
                 </a>
                 <a class="button button--primary button--compact" href="{{ route('contact') }}">Demander un devis</a>
@@ -124,7 +121,7 @@
                     <img class="brand__mark" src="{{ asset('assets/img/rg/brand-mark.svg') }}" width="48" height="48" alt="">
                     <span class="brand__copy">
                         <strong>RG PLOMBERIE</strong>
-                        <small>L’exigence d’un travail propre</small>
+                        <small>Technique · Propre · Durable</small>
                     </span>
                 </a>
                 <p>Installation, rénovation, entretien et dépannage en plomberie, chauffage, climatisation et VMC.</p>
@@ -176,6 +173,6 @@
         </figure>
     </dialog>
 
-    <script src="{{ asset('assets/js/rg-premium.js') }}?v=1" defer></script>
+    <script src="{{ asset('assets/js/rg-premium.js') }}?v=2" defer></script>
 </body>
 </html>

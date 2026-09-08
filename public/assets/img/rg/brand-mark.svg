@@ -1,10 +1,10 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
   <title id="title">RG Plomberie</title>
   <desc id="desc">Monogramme géométrique RG</desc>
-  <rect width="64" height="64" rx="8" fill="#181816"/>
-  <path d="M14 47V16h15c7 0 11 4 11 10 0 5-3 8-8 9l10 12" fill="none" stroke="#f7f3ec" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
-  <path d="M18 31h11c4 0 6-2 6-5s-2-5-6-5H18" fill="none" stroke="#f7f3ec" stroke-width="5"/>
-  <path d="M50 25c-2-6-7-9-13-9" fill="none" stroke="#c84b38" stroke-width="5" stroke-linecap="square"/>
-  <path d="M51 36v11h-9" fill="none" stroke="#c84b38" stroke-width="5" stroke-linecap="square"/>
-  <path d="M9 54h46" stroke="#c84b38" stroke-width="3"/>
+  <rect width="64" height="64" rx="6" fill="#0b1821"/>
+  <path d="M13 47V16h15c7 0 11 4 11 10 0 5-3 8-8 9l10 12" fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="square" stroke-linejoin="miter"/>
+  <path d="M17 31h11c4 0 6-2 6-5s-2-5-6-5H17" fill="none" stroke="#ffffff" stroke-width="5"/>
+  <path d="M49 25c-2-6-7-9-13-9" fill="none" stroke="#38acd5" stroke-width="5" stroke-linecap="square"/>
+  <path d="M51 36v11h-9" fill="none" stroke="#38acd5" stroke-width="5" stroke-linecap="square"/>
+  <path d="M8 55h47" stroke="#38acd5" stroke-width="3"/>
 </svg>

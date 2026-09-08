@@ -5,109 +5,154 @@
 
 @section('content')
     <section class="home-hero">
+        <img
+            class="home-hero__background"
+            src="{{ asset('assets/img/rg/web/hero-team.webp') }}"
+            width="847"
+            height="486"
+            alt="Techniciens intervenant sur une installation de plomberie et de chauffage"
+            fetchpriority="high"
+        >
+        <span class="home-hero__wash" aria-hidden="true"></span>
+
         <div class="container home-hero__grid">
             <div class="home-hero__copy" data-reveal>
-                <p class="eyebrow">Plombier · Chauffagiste · Climatisation · VMC</p>
-                <h1>Le confort technique,<br>réalisé proprement.</h1>
+                <div class="hero-status">
+                    <span><i aria-hidden="true"></i> Artisan plombier-chauffagiste depuis 2017</span>
+                    <span>Janneyrias · Rhône · Est lyonnais</span>
+                </div>
+
+                <p class="eyebrow eyebrow--light">Plomberie · Chauffage · Climatisation · VMC</p>
+                <h1>
+                    <span>Votre confort.</span>
+                    <span class="home-hero__accent">Notre savoir-faire.</span>
+                    <span>Un travail propre.</span>
+                </h1>
                 <p class="lead">
-                    RG Plomberie accompagne particuliers et professionnels à Lyon, dans le Rhône
-                    et l’Est lyonnais, de la recherche de panne à l’installation complète.
+                    Installation, rénovation, entretien ou dépannage : RG Plomberie apporte
+                    une réponse claire et adaptée aux particuliers comme aux professionnels.
                 </p>
                 <div class="button-row">
                     <a class="button button--primary" href="{{ route('contact') }}">
-                        Décrire mon projet <span aria-hidden="true">↗</span>
+                        Parler de mon projet <span aria-hidden="true">↗</span>
                     </a>
-                    <a class="button button--outline" href="tel:+33627997646">
+                    <a class="button button--outline-light" href="tel:+33627997646">
                         06 27 99 76 46
                     </a>
                 </div>
-                <ul class="hero-checks" aria-label="Engagements">
-                    <li>Échange clair avant intervention</li>
-                    <li>Solutions adaptées à l’existant</li>
-                    <li>Finitions propres et lisibles</li>
-                </ul>
             </div>
 
-            <div class="home-hero__media" data-reveal>
-                <img
-                    src="{{ asset('assets/img/rg/web/hero-team.webp') }}"
-                    width="847"
-                    height="486"
-                    alt="Techniciens intervenant sur une installation de plomberie et de chauffage"
-                    fetchpriority="high"
-                >
-                <div class="hero-callout">
-                    <span>Une urgence ?</span>
-                    <strong>Appelez pour vérifier la disponibilité</strong>
-                    <a href="tel:+33627997646">Appeler maintenant <span aria-hidden="true">→</span></a>
-                </div>
-                <p class="image-index" aria-hidden="true">RG / 69</p>
-            </div>
+            <aside class="hero-expertise" aria-label="Expertises RG Plomberie" data-reveal>
+                <p>Nos interventions</p>
+                <a href="{{ route('prestations.plomberie') }}">
+                    <span>01</span>
+                    <div><strong>Plomberie</strong><small>Réseaux, sanitaires, eau chaude</small></div>
+                    <i aria-hidden="true">↗</i>
+                </a>
+                <a href="{{ route('prestations.chauffage') }}">
+                    <span>02</span>
+                    <div><strong>Chauffage</strong><small>Installation, entretien, panne</small></div>
+                    <i aria-hidden="true">↗</i>
+                </a>
+                <a href="{{ route('prestations.climatisation') }}">
+                    <span>03</span>
+                    <div><strong>Climatisation</strong><small>Pose, mise en service, maintenance</small></div>
+                    <i aria-hidden="true">↗</i>
+                </a>
+                <a href="{{ route('prestations.vmc') }}">
+                    <span>04</span>
+                    <div><strong>Ventilation</strong><small>VMC et renouvellement de l’air</small></div>
+                    <i aria-hidden="true">↗</i>
+                </a>
+            </aside>
         </div>
+
+        <a class="hero-scroll" href="#expertises">
+            <span aria-hidden="true"></span> Découvrir RG Plomberie
+        </a>
     </section>
 
     <section class="proof-strip" aria-label="Repères sur l’entreprise">
         <div class="container proof-strip__grid">
             <article>
-                <strong>2017</strong>
-                <span>Année de création</span>
+                <strong>Depuis 2017</strong>
+                <span>Une entreprise installée localement</span>
             </article>
             <article>
-                <strong>4</strong>
-                <span>Expertises techniques</span>
+                <strong>4 expertises</strong>
+                <span>Un interlocuteur pour votre confort</span>
             </article>
             <article>
-                <strong>Local</strong>
-                <span>Rhône & Est lyonnais</span>
+                <strong>Zone locale</strong>
+                <span>Rhône, Métropole et Est lyonnais</span>
             </article>
             <article>
-                <strong>Direct</strong>
-                <span>Un numéro pour échanger</span>
+                <strong>Échange direct</strong>
+                <span>Un numéro pour cadrer le besoin</span>
             </article>
         </div>
     </section>
 
-    <section class="section" id="prestations">
+    <section class="section services-section" id="expertises">
         <div class="container">
             <header class="section-heading section-heading--split" data-reveal>
                 <div>
                     <p class="eyebrow">Nos métiers</p>
-                    <h2>Quatre expertises.<br>Une seule exigence.</h2>
+                    <h2>Une réponse claire,<br>quel que soit le besoin.</h2>
                 </div>
                 <p>
-                    Réparer ce qui doit l’être, remplacer lorsque c’est nécessaire
-                    et concevoir une installation claire, durable et simple à entretenir.
+                    Réparer ce qui doit l’être, remplacer lorsque c’est nécessaire et concevoir
+                    des installations fiables, lisibles et simples à entretenir.
                 </p>
             </header>
 
             <div class="service-grid">
                 <a class="service-card" href="{{ route('prestations.plomberie') }}" data-reveal>
+                    <span class="service-card__media">
+                        <img src="{{ asset('assets/img/rg/web/bathroom-4.webp') }}" width="1168" height="784" alt="Équipements sanitaires dans une salle de bains" loading="lazy">
+                    </span>
+                    <span class="service-card__shade" aria-hidden="true"></span>
                     <span class="service-card__number">01</span>
-                    <div>
+                    <div class="service-card__content">
                         <h3>Plomberie</h3>
-                        <p>Fuites, sanitaires, robinetterie, chauffe-eau et réseaux.</p>
+                        <p>Fuites, réseaux, chauffe-eau, robinetterie et sanitaires.</p>
                     </div>
                     <span class="service-card__arrow" aria-hidden="true">↗</span>
                 </a>
+
                 <a class="service-card" href="{{ route('prestations.chauffage') }}" data-reveal>
+                    <span class="service-card__media">
+                        <img src="{{ asset('assets/img/rg/web/heating-technician.webp') }}" width="1168" height="784" alt="Technicien intervenant sur un équipement de chauffage" loading="lazy">
+                    </span>
+                    <span class="service-card__shade" aria-hidden="true"></span>
                     <span class="service-card__number">02</span>
-                    <div>
+                    <div class="service-card__content">
                         <h3>Chauffage</h3>
                         <p>Installation, remplacement, entretien et recherche de panne.</p>
                     </div>
                     <span class="service-card__arrow" aria-hidden="true">↗</span>
                 </a>
+
                 <a class="service-card" href="{{ route('prestations.climatisation') }}" data-reveal>
+                    <span class="service-card__media">
+                        <img src="{{ asset('assets/img/rg/web/air-conditioning.webp') }}" width="1168" height="784" alt="Intervention sur une unité extérieure de climatisation" loading="lazy">
+                    </span>
+                    <span class="service-card__shade" aria-hidden="true"></span>
                     <span class="service-card__number">03</span>
-                    <div>
+                    <div class="service-card__content">
                         <h3>Climatisation</h3>
                         <p>Pose, mise en service, nettoyage et maintenance.</p>
                     </div>
                     <span class="service-card__arrow" aria-hidden="true">↗</span>
                 </a>
+
                 <a class="service-card" href="{{ route('prestations.vmc') }}" data-reveal>
+                    <span class="service-card__media">
+                        <img src="{{ asset('assets/img/rg/web/ventilation.webp') }}" width="1168" height="784" alt="Installation technique de ventilation dans un bâtiment" loading="lazy">
+                    </span>
+                    <span class="service-card__shade" aria-hidden="true"></span>
                     <span class="service-card__number">04</span>
-                    <div>
+                    <div class="service-card__content">
                         <h3>Ventilation</h3>
                         <p>VMC, renouvellement de l’air et traitement de l’humidité.</p>
                     </div>
@@ -117,22 +162,22 @@
         </div>
     </section>
 
-    <section class="section section--ink">
+    <section class="section section--ink comparison-section">
         <div class="container comparison-layout">
             <div class="comparison-copy" data-reveal>
-                <p class="eyebrow eyebrow--light">Interaction signature</p>
-                <h2>Avant. Après.<br>La différence se mesure.</h2>
+                <p class="eyebrow eyebrow--light">Avant / Après</p>
+                <h2>Un résultat visible,<br>pas un effet d’annonce.</h2>
                 <p>
-                    Faites glisser le curseur ou utilisez les boutons pour comparer l’état initial
-                    et une projection de rénovation pensée au même endroit.
+                    Faites glisser le séparateur pour comparer l’état initial et une proposition
+                    de rénovation pensée dans le même espace.
                 </p>
                 <div class="comparison-controls" data-compare-controls>
-                    <button type="button" data-compare-set="0">Voir l’avant</button>
-                    <button type="button" data-compare-set="100">Voir l’après</button>
+                    <button type="button" data-compare-set="0">Afficher l’avant</button>
+                    <button type="button" data-compare-set="100">Afficher l’après</button>
                 </div>
                 <p class="media-note">
-                    Projection visuelle de rénovation. Elle sera remplacée par un duo de photos
-                    prises sur un même chantier RG Plomberie dès qu’il sera disponible.
+                    Démonstration visuelle de la fonctionnalité. Ce duo sera remplacé par deux
+                    photographies prises au même angle sur un chantier RG Plomberie.
                 </p>
             </div>
 
@@ -168,18 +213,19 @@
                         aria-label="Comparer la salle de bain avant et après rénovation"
                     >
                 </div>
+                <p class="comparison-frame__hint"><span aria-hidden="true">↔</span> Faites glisser pour comparer</p>
             </div>
         </div>
     </section>
 
-    <section class="section">
+    <section class="section projects-section">
         <div class="container">
             <header class="section-heading" data-reveal>
                 <p class="eyebrow">Types d’intervention</p>
-                <h2>Du technique au visible.</h2>
+                <h2>Le technique se voit<br>dans les finitions.</h2>
                 <p>
-                    Une sélection visuelle des univers sur lesquels l’entreprise intervient :
-                    salle de bains, production d’eau chaude, chauffage, climatisation et ventilation.
+                    Salle de bains, production d’eau chaude, chauffage, climatisation ou
+                    ventilation : chaque intervention est pensée pour durer et rester lisible.
                 </p>
             </header>
 
@@ -204,21 +250,21 @@
         </div>
     </section>
 
-    <section class="section section--sand">
+    <section class="section section--sand method-section">
         <div class="container method-layout">
             <div class="method-intro" data-reveal>
-                <p class="eyebrow">Méthode</p>
+                <p class="eyebrow">Notre méthode</p>
                 <h2>Un chantier cadré, du premier échange aux finitions.</h2>
                 <p>Une bonne intervention commence par les bonnes questions et se termine par un résultat compréhensible.</p>
             </div>
             <ol class="method-list">
                 <li data-reveal>
                     <span>01</span>
-                    <div><h3>Comprendre</h3><p>Besoin, urgence, équipement, ville et contraintes sont précisés.</p></div>
+                    <div><h3>Comprendre</h3><p>Le besoin, l’équipement, la ville et les contraintes sont précisés.</p></div>
                 </li>
                 <li data-reveal>
                     <span>02</span>
-                    <div><h3>Diagnostiquer</h3><p>La situation est analysée avant de proposer la solution adaptée.</p></div>
+                    <div><h3>Diagnostiquer</h3><p>La situation est analysée avant de proposer une solution adaptée.</p></div>
                 </li>
                 <li data-reveal>
                     <span>03</span>
@@ -235,15 +281,15 @@
     <section class="section review-prompt">
         <div class="container review-prompt__grid" data-reveal>
             <div>
-                <p class="eyebrow">Réputation</p>
-                <h2>Des avis à consulter à la source.</h2>
+                <p class="eyebrow">Avis publics</p>
+                <h2>La confiance se vérifie à la source.</h2>
             </div>
             <div>
                 <p>
-                    Plutôt que d’afficher des témoignages anonymes, le site vous dirige vers
-                    la fiche publique de l’entreprise pour consulter les retours disponibles.
+                    Les retours affichés sur une fiche publique sont plus utiles que des
+                    témoignages anonymes recopiés sur un site.
                 </p>
-                <a class="button button--outline" href="https://www.google.com/maps/search/?api=1&query=RG+PLOMBERIE+06+27+99+76+46" rel="noopener noreferrer" target="_blank">
+                <a class="button button--outline" href="https://www.google.com/maps/search/?api=1&amp;query=RG+PLOMBERIE+06+27+99+76+46" rel="noopener noreferrer" target="_blank">
                     Consulter les avis publics <span aria-hidden="true">↗</span>
                 </a>
             </div>
@@ -254,11 +300,11 @@
         <div class="container cta-panel" data-reveal>
             <div>
                 <p class="eyebrow eyebrow--light">Votre projet</p>
-                <h2>Parlons de votre installation.</h2>
-                <p>Indiquez votre ville, le besoin et, si possible, préparez quelques photos.</p>
+                <h2>Un besoin précis ?<br>Parlons-en simplement.</h2>
+                <p>Indiquez votre ville, le type d’intervention et, si possible, préparez quelques photos.</p>
             </div>
             <div class="cta-panel__actions">
-                <a class="button button--light" href="{{ route('contact') }}">Demander un devis</a>
+                <a class="button button--light" href="{{ route('contact') }}">Décrire mon projet</a>
                 <a class="cta-phone" href="tel:+33627997646">06 27 99 76 46</a>
             </div>
         </div>

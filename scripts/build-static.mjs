@@ -208,6 +208,7 @@ function buildSitemap() {
 function copyAssets() {
     const files = [
         "assets/css/rg-premium.css",
+        "assets/css/rg-direction.css",
         "assets/js/rg-premium.js",
         "assets/img/rg/brand-mark.svg",
         "favicon.svg",
@@ -232,8 +233,8 @@ function copyAssets() {
         start_url: basePath,
         scope: basePath,
         display: "standalone",
-        background_color: "#f4f0e8",
-        theme_color: "#181816",
+        background_color: "#f2f5f5",
+        theme_color: "#08131b",
         icons: [
             {
                 src: basePath + "apple-touch-icon.png",
