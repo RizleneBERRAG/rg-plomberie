@@ -5,13 +5,22 @@
 
 @section('content')
     <section class="home-hero">
-        <div class="container home-hero__grid">
+        <div class="home-hero__background" aria-hidden="true">
+            <img src="{{ asset('assets/img/rg/web/hero-team.webp') }}" width="847" height="486" alt="">
+        </div>
+        <div class="home-hero__overlay" aria-hidden="true"></div>
+
+        <div class="container home-hero__stage">
             <div class="home-hero__copy" data-reveal>
-                <p class="eyebrow">Plombier · Chauffagiste · Climatisation · VMC</p>
-                <h1>Le confort technique,<br>réalisé proprement.</h1>
+                <div class="home-hero__eyebrow">
+                    <span></span>
+                    <p>Plombier-chauffagiste</p>
+                    <small>Janneyrias · Est lyonnais</small>
+                </div>
+                <h1>Des installations fiables,<em>un travail soigné.</em></h1>
                 <p class="lead">
-                    RG Plomberie accompagne particuliers et professionnels à Lyon, dans le Rhône
-                    et l’Est lyonnais, de la recherche de panne à l’installation complète.
+                    Installation, rénovation, entretien ou dépannage : RG Plomberie accompagne
+                    particuliers et professionnels avec un travail précis, propre et durable.
                 </p>
                 <div class="button-row">
                     <a class="button button--primary" href="{{ route('contact') }}">
@@ -21,27 +30,11 @@
                         06 27 99 76 46
                     </a>
                 </div>
-                <ul class="hero-checks" aria-label="Engagements">
-                    <li>Échange clair avant intervention</li>
-                    <li>Solutions adaptées à l’existant</li>
-                    <li>Finitions propres et lisibles</li>
-                </ul>
             </div>
 
-            <div class="home-hero__media" data-reveal>
-                <img
-                    src="{{ asset('assets/img/rg/web/hero-team.webp') }}"
-                    width="847"
-                    height="486"
-                    alt="Techniciens intervenant sur une installation de plomberie et de chauffage"
-                    fetchpriority="high"
-                >
-                <div class="hero-callout">
-                    <span>Une urgence ?</span>
-                    <strong>Appelez pour vérifier la disponibilité</strong>
-                    <a href="tel:+33627997646">Appeler maintenant <span aria-hidden="true">→</span></a>
-                </div>
-                <p class="image-index" aria-hidden="true">RG / 69</p>
+            <div class="home-hero__signature" data-reveal>
+                <span>Depuis 2017</span>
+                <strong>Plomberie · Chauffage<br>Climatisation · VMC</strong>
             </div>
         </div>
     </section>
@@ -131,8 +124,7 @@
                     <button type="button" data-compare-set="100">Voir l’après</button>
                 </div>
                 <p class="media-note">
-                    Projection visuelle de rénovation. Elle sera remplacée par un duo de photos
-                    prises sur un même chantier RG Plomberie dès qu’il sera disponible.
+                    Simulation d’aménagement permettant de visualiser le potentiel d’une rénovation complète.
                 </p>
             </div>
 

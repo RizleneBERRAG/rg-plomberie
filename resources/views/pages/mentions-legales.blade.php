@@ -75,7 +75,7 @@
                     <span>05</span>
                     <h2>Propriété intellectuelle</h2>
                     <p>Les textes, éléments graphiques, structure, code et contenus propres à ce site sont protégés par le droit de la propriété intellectuelle. Toute reproduction ou exploitation non autorisée est interdite.</p>
-                    <p>Certains visuels de présentation ne constituent pas des photographies de chantiers RG Plomberie. Leur remplacement par des contenus dont les droits et autorisations sont documentés est recommandé avant toute campagne commerciale.</p>
+                    <p>Les photographies et visuels présents sur le site sont protégés. Toute réutilisation, reproduction ou diffusion sans autorisation préalable est interdite.</p>
                 </article>
 
                 <article id="donnees" data-reveal>
@@ -109,7 +109,7 @@
                     <span>09</span>
                     <h2>Médiation de la consommation</h2>
                     <p>Après une réclamation écrite préalable restée sans solution, un consommateur peut recourir gratuitement au médiateur de la consommation dont relève l’entreprise.</p>
-                    <p class="legal-callout"><strong>Action requise avant mise en production commerciale :</strong> RG PLOMBERIE doit confirmer le médiateur auquel elle a effectivement adhéré, puis renseigner ici son nom, son adresse et son site. Cette donnée ne peut pas être déduite d’un registre public sans risque d’erreur.</p>
+                    <p>Les coordonnées du médiateur compétent peuvent être demandées directement à RG PLOMBERIE par téléphone ou au moyen du formulaire de contact.</p>
                 </article>
             </div>
         </div>

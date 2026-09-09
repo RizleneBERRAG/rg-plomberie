@@ -13,8 +13,8 @@
                 <p class="eyebrow">Réalisations</p>
                 <h1>Le travail se juge<br>dans les détails.</h1>
                 <p class="lead">
-                    Une galerie pensée pour montrer les typologies d’ouvrages, les finitions
-                    et, demain, chaque transformation réelle sous le même angle.
+                    Découvrez les savoir-faire mobilisés pour vos installations, vos rénovations
+                    et l’amélioration durable de votre confort.
                 </p>
                 <a class="button button--primary" href="{{ route('contact') }}">Parler de mon projet</a>
             </div>
@@ -35,7 +35,7 @@
                     <button type="button" data-compare-set="0">Avant</button>
                     <button type="button" data-compare-set="100">Après</button>
                 </div>
-                <p class="media-note">Le visuel « après » est une projection. Le module est prêt à recevoir un vrai duo de photos chantier prises au même cadrage.</p>
+                <p class="media-note">Simulation d’aménagement présentée pour illustrer le potentiel d’une rénovation complète.</p>
             </div>
             <div class="comparison-frame" data-reveal>
                 <div class="compare" data-compare style="--position: 50%;">
@@ -57,21 +57,21 @@
             <header class="section-heading section-heading--split" data-reveal>
                 <div><p class="eyebrow">Galerie</p><h2>Des univers d’intervention variés.</h2></div>
                 <div>
-                    <p>Cette première galerie utilise des visuels de présentation. Elle doit être enrichie progressivement avec les photos datées et autorisées des chantiers RG Plomberie.</p>
+                    <p>Salle de bains, chauffage, climatisation et ventilation : explorez les différents univers d’intervention de RG Plomberie.</p>
                     <p class="source-note">Cliquez sur une image pour l’afficher en grand.</p>
                 </div>
             </header>
 
             <div class="gallery-grid">
-                <button type="button" class="gallery-item gallery-item--large" data-lightbox-trigger data-caption="Salle de bains — visuel de présentation" data-reveal>
+                <button type="button" class="gallery-item gallery-item--large" data-lightbox-trigger data-caption="Salle de bains — sanitaire" data-reveal>
                     <img src="{{ asset('assets/img/rg/web/bathroom-2.webp') }}" width="1600" height="897" alt="Salle de bains lumineuse avec baignoire et douche" loading="lazy">
                     <span>Salle de bains <small>Sanitaire</small></span>
                 </button>
-                <button type="button" class="gallery-item" data-lightbox-trigger data-caption="Douche et baignoire — visuel de présentation" data-reveal>
+                <button type="button" class="gallery-item" data-lightbox-trigger data-caption="Douche et baignoire — rénovation" data-reveal>
                     <img src="{{ asset('assets/img/rg/web/bathroom-3.webp') }}" width="1600" height="1068" alt="Salle de bains avec douche vitrée et baignoire" loading="lazy">
                     <span>Pièce d’eau <small>Rénovation</small></span>
                 </button>
-                <button type="button" class="gallery-item" data-lightbox-trigger data-caption="Meuble vasque — visuel de présentation" data-reveal>
+                <button type="button" class="gallery-item" data-lightbox-trigger data-caption="Meuble vasque — plomberie" data-reveal>
                     <img src="{{ asset('assets/img/rg/web/bathroom-4.webp') }}" width="1600" height="1068" alt="Salle de bains avec meuble vasque et baignoire" loading="lazy">
                     <span>Équipements <small>Plomberie</small></span>
                 </button>
@@ -97,10 +97,10 @@
 
     <section class="section section--sand">
         <div class="container editorial-split">
-            <div data-reveal><p class="eyebrow">Conseil photo</p><h2>Construire une preuve chantier vraiment crédible.</h2></div>
+            <div data-reveal><p class="eyebrow">Exigence</p><h2>Des installations pensées jusque dans les détails.</h2></div>
             <div class="prose" data-reveal>
-                <p>Pour chaque intervention importante : une photo avant, une photo pendant et une photo après, prises au même endroit, avec le même cadrage et la même orientation.</p>
-                <p>Ajouter ensuite le type de travaux, la commune, le contexte et l’autorisation du client. Le comparateur est déjà prêt pour ces futurs contenus.</p>
+                <p>Chaque projet commence par l’analyse de l’existant, des usages et des contraintes techniques du bâtiment.</p>
+                <p>Le choix des équipements, l’organisation des réseaux et la qualité des finitions forment un ensemble cohérent, durable et facile à entretenir.</p>
             </div>
         </div>
     </section>

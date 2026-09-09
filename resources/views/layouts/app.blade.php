@@ -37,7 +37,7 @@
             'url' => url('/'),
             'telephone' => '+33627997646',
             'image' => asset('assets/img/rg/web/hero-team.webp'),
-            'logo' => asset('assets/img/rg/brand-mark.svg'),
+            'logo' => asset('assets/img/rg/logo-official.webp'),
             'description' => 'Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.',
             'foundingDate' => '2017',
             'priceRange' => '€€',
@@ -72,17 +72,10 @@
 <body>
     <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-    <div class="utility-bar">
-        <div class="container utility-bar__inner">
-            <p><span class="status-dot" aria-hidden="true"></span> Artisan plombier-chauffagiste depuis 2017</p>
-            <p class="utility-bar__zone">Rhône · Métropole de Lyon · Est lyonnais</p>
-        </div>
-    </div>
-
     <header class="site-header" data-header>
         <div class="container site-header__inner">
             <a class="brand" href="{{ route('home') }}" aria-label="RG Plomberie — Accueil">
-                <img class="brand__mark" src="{{ asset('assets/img/rg/brand-mark.svg') }}" width="48" height="48" alt="">
+                <span class="brand__monogram" aria-hidden="true">RG</span>
                 <span class="brand__copy">
                     <strong>RG PLOMBERIE</strong>
                     <small>Plomberie · Chauffage · Climatisation</small>
@@ -121,7 +114,7 @@
         <div class="container footer-grid">
             <div class="footer-intro">
                 <a class="brand brand--footer" href="{{ route('home') }}">
-                    <img class="brand__mark" src="{{ asset('assets/img/rg/brand-mark.svg') }}" width="48" height="48" alt="">
+                    <span class="brand__monogram brand__monogram--footer" aria-hidden="true">RG</span>
                     <span class="brand__copy">
                         <strong>RG PLOMBERIE</strong>
                         <small>L’exigence d’un travail propre</small>
