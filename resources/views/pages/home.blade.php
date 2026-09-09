@@ -17,7 +17,7 @@
                     <p>Plombier-chauffagiste</p>
                     <small>Janneyrias · Est lyonnais</small>
                 </div>
-                <h1>Votre confort.<em>Notre métier.</em></h1>
+                <h1>Des installations fiables,<em>un travail soigné.</em></h1>
                 <p class="lead">
                     Installation, rénovation, entretien ou dépannage : RG Plomberie accompagne
                     particuliers et professionnels avec un travail précis, propre et durable.
@@ -32,17 +32,10 @@
                 </div>
             </div>
 
-            <aside class="home-hero__aside" data-reveal>
-                <div class="home-hero__aside-head">
-                    <span class="brand__monogram brand__monogram--large" aria-hidden="true">RG</span>
-                    <div>
-                        <span>Entreprise locale</span>
-                        <strong>Depuis 2017</strong>
-                    </div>
-                </div>
-                <p>Un interlocuteur direct pour vos installations, rénovations et dépannages.</p>
-                <a href="{{ route('entreprise') }}">Découvrir l’entreprise <span aria-hidden="true">↗</span></a>
-            </aside>
+            <div class="home-hero__signature" data-reveal>
+                <span>Depuis 2017</span>
+                <strong>Plomberie · Chauffage<br>Climatisation · VMC</strong>
+            </div>
         </div>
     </section>
 
