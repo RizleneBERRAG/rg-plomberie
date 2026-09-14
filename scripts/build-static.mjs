@@ -9,7 +9,7 @@ const publicDirectory = path.join(root, "public");
 const viewsDirectory = path.join(root, "resources", "views");
 const basePath = "/rg-plomberie/";
 const siteUrl = "https://rizleneberrag.github.io/rg-plomberie/";
-const lastModified = "2026-08-28";
+const lastModified = "2026-09-14";
 
 const routePaths = {
     home: "",
@@ -132,7 +132,7 @@ function staticSchema() {
         legalName: "RG PLOMBERIE",
         url: siteUrl,
         telephone: "+33627997646",
-        image: siteUrl + "assets/img/rg/web/hero-team.webp",
+        image: siteUrl + "assets/img/rg/web/transformations/heating-after.webp",
         logo: siteUrl + "assets/img/rg/logo-official.webp",
         description: "Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.",
         foundingDate: "2017",
@@ -168,8 +168,8 @@ function renderLayout(layoutBlade, metadata, canonical, content) {
 
     html = resolveHelpers(html);
     html = html.replace(
-        'content="' + basePath + 'assets/img/rg/web/hero-team.webp"',
-        'content="' + siteUrl + 'assets/img/rg/web/hero-team.webp"'
+        'content="' + basePath + 'assets/img/rg/web/transformations/heating-after.webp"',
+        'content="' + siteUrl + 'assets/img/rg/web/transformations/heating-after.webp"'
     );
 
     if (/(@extends|@section|@endsection|@if|@foreach|\{\{|\{!!)/.test(html)) {

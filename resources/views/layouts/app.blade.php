@@ -20,8 +20,8 @@
     <meta property="og:title" content="{{ $title ?? 'RG Plomberie — Plombier chauffagiste dans le Rhône' }}">
     <meta property="og:description" content="{{ $description ?? 'Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.' }}">
     <meta property="og:url" content="{{ url()->current() }}">
-    <meta property="og:image" content="{{ asset('assets/img/rg/web/hero-team.webp') }}">
-    <meta property="og:image:alt" content="Intervention technique en plomberie et chauffage">
+    <meta property="og:image" content="{{ asset('assets/img/rg/web/transformations/heating-after.webp') }}">
+    <meta property="og:image:alt" content="Installation de chauffage moderne et réseaux remis au propre">
     <meta name="twitter:card" content="summary_large_image">
 
     <script>document.documentElement.classList.add('js');</script>
@@ -36,7 +36,7 @@
             'legalName' => 'RG PLOMBERIE',
             'url' => url('/'),
             'telephone' => '+33627997646',
-            'image' => asset('assets/img/rg/web/hero-team.webp'),
+            'image' => asset('assets/img/rg/web/transformations/heating-after.webp'),
             'logo' => asset('assets/img/rg/logo-official.webp'),
             'description' => 'Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.',
             'foundingDate' => '2017',

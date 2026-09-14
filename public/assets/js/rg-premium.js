@@ -144,9 +144,9 @@
             setPosition(range.value);
         });
 
-        var section = compare.closest("section");
-        if (section) {
-            section.querySelectorAll("[data-compare-set]").forEach(function (button) {
+        var controlsScope = compare.closest("[data-compare-scope]") || compare.closest("section");
+        if (controlsScope) {
+            controlsScope.querySelectorAll("[data-compare-set]").forEach(function (button) {
                 button.addEventListener("click", function () {
                     animatePosition(Number(button.getAttribute("data-compare-set")));
                     range.focus({ preventScroll: true });
