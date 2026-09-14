@@ -4,8 +4,46 @@
 ])
 
 @section('content')
-    <section class="home-hero home-hero--transformation">
-        <div class="home-hero__glow" aria-hidden="true"></div>
+    <section class="home-hero">
+        <div class="home-hero__background" data-compare-scope>
+            <div class="compare compare--hero-background" data-compare style="--position: 54%;">
+                <img
+                    class="compare__base"
+                    src="{{ asset('assets/img/rg/web/transformations/heating-before.webp') }}"
+                    width="1586"
+                    height="992"
+                    alt="Local technique avec une installation de chauffage vieillissante avant rénovation"
+                    fetchpriority="high"
+                >
+                <div class="compare__after" data-compare-after>
+                    <img
+                        src="{{ asset('assets/img/rg/web/transformations/heating-after.webp') }}"
+                        width="1586"
+                        height="992"
+                        alt="Projection du même local après rénovation de l’installation de chauffage"
+                        fetchpriority="high"
+                    >
+                </div>
+                <span class="compare__label compare__label--before">Avant</span>
+                <span class="compare__label compare__label--after">Après</span>
+                <span class="compare__line" aria-hidden="true"><i></i></span>
+                <input
+                    class="compare__range"
+                    data-compare-range
+                    type="range"
+                    min="0"
+                    max="100"
+                    value="54"
+                    aria-label="Comparer l’installation de chauffage avant et après rénovation"
+                >
+            </div>
+            <div class="hero-background__controls" aria-label="Choisir la vue">
+                <button type="button" data-compare-set="0">Avant</button>
+                <button type="button" data-compare-set="100">Après</button>
+            </div>
+        </div>
+        <div class="home-hero__overlay" aria-hidden="true"></div>
+
         <div class="container home-hero__stage">
             <div class="home-hero__copy" data-reveal>
                 <div class="home-hero__eyebrow">
@@ -13,10 +51,10 @@
                     <p>Plombier-chauffagiste</p>
                     <small>Janneyrias · Est lyonnais</small>
                 </div>
-                <h1>Le changement se voit.<em>La qualité se ressent.</em></h1>
+                <h1>Des installations fiables,<em>un travail soigné.</em></h1>
                 <p class="lead">
-                    RG Plomberie transforme vos installations avec une exécution précise,
-                    des réseaux nets et des finitions faites pour durer.
+                    Installation, rénovation, entretien ou dépannage : RG Plomberie accompagne
+                    particuliers et professionnels avec un travail précis, propre et durable.
                 </p>
                 <div class="button-row">
                     <a class="button button--primary" href="{{ route('contact') }}">
@@ -26,52 +64,11 @@
                         06 27 99 76 46
                     </a>
                 </div>
-                <p class="home-hero__trust"><span aria-hidden="true">✓</span> Installation · Rénovation · Dépannage</p>
             </div>
 
-            <div class="home-hero__visual" data-reveal data-compare-scope>
-                <div class="home-hero__visual-topline">
-                    <span>Transformation 01</span>
-                    <strong>Chauffage & réseaux</strong>
-                </div>
-                <div class="compare compare--hero" data-compare style="--position: 57%;">
-                    <img
-                        class="compare__base"
-                        src="{{ asset('assets/img/rg/web/transformations/heating-before.webp') }}"
-                        width="1586"
-                        height="992"
-                        alt="Local technique avec une installation de chauffage vieillissante avant rénovation"
-                        fetchpriority="high"
-                    >
-                    <div class="compare__after" data-compare-after>
-                        <img
-                            src="{{ asset('assets/img/rg/web/transformations/heating-after.webp') }}"
-                            width="1586"
-                            height="992"
-                            alt="Projection du même local après rénovation de l’installation de chauffage"
-                            fetchpriority="high"
-                        >
-                    </div>
-                    <span class="compare__label compare__label--before">Avant</span>
-                    <span class="compare__label compare__label--after">Après</span>
-                    <span class="compare__line" aria-hidden="true"><i></i></span>
-                    <input
-                        class="compare__range"
-                        data-compare-range
-                        type="range"
-                        min="0"
-                        max="100"
-                        value="57"
-                        aria-label="Comparer l’installation de chauffage avant et après rénovation"
-                    >
-                </div>
-                <div class="home-hero__visual-footer">
-                    <p><span aria-hidden="true">↔</span> Faites glisser pour comparer</p>
-                    <div class="hero-compare-controls">
-                        <button type="button" data-compare-set="0">Avant</button>
-                        <button type="button" data-compare-set="100">Après</button>
-                    </div>
-                </div>
+            <div class="home-hero__signature" data-reveal>
+                <span>Depuis 2017</span>
+                <strong>Plomberie · Chauffage<br>Climatisation · VMC</strong>
             </div>
         </div>
     </section>
