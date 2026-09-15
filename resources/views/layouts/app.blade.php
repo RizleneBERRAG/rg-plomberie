@@ -25,7 +25,7 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="{{ asset('assets/css/rg-premium.css') }}?v=1">
+    <link rel="stylesheet" href="{{ asset('assets/css/rg-premium.css') }}?v=20260915-typography">
 
     @php
         $businessSchema = [
@@ -169,6 +169,6 @@
         </figure>
     </dialog>
 
-    <script src="{{ asset('assets/js/rg-premium.js') }}?v=1" defer></script>
+    <script src="{{ asset('assets/js/rg-premium.js') }}?v=20260915-typography" defer></script>
 </body>
 </html>
