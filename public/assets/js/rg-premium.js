@@ -99,6 +99,7 @@
     document.querySelectorAll("[data-compare]").forEach(function (compare) {
         var range = compare.querySelector("[data-compare-range]");
         var animationFrame = null;
+        var activePointer = null;
 
         if (!range) {
             return;
@@ -136,6 +137,95 @@
 
             animationFrame = window.requestAnimationFrame(frame);
         }
+
+        function setPositionFromPointer(event) {
+            var bounds = compare.getBoundingClientRect();
+            if (!bounds.width) {
+                return;
+            }
+            setPosition(((event.clientX - bounds.left) / bounds.width) * 100);
+        }
+
+        function finishPointer(event) {
+            if (!activePointer || activePointer.id !== event.pointerId) {
+                return;
+            }
+
+            if (!activePointer.cancelled && !activePointer.moved) {
+                setPositionFromPointer(event);
+            }
+
+            compare.classList.remove("is-dragging");
+            activePointer = null;
+        }
+
+        function cancelPointer(event) {
+            if (!activePointer || activePointer.id !== event.pointerId) {
+                return;
+            }
+
+            compare.classList.remove("is-dragging");
+            activePointer = null;
+        }
+
+        compare.addEventListener("pointerdown", function (event) {
+            if (event.pointerType === "mouse" && event.button !== 0) {
+                return;
+            }
+
+            if (animationFrame) {
+                window.cancelAnimationFrame(animationFrame);
+            }
+
+            activePointer = {
+                id: event.pointerId,
+                startX: event.clientX,
+                startY: event.clientY,
+                moved: false,
+                cancelled: false
+            };
+
+            if (typeof compare.setPointerCapture === "function") {
+                try {
+                    compare.setPointerCapture(event.pointerId);
+                } catch (error) {
+                    // La capture peut être refusée par certains navigateurs tactiles.
+                }
+            }
+
+            compare.classList.add("is-dragging");
+
+            if (event.pointerType !== "touch") {
+                setPositionFromPointer(event);
+            }
+        });
+
+        compare.addEventListener("pointermove", function (event) {
+            if (!activePointer || activePointer.id !== event.pointerId || activePointer.cancelled) {
+                return;
+            }
+
+            var deltaX = event.clientX - activePointer.startX;
+            var deltaY = event.clientY - activePointer.startY;
+
+            if (event.pointerType === "touch" && !activePointer.moved) {
+                if (Math.abs(deltaY) > 7 && Math.abs(deltaY) > Math.abs(deltaX)) {
+                    activePointer.cancelled = true;
+                    compare.classList.remove("is-dragging");
+                    return;
+                }
+
+                if (Math.abs(deltaX) < 5) {
+                    return;
+                }
+            }
+
+            activePointer.moved = true;
+            setPositionFromPointer(event);
+        });
+
+        compare.addEventListener("pointerup", finishPointer);
+        compare.addEventListener("pointercancel", cancelPointer);
 
         range.addEventListener("input", function () {
             if (animationFrame) {
