@@ -11,8 +11,8 @@
                     <a href="{{ route('home') }}">Accueil</a><span aria-hidden="true">/</span><span>Contact</span>
                 </nav>
                 <p class="eyebrow">Contact</p>
-                <h1>Décrivez le besoin.<br>Nous cadrons la suite.</h1>
-                <p class="lead">Pour une urgence, appelez directement. Pour un projet, indiquez les informations essentielles dans le formulaire.</p>
+                <h1>Un besoin, un projet ?<br>Parlons-en.</h1>
+                <p class="lead">Pour une urgence, appelez directement. Pour un projet, laissez les informations essentielles dans le formulaire.</p>
             </div>
             <a class="contact-phone-card" href="tel:+33627997646" data-reveal>
                 <span>Contact direct</span>

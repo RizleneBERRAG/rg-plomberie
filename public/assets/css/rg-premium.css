@@ -2896,8 +2896,8 @@ p {
 
 .js [data-reveal] {
     opacity: 0;
-    transform: translateY(22px);
-    transition: opacity 650ms var(--ease), transform 650ms var(--ease);
+    transform: translateY(14px);
+    transition: opacity 460ms var(--ease), transform 460ms var(--ease);
 }
 
 .js [data-reveal].is-visible {
@@ -3930,51 +3930,151 @@ p {
 
 /* Échelle typographique plus sobre pour les titres éditoriaux */
 h1 {
-    font-size: clamp(3rem, 5.6vw, 5.2rem);
-    line-height: 0.96;
+    font-size: clamp(2.65rem, 4.2vw, 4.25rem);
+    line-height: 1;
 }
 
 h2 {
-    font-size: clamp(2rem, 3.6vw, 3.55rem);
-    line-height: 1.02;
+    font-size: clamp(1.85rem, 3vw, 2.9rem);
+    line-height: 1.05;
 }
 
 .home-hero h1 {
     max-width: 590px;
-    font-size: clamp(3.2rem, 4.15vw, 4.65rem);
+    font-size: clamp(3rem, 4.15vw, 4.4rem);
     line-height: 0.98;
 }
 
 .page-hero__copy h1,
 .service-hero__copy h1,
 .contact-hero h1 {
-    font-size: clamp(3.05rem, 4.8vw, 4.8rem);
-    line-height: 0.98;
+    font-size: clamp(2.65rem, 3.9vw, 3.75rem);
+    line-height: 1;
 }
 
 .emergency-hero h1 {
-    max-width: 820px;
-    font-size: clamp(3.2rem, 5.2vw, 5.15rem);
-    line-height: 0.98;
+    max-width: 660px;
+    font-size: clamp(2.8rem, 4.15vw, 4rem);
+    line-height: 1;
 }
 
 .service-detail-hero h1,
 .legal-hero h1 {
-    font-size: clamp(3.05rem, 4.8vw, 4.8rem);
-    line-height: 0.98;
+    font-size: clamp(2.65rem, 3.9vw, 3.75rem);
+    line-height: 1;
 }
 
 .transformation-card__footer {
     justify-content: flex-start;
 }
 
+/* Rythme plus compact et plus lisible sur les pages intérieures. */
+.section {
+    padding: clamp(64px, 7vw, 104px) 0;
+}
+
+.section-heading {
+    margin-bottom: clamp(36px, 4.6vw, 58px);
+}
+
+.page-hero,
+.service-hero,
+.contact-hero {
+    padding: clamp(48px, 5.5vw, 74px) 0;
+}
+
+.page-hero__grid,
+.service-hero__grid,
+.contact-hero__grid {
+    gap: clamp(36px, 5vw, 72px);
+}
+
+.page-hero__media {
+    aspect-ratio: 1.08 / 1;
+}
+
+.service-hero__media {
+    aspect-ratio: 1.14 / 1;
+}
+
+.breadcrumb {
+    margin-bottom: 30px;
+}
+
+.lead {
+    margin-bottom: 28px;
+    font-size: clamp(1rem, 1.35vw, 1.16rem);
+}
+
+.proof-strip article {
+    min-height: 124px;
+}
+
+.service-card {
+    min-height: 210px;
+}
+
+.value-grid article {
+    min-height: 230px;
+}
+
+.emergency-hero {
+    padding: clamp(56px, 6.6vw, 88px) 0;
+}
+
+.emergency-hero__grid {
+    gap: clamp(42px, 6vw, 84px);
+}
+
+.emergency-hero__panel {
+    padding: clamp(28px, 4vw, 42px);
+}
+
+.emergency-hero__panel li {
+    grid-template-columns: 34px 1fr;
+    gap: 12px;
+    padding: 15px 0;
+}
+
+.emergency-hero__panel li p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.72);
+}
+
+.emergency-hero__panel li strong {
+    margin-right: 4px;
+}
+
+.emergency-grid article {
+    min-height: 240px;
+    padding: 28px;
+}
+
+.contact-phone-card {
+    min-height: 260px;
+}
+
+.contact-phone-card strong {
+    font-size: clamp(1.8rem, 3.2vw, 2.75rem);
+    white-space: nowrap;
+}
+
+.cta-section {
+    padding-bottom: clamp(64px, 7vw, 104px);
+}
+
+.cta-panel {
+    min-height: 300px;
+    padding: clamp(38px, 5.5vw, 68px);
+}
+
 @media (max-width: 920px) {
     h1 {
-        font-size: clamp(2.8rem, 8vw, 4.35rem);
+        font-size: clamp(2.4rem, 6.3vw, 3.4rem);
     }
 
     h2 {
-        font-size: clamp(2rem, 6vw, 3.25rem);
+        font-size: clamp(1.8rem, 4.8vw, 2.6rem);
     }
 
     .home-hero h1,
@@ -3983,21 +4083,34 @@ h2 {
     .contact-hero h1,
     .service-detail-hero h1,
     .legal-hero h1 {
-        font-size: clamp(2.9rem, 8vw, 4.15rem);
+        font-size: clamp(2.5rem, 6.7vw, 3.5rem);
     }
 
     .emergency-hero h1 {
-        font-size: clamp(3rem, 8.4vw, 4.4rem);
+        font-size: clamp(2.55rem, 7vw, 3.55rem);
+    }
+
+    .page-hero,
+    .service-hero,
+    .contact-hero {
+        padding-block: 52px;
+    }
+
+    .page-hero__grid,
+    .service-hero__grid,
+    .contact-hero__grid,
+    .emergency-hero__grid {
+        gap: 38px;
     }
 }
 
 @media (max-width: 680px) {
     h1 {
-        font-size: clamp(2.55rem, 11vw, 3.4rem);
+        font-size: clamp(2.1rem, 8.5vw, 2.9rem);
     }
 
     h2 {
-        font-size: clamp(1.9rem, 8vw, 2.75rem);
+        font-size: clamp(1.7rem, 6.4vw, 2.35rem);
     }
 
     .home-hero h1,
@@ -4006,11 +4119,47 @@ h2 {
     .contact-hero h1,
     .service-detail-hero h1,
     .legal-hero h1 {
-        font-size: clamp(2.65rem, 11vw, 3.45rem);
+        font-size: clamp(2.2rem, 9vw, 2.85rem);
     }
 
     .emergency-hero h1 {
-        font-size: clamp(2.75rem, 11.5vw, 3.65rem);
+        font-size: clamp(2.25rem, 9.2vw, 2.9rem);
+    }
+
+    .section {
+        padding-block: 58px;
+    }
+
+    .page-hero,
+    .service-hero,
+    .contact-hero {
+        padding: 40px 0 56px;
+    }
+
+    .emergency-hero {
+        padding-block: 48px;
+    }
+
+    .breadcrumb {
+        margin-bottom: 24px;
+    }
+
+    .emergency-hero__panel {
+        padding: 24px 20px;
+    }
+
+    .emergency-hero__panel li {
+        grid-template-columns: 26px 1fr;
+        gap: 8px;
+        padding: 14px 0;
+    }
+
+    .emergency-hero__panel li strong {
+        grid-column: auto;
+    }
+
+    .contact-phone-card {
+        min-height: 210px;
     }
 }
 
@@ -4021,11 +4170,15 @@ h2 {
     .contact-hero h1,
     .service-detail-hero h1,
     .legal-hero h1 {
-        font-size: clamp(2.5rem, 12.5vw, 3.1rem);
+        font-size: clamp(2.1rem, 9vw, 2.5rem);
     }
 
     .emergency-hero h1 {
-        font-size: clamp(2.6rem, 13vw, 3.2rem);
+        font-size: clamp(2.15rem, 9.2vw, 2.55rem);
+    }
+
+    .contact-phone-card strong {
+        font-size: clamp(1.65rem, 8.5vw, 2.15rem);
     }
 }
 

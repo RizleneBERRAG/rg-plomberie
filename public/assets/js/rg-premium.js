@@ -203,10 +203,16 @@
         }
 
         if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard.writeText(text).then(confirmCopy);
+            navigator.clipboard.writeText(text).then(confirmCopy).catch(function () {
+                copyTextFallback(text, confirmCopy);
+            });
             return;
         }
 
+        copyTextFallback(text, confirmCopy);
+    }
+
+    function copyTextFallback(text, onSuccess) {
         var helper = document.createElement("textarea");
         helper.value = text;
         helper.setAttribute("readonly", "");
@@ -216,7 +222,7 @@
         helper.select();
         document.execCommand("copy");
         helper.remove();
-        confirmCopy();
+        onSuccess();
     }
 
     document.querySelectorAll("form[data-static-contact]").forEach(function (form) {

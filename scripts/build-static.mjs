@@ -9,7 +9,7 @@ const publicDirectory = path.join(root, "public");
 const viewsDirectory = path.join(root, "resources", "views");
 const basePath = "/rg-plomberie/";
 const siteUrl = "https://rizleneberrag.github.io/rg-plomberie/";
-const lastModified = "2026-09-14";
+const lastModified = "2026-09-15";
 
 const routePaths = {
     home: "",
@@ -97,7 +97,7 @@ function resolveHelpers(content) {
             return basePath + routePaths[routeName];
         })
         .replace(/\{\{\s*date\('Y'\)\s*\}\}/g, "2026")
-        .replace(/\{\{\s*date\('d\/m\/Y'\)\s*\}\}/g, "28/08/2026");
+        .replace(/\{\{\s*date\('d\/m\/Y'\)\s*\}\}/g, "15/09/2026");
 }
 
 function preparePageContent(blade, page) {
@@ -118,6 +118,7 @@ function preparePageContent(blade, page) {
             'method="post" action="' + basePath + routePaths["contact.send"] + '" data-contact-form',
             'method="post" action="#contact-result" data-contact-form data-static-contact'
         );
+        content = content.replace("Envoyer la demande", "Préparer ma demande");
     }
 
     return content;

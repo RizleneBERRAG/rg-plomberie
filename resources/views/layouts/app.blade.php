@@ -22,10 +22,11 @@
     <meta property="og:url" content="{{ url()->current() }}">
     <meta property="og:image" content="{{ asset('assets/img/rg/web/transformations/heating-after.webp') }}">
     <meta property="og:image:alt" content="Installation de chauffage moderne et réseaux remis au propre">
+    <meta property="og:image:width" content="1586">
+    <meta property="og:image:height" content="992">
     <meta name="twitter:card" content="summary_large_image">
 
-    <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="{{ asset('assets/css/rg-premium.css') }}?v=20260915-typography">
+    <link rel="stylesheet" href="{{ asset('assets/css/rg-premium.css') }}?v=20260915-polish">
 
     @php
         $businessSchema = [
@@ -164,11 +165,11 @@
     <dialog class="lightbox" data-lightbox>
         <button class="lightbox__close" type="button" data-lightbox-close aria-label="Fermer l’image">×</button>
         <figure>
-            <img src="" width="1100" height="780" alt="" data-lightbox-image>
+            <img width="1100" height="780" alt="" data-lightbox-image>
             <figcaption data-lightbox-caption></figcaption>
         </figure>
     </dialog>
 
-    <script src="{{ asset('assets/js/rg-premium.js') }}?v=20260915-typography" defer></script>
+    <script src="{{ asset('assets/js/rg-premium.js') }}?v=20260915-polish" defer></script>
 </body>
 </html>

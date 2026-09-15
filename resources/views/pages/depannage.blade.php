@@ -11,8 +11,8 @@
                     <a href="{{ route('home') }}">Accueil</a><span aria-hidden="true">/</span><span>Dépannage</span>
                 </nav>
                 <p class="eyebrow eyebrow--light">Dépannage</p>
-                <h1>Un problème urgent ?<br>Commençons par l’essentiel.</h1>
-                <p class="lead">Appelez directement pour décrire la situation et vérifier la disponibilité d’une intervention.</p>
+                <h1>Une urgence ?<br>Allons à l’essentiel.</h1>
+                <p class="lead">Appelez directement pour décrire la panne et vérifier la disponibilité d’une intervention.</p>
                 <a class="emergency-number" href="tel:+33627997646">
                     <small>Appeler RG Plomberie</small>
                     <strong>06 27 99 76 46</strong>
@@ -22,10 +22,10 @@
             <div class="emergency-hero__panel" data-reveal>
                 <p>Avant l’appel</p>
                 <ol>
-                    <li><span>1</span><strong>Localisez</strong> la fuite ou l’équipement concerné.</li>
-                    <li><span>2</span><strong>Coupez l’eau</strong> si vous savez le faire sans risque.</li>
-                    <li><span>3</span><strong>Éloignez-vous</strong> de tout appareil électrique mouillé.</li>
-                    <li><span>4</span><strong>Préparez</strong> l’adresse, les symptômes et quelques photos.</li>
+                    <li><span>1</span><p><strong>Localisez</strong> la fuite ou l’équipement concerné.</p></li>
+                    <li><span>2</span><p><strong>Coupez l’eau</strong> si vous savez le faire sans risque.</p></li>
+                    <li><span>3</span><p><strong>Éloignez-vous</strong> de tout appareil électrique mouillé.</p></li>
+                    <li><span>4</span><p><strong>Préparez</strong> l’adresse, les symptômes et quelques photos.</p></li>
                 </ol>
             </div>
         </div>
@@ -35,7 +35,7 @@
         <div class="container">
             <header class="section-heading" data-reveal>
                 <p class="eyebrow">Situations courantes</p>
-                <h2>Qualifier la panne pour gagner du temps.</h2>
+                <h2>Identifier la panne, gagner du temps.</h2>
                 <p>Le premier échange permet d’évaluer le niveau d’urgence et les premières informations nécessaires.</p>
             </header>
             <div class="emergency-grid">
@@ -67,9 +67,9 @@
 
     <section class="section section--ink">
         <div class="container editorial-split">
-            <div data-reveal><p class="eyebrow eyebrow--light">Transparence</p><h2>Une urgence ne justifie pas une promesse impossible.</h2></div>
+            <div data-reveal><p class="eyebrow eyebrow--light">Transparence</p><h2>Un délai clair, sans fausse promesse.</h2></div>
             <div class="prose prose--light" data-reveal>
-                <p>Le site ne promet ni intervention immédiate ni disponibilité 24 h/24 sans confirmation. L’appel sert d’abord à vérifier si RG Plomberie peut intervenir dans votre secteur et dans quel délai.</p>
+                <p>L’appel sert d’abord à confirmer si RG Plomberie peut intervenir dans votre secteur et dans quel délai. Aucune disponibilité 24 h/24 n’est annoncée sans confirmation.</p>
                 <p>Si la situation présente un danger immédiat, contactez les services d’urgence ou le gestionnaire du réseau concerné.</p>
             </div>
         </div>
@@ -77,7 +77,7 @@
 
     <section class="cta-section">
         <div class="container cta-panel" data-reveal>
-            <div><p class="eyebrow eyebrow--light">Besoin rapide</p><h2>Le téléphone reste le chemin le plus court.</h2><p>Décrivez ce que vous voyez, entendez ou constatez.</p></div>
+            <div><p class="eyebrow eyebrow--light">Besoin d’aide</p><h2>Le téléphone reste le moyen le plus direct.</h2><p>Décrivez ce que vous voyez, entendez ou constatez.</p></div>
             <div class="cta-panel__actions"><a class="button button--light" href="tel:+33627997646">Appeler maintenant</a><a class="cta-phone" href="{{ route('contact') }}">Formulaire</a></div>
         </div>
     </section>
