@@ -37,10 +37,6 @@
                     aria-label="Comparer l’installation de chauffage avant et après rénovation"
                 >
             </div>
-            <div class="hero-background__controls" aria-label="Choisir la vue">
-                <button type="button" data-compare-set="0">Avant</button>
-                <button type="button" data-compare-set="100">Après</button>
-            </div>
         </div>
         <div class="home-hero__overlay" aria-hidden="true"></div>
 
@@ -175,10 +171,6 @@
                     </div>
                     <div class="transformation-card__footer">
                         <p>Réseaux · Sanitaires · Finitions</p>
-                        <div class="transformation-card__controls">
-                            <button type="button" data-compare-set="0">Avant</button>
-                            <button type="button" data-compare-set="100">Après</button>
-                        </div>
                     </div>
                 </article>
 
@@ -199,10 +191,6 @@
                     </div>
                     <div class="transformation-card__footer">
                         <p>Pose · Raccordements · Mise en service</p>
-                        <div class="transformation-card__controls">
-                            <button type="button" data-compare-set="0">Avant</button>
-                            <button type="button" data-compare-set="100">Après</button>
-                        </div>
                     </div>
                 </article>
             </div>
