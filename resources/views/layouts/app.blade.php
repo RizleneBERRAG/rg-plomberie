@@ -26,7 +26,7 @@
     <meta property="og:image:height" content="992">
     <meta name="twitter:card" content="summary_large_image">
 
-    <link rel="stylesheet" href="{{ asset('assets/css/rg-premium.css') }}?v=20260915-polish">
+    <link rel="stylesheet" href="{{ asset('assets/css/rg-premium.css') }}?v=20260915-compact">
 
     @php
         $businessSchema = [
@@ -170,6 +170,6 @@
         </figure>
     </dialog>
 
-    <script src="{{ asset('assets/js/rg-premium.js') }}?v=20260915-polish" defer></script>
+    <script src="{{ asset('assets/js/rg-premium.js') }}?v=20260915-compact" defer></script>
 </body>
 </html>
