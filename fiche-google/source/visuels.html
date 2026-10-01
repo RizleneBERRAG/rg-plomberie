@@ -1,0 +1,627 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<title>Visuels fiche Google — RG Plomberie</title>
+<style>
+    :root {
+        --ink: #111113;
+        --text: #2b2b2f;
+        --muted: #66666c;
+        --line: #e4e4e0;
+        --soft: #f6f6f3;
+        --white: #ffffff;
+        --red: #d71920;
+        --red-tint: #fdf0f0;
+        --success: #2f6b45;
+    }
+
+    * { box-sizing: border-box; }
+
+    html, body { margin: 0; padding: 0; }
+
+    body {
+        font-family: "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+        color: var(--text);
+        -webkit-font-smoothing: antialiased;
+    }
+
+    section { display: none; position: relative; overflow: hidden; }
+
+    section:target { display: block; }
+
+    h1, h2, p { margin: 0; }
+
+    ul { margin: 0; padding: 0; list-style: none; }
+
+    .icon {
+        width: 1em;
+        height: 1em;
+        fill: none;
+        stroke: currentColor;
+        stroke-width: 1.8;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+    }
+
+    .icon--fill { fill: currentColor; stroke: none; }
+
+    /* Marque */
+
+    .brand { display: flex; align-items: center; gap: 22px; }
+
+    .brand__mono {
+        padding-right: 22px;
+        border-right: 2px solid currentColor;
+        color: var(--red);
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: 900;
+        letter-spacing: -0.08em;
+        line-height: 1;
+    }
+
+    .brand__name { display: grid; gap: 8px; line-height: 1; }
+
+    .brand__name strong { letter-spacing: 0.05em; font-weight: 800; }
+
+    .brand__name small { font-weight: 500; opacity: 0.75; }
+
+    .phone {
+        display: inline-flex;
+        align-items: center;
+        gap: 18px;
+        padding: 18px 30px 18px 18px;
+        border-radius: 10px;
+        color: var(--white);
+        background: var(--red);
+        font-weight: 800;
+        letter-spacing: 0.01em;
+        font-variant-numeric: tabular-nums;
+        white-space: nowrap;
+    }
+
+    .phone__icon {
+        display: grid;
+        place-items: center;
+        border-radius: 7px;
+        background: rgba(255, 255, 255, 0.16);
+    }
+
+    .kicker {
+        color: var(--red);
+        font-weight: 800;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+    }
+
+    .tile-icon {
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        color: var(--red);
+        background: var(--red-tint);
+    }
+
+    /* Bandeau bas commun aux visuels 4:3 */
+
+    .foot {
+        position: absolute;
+        right: 70px;
+        bottom: 56px;
+        left: 70px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding-top: 30px;
+        border-top: 2px solid var(--line);
+    }
+
+    .foot .brand__mono { font-size: 44px; }
+
+    .foot .brand__name strong { font-size: 24px; }
+
+    .foot .brand__name small { font-size: 18px; }
+
+    .foot .phone { font-size: 34px; padding: 12px 24px 12px 12px; gap: 14px; }
+
+    .foot .phone__icon { width: 50px; height: 50px; font-size: 26px; }
+
+    .dark .foot { border-top-color: rgba(255, 255, 255, 0.16); }
+
+    /* Couverture 16:9 */
+
+    #couverture {
+        width: 1600px;
+        height: 900px;
+        padding: 100px 120px;
+        color: var(--white);
+        background: var(--ink);
+    }
+
+    #couverture .brand__mono { font-size: 92px; border-right-color: rgba(255, 255, 255, 0.25); }
+
+    #couverture .brand__name strong { font-size: 44px; }
+
+    #couverture .brand__name small { font-size: 26px; }
+
+    #couverture h1 {
+        max-width: 15em;
+        margin-top: 78px;
+        font-size: 72px;
+        font-weight: 800;
+        line-height: 1.08;
+        letter-spacing: -0.02em;
+    }
+
+    #couverture h1 span { color: #ff5a5f; }
+
+    #couverture .lead {
+        margin-top: 26px;
+        color: rgba(255, 255, 255, 0.72);
+        font-size: 32px;
+    }
+
+    #couverture .phone {
+        position: absolute;
+        left: 120px;
+        bottom: 100px;
+        font-size: 52px;
+    }
+
+    #couverture .phone__icon { width: 76px; height: 76px; font-size: 40px; }
+
+    #couverture .icons {
+        position: absolute;
+        right: 120px;
+        bottom: 100px;
+        display: grid;
+        grid-template-columns: repeat(3, 116px);
+        gap: 18px;
+    }
+
+    #couverture .icons span {
+        display: grid;
+        place-items: center;
+        width: 116px;
+        height: 116px;
+        border: 2px solid rgba(255, 255, 255, 0.16);
+        border-radius: 14px;
+        color: #ff5a5f;
+        font-size: 56px;
+    }
+
+    /* Visuels 4:3 */
+
+    .post {
+        width: 1200px;
+        height: 900px;
+        padding: 70px 70px 0;
+        background: var(--white);
+    }
+
+    .post.soft { background: var(--soft); }
+
+    .post.dark { color: var(--white); background: var(--ink); }
+
+    .post .kicker { font-size: 24px; }
+
+    .post h2 {
+        margin-top: 16px;
+        color: var(--ink);
+        font-size: 64px;
+        font-weight: 800;
+        line-height: 1.06;
+        letter-spacing: -0.02em;
+    }
+
+    .post.dark h2 { color: var(--white); }
+
+    .post.dark .kicker { color: #ff5a5f; }
+
+    /* Services */
+
+    #services .grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 44px;
+    }
+
+    #services .grid li {
+        display: grid;
+        gap: 18px;
+        padding: 26px;
+        border: 2px solid var(--line);
+        border-radius: 14px;
+        background: var(--white);
+    }
+
+    #services .tile-icon { width: 72px; height: 72px; font-size: 40px; }
+
+    #services .grid strong { color: var(--ink); font-size: 30px; line-height: 1.15; }
+
+    /* Réflexes */
+
+    #reflexes ol {
+        display: grid;
+        gap: 34px;
+        margin: 56px 0 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: step;
+    }
+
+    #reflexes li {
+        display: grid;
+        grid-template-columns: 64px 1fr;
+        align-items: center;
+        gap: 26px;
+        color: var(--muted);
+        font-size: 31px;
+        line-height: 1.3;
+        counter-increment: step;
+    }
+
+    #reflexes li::before {
+        content: counter(step);
+        display: grid;
+        place-items: center;
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        color: var(--white);
+        background: var(--red);
+        font-size: 30px;
+        font-weight: 800;
+    }
+
+    #reflexes li strong { color: var(--ink); }
+
+    /* Secteur */
+
+    #secteur .towns {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 30px 30px;
+        margin-top: 60px;
+        font-size: 36px;
+        font-weight: 600;
+    }
+
+    #secteur .towns li { display: flex; align-items: center; gap: 14px; }
+
+    #secteur .towns .icon { color: #ff5a5f; font-size: 32px; flex: none; }
+
+    #secteur .note {
+        margin-top: 56px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 30px;
+    }
+
+    /* Appel direct */
+
+    #direct h2 { max-width: 12em; margin-top: 30px; font-size: 92px; }
+
+    #direct h2 span { color: var(--red); }
+
+    #direct .checks {
+        display: grid;
+        gap: 34px;
+        margin-top: 70px;
+    }
+
+    #direct .checks li {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: var(--ink);
+        font-size: 40px;
+        font-weight: 600;
+    }
+
+    #direct .checks .icon {
+        width: 56px;
+        height: 56px;
+        padding: 8px;
+        border-radius: 50%;
+        color: var(--white);
+        background: var(--success);
+        stroke-width: 3;
+        flex: none;
+    }
+
+    /* Climatisation et pompe à chaleur */
+
+    #climatisation .row {
+        display: grid;
+        grid-template-columns: 260px 1fr;
+        gap: 56px;
+        align-items: center;
+        margin-top: 70px;
+    }
+
+    #climatisation .tile-icon { width: 260px; height: 260px; font-size: 150px; border-radius: 24px; }
+
+    #climatisation ul { display: grid; gap: 30px; }
+
+    #climatisation li {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        color: var(--ink);
+        font-size: 40px;
+        font-weight: 600;
+    }
+
+    #climatisation li::before {
+        content: "";
+        width: 14px;
+        height: 14px;
+        border-radius: 3px;
+        background: var(--red);
+        flex: none;
+    }
+
+    /* Logo carré */
+
+    #logo {
+        width: 720px;
+        height: 720px;
+        background: var(--white);
+    }
+
+    #logo .center {
+        position: absolute;
+        inset: 0;
+        display: grid;
+        place-items: center;
+        align-content: center;
+        gap: 26px;
+        text-align: center;
+    }
+
+    #logo .mono {
+        color: var(--red);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 250px;
+        font-weight: 900;
+        letter-spacing: -0.08em;
+        line-height: 0.9;
+    }
+
+    #logo .name {
+        padding-top: 22px;
+        border-top: 4px solid var(--ink);
+        color: var(--ink);
+        font-size: 50px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+    }
+
+    #logo .tag { color: var(--muted); font-size: 26px; font-weight: 500; }
+
+    /* Produits de la fiche (carrés) */
+
+    .product {
+        width: 1200px;
+        height: 1200px;
+        padding: 90px 80px 0;
+        background: var(--soft);
+    }
+
+    .product .tile-icon { width: 220px; height: 220px; font-size: 130px; border-radius: 26px; background: var(--white); }
+
+    .product .kicker { margin-top: 64px; font-size: 28px; }
+
+    .product h2 {
+        margin-top: 18px;
+        color: var(--ink);
+        font-size: 86px;
+        font-weight: 800;
+        line-height: 1.04;
+        letter-spacing: -0.02em;
+    }
+
+    .product ul { display: grid; gap: 26px; margin-top: 54px; }
+
+    .product li {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        color: var(--ink);
+        font-size: 42px;
+        font-weight: 600;
+    }
+
+    .product li::before {
+        content: "";
+        width: 16px;
+        height: 16px;
+        border-radius: 3px;
+        background: var(--red);
+        flex: none;
+    }
+
+    .product .foot { bottom: 70px; left: 80px; right: 80px; }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="i-phone" viewBox="0 0 24 24"><path d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1l-2.3 2.2Z"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21Z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+    <symbol id="i-drop" viewBox="0 0 24 24"><path d="M12 3c-3.6 4.6-6 8-6 11.2a6 6 0 0 0 12 0C18 11 15.6 7.6 12 3Z"/><path d="M9.2 14.6a2.8 2.8 0 0 0 2.8 2.8"/></symbol>
+    <symbol id="i-thermo" viewBox="0 0 24 24"><path d="M10 13.8V5a2 2 0 1 1 4 0v8.8a4 4 0 1 1-4 0Z"/><path d="M12 9v6.2"/><path d="M17 5h2M17 8.5h2"/></symbol>
+    <symbol id="i-radiator" viewBox="0 0 24 24"><rect x="3.5" y="6" width="17" height="12" rx="2"/><path d="M8 6v12M12 6v12M16 6v12M6 18v2.5M18 18v2.5"/></symbol>
+    <symbol id="i-sink" viewBox="0 0 24 24"><path d="M3 12h18v.5A5.5 5.5 0 0 1 15.5 18h-7A5.5 5.5 0 0 1 3 12.5V12Z"/><path d="M12 18v3M9 12V7.5a3 3 0 0 1 6 0"/></symbol>
+    <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 3v18M4.2 7.5l15.6 9M4.2 16.5l15.6-9M9.5 4.6 12 7l2.5-2.4M9.5 19.4 12 17l2.5 2.4"/></symbol>
+    <symbol id="i-air" viewBox="0 0 24 24"><path d="M3 8.5h10.5a2.5 2.5 0 1 0-2.5-2.5M3 12.5h15a3 3 0 1 1-3 3M3 16.5h6"/></symbol>
+</svg>
+
+<!-- Bandeau bas réutilisé -->
+<template id="foot">
+    <div class="foot">
+        <div class="brand">
+            <span class="brand__mono">RG</span>
+            <span class="brand__name"><strong>RG PLOMBERIE</strong><small>Plombier chauffagiste · Est lyonnais</small></span>
+        </div>
+        <span class="phone"><span class="phone__icon"><svg class="icon icon--fill"><use href="#i-phone"/></svg></span>06 27 99 76 46</span>
+    </div>
+</template>
+
+<section id="couverture">
+    <div class="brand">
+        <span class="brand__mono">RG</span>
+        <span class="brand__name"><strong>RG PLOMBERIE</strong><small>Depuis 2017 · Est lyonnais</small></span>
+    </div>
+    <h1>Plomberie, chauffage, <span>climatisation</span> et VMC.</h1>
+    <p class="lead">Dépannage, installation et entretien à Lyon et dans l’Est lyonnais.</p>
+    <span class="phone"><span class="phone__icon"><svg class="icon icon--fill"><use href="#i-phone"/></svg></span>06 27 99 76 46</span>
+    <div class="icons">
+        <span><svg class="icon"><use href="#i-drop"/></svg></span>
+        <span><svg class="icon"><use href="#i-thermo"/></svg></span>
+        <span><svg class="icon"><use href="#i-radiator"/></svg></span>
+        <span><svg class="icon"><use href="#i-sink"/></svg></span>
+        <span><svg class="icon"><use href="#i-snow"/></svg></span>
+        <span><svg class="icon"><use href="#i-air"/></svg></span>
+    </div>
+</section>
+
+<section id="services" class="post soft" data-foot>
+    <p class="kicker">Nos interventions</p>
+    <h2>Un seul appel pour l’eau, la chaleur et l’air.</h2>
+    <ul class="grid">
+        <li><span class="tile-icon"><svg class="icon"><use href="#i-drop"/></svg></span><strong>Fuite d’eau</strong></li>
+        <li><span class="tile-icon"><svg class="icon"><use href="#i-thermo"/></svg></span><strong>Chauffe-eau</strong></li>
+        <li><span class="tile-icon"><svg class="icon"><use href="#i-radiator"/></svg></span><strong>Chauffage</strong></li>
+        <li><span class="tile-icon"><svg class="icon"><use href="#i-sink"/></svg></span><strong>Évacuation</strong></li>
+        <li><span class="tile-icon"><svg class="icon"><use href="#i-snow"/></svg></span><strong>Clim et pompe à chaleur</strong></li>
+        <li><span class="tile-icon"><svg class="icon"><use href="#i-air"/></svg></span><strong>VMC</strong></li>
+    </ul>
+</section>
+
+<section id="reflexes" class="post" data-foot>
+    <p class="kicker">Fuite d’eau</p>
+    <h2>Les bons réflexes en attendant le plombier.</h2>
+    <ol>
+        <li><span><strong>Coupez l’arrivée d’eau</strong> au robinet général, souvent près du compteur.</span></li>
+        <li><span><strong>Coupez l’électricité</strong> si l’eau approche d’une prise ou d’un appareil.</span></li>
+        <li><span><strong>Épongez et protégez</strong> meubles, sols et objets fragiles.</span></li>
+        <li><span><strong>Prenez une photo</strong> de la fuite : elle aide au diagnostic.</span></li>
+    </ol>
+</section>
+
+<section id="secteur" class="post dark" data-foot>
+    <p class="kicker">Secteur d’intervention</p>
+    <h2>Lyon et l’Est lyonnais.</h2>
+    <ul class="towns">
+        <li><svg class="icon"><use href="#i-pin"/></svg>Lyon</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>Villeurbanne</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>Vaulx-en-Velin</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>Bron</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>Décines</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>Meyzieu</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>Chassieu</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>Genas</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>Saint-Priest</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>Jonage</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>Pusignan</li>
+        <li><svg class="icon"><use href="#i-pin"/></svg>Janneyrias</li>
+    </ul>
+    <p class="note">Et les communes voisines. Votre commune n’y est pas ? Appelez.</p>
+</section>
+
+<section id="direct" class="post" data-foot>
+    <p class="kicker">RG Plomberie</p>
+    <h2>Vous parlez <span>directement à l’artisan.</span></h2>
+    <ul class="checks">
+        <li><svg class="icon"><use href="#i-check"/></svg>Sans plateforme ni centre d’appel</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>Entreprise installée dans l’Est lyonnais depuis 2017</li>
+        <li><svg class="icon"><use href="#i-check"/></svg>Plomberie, chauffage, climatisation et VMC</li>
+    </ul>
+</section>
+
+<section id="climatisation" class="post soft" data-foot>
+    <p class="kicker">Climatisation et pompe à chaleur</p>
+    <h2>Installation, entretien et dépannage.</h2>
+    <div class="row">
+        <span class="tile-icon"><svg class="icon"><use href="#i-snow"/></svg></span>
+        <ul>
+            <li>Installation de climatisation</li>
+            <li>Mise en service de pompe à chaleur</li>
+            <li>Entretien et nettoyage</li>
+            <li>Dépannage : panne, bruit, fuite</li>
+        </ul>
+    </div>
+</section>
+
+<section id="produit-fuite" class="product" data-foot>
+    <span class="tile-icon"><svg class="icon"><use href="#i-drop"/></svg></span>
+    <p class="kicker">Dépannage · Devis gratuit</p>
+    <h2>Fuite d’eau</h2>
+    <ul>
+        <li>Évier, WC, tuyau, chauffe-eau</li>
+        <li>Recherche et réparation</li>
+        <li>Le jour même selon planning</li>
+    </ul>
+</section>
+
+<section id="produit-chauffe-eau" class="product" data-foot>
+    <span class="tile-icon"><svg class="icon"><use href="#i-thermo"/></svg></span>
+    <p class="kicker">Dépannage · Devis gratuit</p>
+    <h2>Chauffe-eau et ballon d’eau chaude</h2>
+    <ul>
+        <li>Plus d’eau chaude, eau tiède</li>
+        <li>Réparation ou remplacement</li>
+    </ul>
+</section>
+
+<section id="produit-chauffage" class="product" data-foot>
+    <span class="tile-icon"><svg class="icon"><use href="#i-radiator"/></svg></span>
+    <p class="kicker">Chauffage · Devis gratuit</p>
+    <h2>Chauffage et chaudière</h2>
+    <ul>
+        <li>Entretien annuel</li>
+        <li>Dépannage</li>
+        <li>Installation et thermostat</li>
+    </ul>
+</section>
+
+<section id="produit-clim" class="product" data-foot>
+    <span class="tile-icon"><svg class="icon"><use href="#i-snow"/></svg></span>
+    <p class="kicker">Climatisation · Devis gratuit</p>
+    <h2>Climatisation et pompe&nbsp;à&nbsp;chaleur</h2>
+    <ul>
+        <li>Installation et mise en service</li>
+        <li>Entretien et dépannage</li>
+    </ul>
+</section>
+
+<section id="produit-vmc" class="product" data-foot>
+    <span class="tile-icon"><svg class="icon"><use href="#i-air"/></svg></span>
+    <p class="kicker">Ventilation · Devis gratuit</p>
+    <h2>VMC</h2>
+    <ul>
+        <li>Installation</li>
+        <li>Entretien</li>
+        <li>Remplacement</li>
+    </ul>
+</section>
+
+<section id="logo">
+    <div class="center">
+        <span class="mono">RG</span>
+        <span class="name">PLOMBERIE</span>
+        <span class="tag">Plomberie · Chauffage · Climatisation · VMC</span>
+    </div>
+</section>
+
+<script>
+    // Ajoute le bandeau bas aux visuels qui le demandent.
+    var foot = document.getElementById("foot");
+    document.querySelectorAll("[data-foot]").forEach(function (section) {
+        section.appendChild(foot.content.cloneNode(true));
+    });
+</script>
+</body>
+</html>
