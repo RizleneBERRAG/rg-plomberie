@@ -27,7 +27,7 @@
     <meta property="og:image:alt" content="RG Plomberie : plomberie, chauffage, climatisation, VMC. Tél. 06 27 99 76 46">
     <meta name="twitter:card" content="summary_large_image">
 
-    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Plumber","HVACBusiness"],"@id":"https://www.rgplomberie.com/#entreprise","name":"RG Plomberie","legalName":"RG PLOMBERIE","url":"https://www.rgplomberie.com/","telephone":"+33627997646","image":"https://www.rgplomberie.com/apercu-partage.jpg","description":"Dépannage, installation et entretien en plomberie, chauffage, climatisation et VMC à Lyon et dans l’Est lyonnais. Devis gratuit.","foundingDate":"2017","address":{"@type":"PostalAddress","streetAddress":"4 B chemin de la Batterie","postalCode":"38280","addressLocality":"Janneyrias","addressCountry":"FR"},"areaServed":["Lyon","Villeurbanne","Vaulx-en-Velin","Bron","Décines-Charpieu","Meyzieu","Chassieu","Genas","Saint-Priest","Jonage","Pusignan","Janneyrias"],"knowsAbout":["Plomberie","Chauffage","Climatisation","Pompe à chaleur","Ventilation mécanique contrôlée"]}</script>
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":["Plumber","HVACBusiness"],"@id":"https://www.rgplomberie.com/#entreprise","name":"RG Plomberie","legalName":"RG PLOMBERIE","url":"https://www.rgplomberie.com/","telephone":"+33627997646","image":"https://www.rgplomberie.com/apercu-partage.jpg","logo":"https://www.rgplomberie.com/img/logo-rg-plomberie.webp","description":"Dépannage, installation et entretien en plomberie, chauffage, climatisation et VMC à Lyon et dans l’Est lyonnais. Devis gratuit.","foundingDate":"2017","address":{"@type":"PostalAddress","streetAddress":"4 B chemin de la Batterie","postalCode":"38280","addressLocality":"Janneyrias","addressCountry":"FR"},"areaServed":["Lyon","Villeurbanne","Vaulx-en-Velin","Bron","Décines-Charpieu","Meyzieu","Chassieu","Genas","Saint-Priest","Jonage","Pusignan","Janneyrias"],"knowsAbout":["Plomberie","Chauffage","Climatisation","Pompe à chaleur","Ventilation mécanique contrôlée"]}</script>
 
     <style>
         :root {
@@ -211,40 +211,26 @@
 
         /* En-tête */
 
-        .top { background: var(--white); border-bottom: 1px solid var(--line); }
+        .top { background: var(--ink); border-bottom: 1px solid rgba(255, 255, 255, 0.08); }
 
         .top__inner {
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 14px;
-            min-height: 58px;
+            min-height: 62px;
         }
 
-        .brand { display: flex; align-items: center; gap: 10px; color: var(--ink); text-decoration: none; }
+        /* Logo officiel, recadré sur le nom (sans le cartouche téléphone) */
+        .brand { display: block; flex: none; line-height: 0; }
 
-        .brand__mono {
-            padding-right: 10px;
-            border-right: 1px solid var(--line);
-            color: var(--red);
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 1.4rem;
-            font-weight: 900;
-            letter-spacing: -0.08em;
-            line-height: 1;
-        }
-
-        .brand__name { display: grid; gap: 3px; line-height: 1; }
-
-        .brand__name strong { font-size: 0.95rem; letter-spacing: 0.04em; white-space: nowrap; }
-
-        .brand__name small { color: var(--muted); font-size: 0.72rem; }
+        .brand img { display: block; width: auto; height: 48px; border-radius: 4px; }
 
         .top__right { display: flex; align-items: center; gap: 18px; }
 
-        .top__perk { display: none; color: var(--muted); font-size: 0.9rem; font-weight: 600; }
+        .top__perk { display: none; color: rgba(255, 255, 255, 0.7); font-size: 0.9rem; font-weight: 600; }
 
-        .top__perk strong { color: var(--ink); }
+        .top__perk strong { color: var(--white); }
 
         .top__call { min-height: 44px; padding: 8px 14px; font-size: 0.98rem; }
 
@@ -644,6 +630,8 @@
 
         .footer strong { color: var(--white); }
 
+        .footer__logo { display: block; width: 220px; height: auto; margin-bottom: 14px; border-radius: 6px; }
+
         .footer__phone { display: inline-block; padding: 6px 0; color: var(--white); font-size: 1.3rem; font-weight: 900; text-decoration: none; }
 
         .legal { margin-top: 24px; border-top: 1px solid rgba(255, 255, 255, 0.14); }
@@ -754,7 +742,9 @@
 
             [id] { scroll-margin-top: 90px; }
 
-            .top__inner { min-height: 70px; }
+            .top__inner { min-height: 84px; }
+
+            .brand img { height: 66px; }
 
             .top__perk { display: block; }
 
@@ -794,9 +784,7 @@
         @media (max-width: 370px) {
             :root { --gutter: 14px; }
 
-            .brand__name small { display: none; }
-
-            .brand__name strong { font-size: 0.86rem; }
+            .brand img { height: 42px; }
 
             .top__call { padding: 8px 11px; }
 
@@ -825,11 +813,10 @@
 
     <a class="skip-link" href="#contenu">Aller au contenu</a>
 
-    <header class="top">
+    <header class="top on-dark">
         <div class="wrap top__inner">
             <a class="brand" href="#contenu" aria-label="RG Plomberie, haut de page">
-                <span class="brand__mono" aria-hidden="true">RG</span>
-                <span class="brand__name"><strong>RG PLOMBERIE</strong><small>Plombier chauffagiste</small></span>
+                <img src="img/logo-rg-plomberie-entete.webp" width="420" height="186" alt="">
             </a>
             <div class="top__right">
                 <p class="top__perk"><strong>Devis gratuit</strong> · Est lyonnais</p>
@@ -1019,7 +1006,7 @@
         <div class="wrap">
             <div class="footer__grid">
                 <div>
-                    <strong>RG PLOMBERIE</strong>
+                    <img class="footer__logo" src="img/logo-rg-plomberie.webp" width="600" height="400" alt="RG Plomberie : plomberie, chauffage, climatisation, VMC" loading="lazy">
                     <p>Plomberie, chauffage, climatisation et VMC à Lyon et dans l’Est lyonnais.</p>
                     <a class="footer__phone" href="tel:+33627997646">06 27 99 76 46</a>
                 </div>

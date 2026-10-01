@@ -32,3 +32,6 @@ Thumbs.db
 auth.json
 npm-debug.log
 yarn-error.log
+
+# Python
+__pycache__/
