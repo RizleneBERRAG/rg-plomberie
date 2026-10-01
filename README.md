@@ -89,26 +89,23 @@ Aucune donnée n’est envoyée silencieusement à un service tiers. Si l’entr
 
 ## Page unique de dépannage
 
-Le dossier landing contient une page autonome, centrée sur l’appel, à publier sur rgplomberie.com en attendant le site complet. Elle ne dépend ni de Laravel ni de Node : il suffit d’envoyer le contenu du dossier dans le répertoire www de l’hébergement OVH.
+Le dossier landing contient une page autonome, pensée pour récolter des demandes, à publier sur le domaine du client en attendant le site complet. Elle ne dépend ni de Laravel ni de Node : il suffit d’envoyer le contenu du dossier dans le répertoire www de l’hébergement.
 
 - landing/index.html : la page (styles et script intégrés)
-- landing/envoi.php : réception du formulaire « Être rappelé » par e-mail via mail()
+- landing/img : photos réelles (camions, réalisations) reprises de la fiche Google
 - landing/.htaccess : redirection HTTPS à activer une fois le certificat SSL en place
+
+Les demandes partent par SMS vers le 06 27 99 76 46 : sur téléphone, le formulaire ouvre l’application SMS avec le message déjà rédigé ; sur ordinateur, il affiche le numéro et le message à copier. Aucun serveur ni aucune donnée stockée.
 
 Mise en ligne :
 
-1. renseigner DESTINATAIRE dans envoi.php avec l’adresse que le client consulte ;
-2. créer l’adresse site@rgplomberie.com dans l’espace OVH (adresse d’expédition) ;
-3. envoyer le contenu de landing dans www par FTP ;
-4. une fois le certificat SSL actif, décommenter la redirection dans .htaccess ;
-5. faire un envoi de test réel depuis un téléphone et vérifier sa réception ;
-6. renseigner https://www.rgplomberie.com/ comme site web sur la fiche Google.
+1. envoyer le contenu de landing dans www par FTP ;
+2. une fois le certificat SSL actif, décommenter la redirection dans .htaccess ;
+3. renseigner l’adresse du site sur la fiche Google.
 
-Si le domaine final n’est pas rgplomberie.com, remplacer https://www.rgplomberie.com/ dans index.html et l’adresse d’expédition dans envoi.php.
+Si le domaine final n’est pas www.rgplomberie.com, remplacer cette adresse dans index.html (canonique, Open Graph, données structurées).
 
-Tant que le formulaire ne peut pas envoyer (aperçu GitHub Pages, adresse non renseignée, panne d’envoi), la page propose d’envoyer la demande par SMS avec le message déjà rédigé, ou d’appeler.
-
-L’aperçu est publié sur GitHub Pages à l’adresse /urgence/, hors index, sans le script PHP.
+L’aperçu est publié sur GitHub Pages à l’adresse /urgence/, hors index.
 
 ## Contenus à confirmer
 
