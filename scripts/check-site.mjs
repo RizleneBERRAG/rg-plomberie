@@ -25,8 +25,8 @@ const htmlFiles = walk(docs).filter(function (file) {
     return file.endsWith(".html");
 });
 
-if (htmlFiles.length !== 13) {
-    failures.push("Nombre de pages HTML attendu : 13, obtenu : " + htmlFiles.length);
+if (htmlFiles.length !== 14) {
+    failures.push("Nombre de pages HTML attendu : 14, obtenu : " + htmlFiles.length);
 }
 
 htmlFiles.forEach(function (file) {
@@ -99,6 +99,14 @@ htmlFiles.forEach(function (file) {
     }
     if (relative === "404.html" && !/name="robots" content="noindex, follow"/.test(html)) {
         fail(file, "la page 404 doit être en noindex");
+    }
+    if (relative === path.join("urgence", "index.html")) {
+        if (!/name="robots" content="noindex, nofollow"/.test(html)) {
+            fail(file, "l’aperçu de la page dépannage doit rester hors index");
+        }
+        if (fs.existsSync(path.join(docs, "urgence", "envoi.php"))) {
+            fail(file, "le script d’envoi PHP ne doit pas être publié sur GitHub Pages");
+        }
     }
 });
 

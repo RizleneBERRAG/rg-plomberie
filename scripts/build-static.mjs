@@ -206,6 +206,26 @@ function buildSitemap() {
     ].join("\n");
 }
 
+// La page unique de dépannage (landing/) est publiée telle quelle sur OVH.
+// L'aperçu GitHub Pages en garde une copie hors index, sans le script d'envoi PHP.
+function copyLanding() {
+    const landingDirectory = path.join(root, "landing");
+    const target = path.join(docsDirectory, "urgence");
+    const serverOnly = new Set(["envoi.php", ".htaccess"]);
+
+    fs.cpSync(landingDirectory, target, {
+        recursive: true,
+        filter: function (source) {
+            return !serverOnly.has(path.basename(source));
+        }
+    });
+
+    const indexPath = path.join(target, "index.html");
+    const html = fs.readFileSync(indexPath, "utf8")
+        .replace('<meta name="robots" content="index, follow">', '<meta name="robots" content="noindex, nofollow">');
+    write(indexPath, html);
+}
+
 function copyAssets() {
     const files = [
         "assets/css/rg-premium.css",
@@ -272,6 +292,7 @@ function build() {
     });
 
     copyAssets();
+    copyLanding();
     write(path.join(docsDirectory, ".nojekyll"), "");
     write(path.join(docsDirectory, "sitemap.xml"), buildSitemap());
     write(path.join(docsDirectory, "robots.txt"), [

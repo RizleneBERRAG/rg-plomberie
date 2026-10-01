@@ -1,0 +1,28 @@
+Options -Indexes
+DirectoryIndex index.html
+
+AddDefaultCharset UTF-8
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+
+    # À décommenter une fois le certificat SSL actif sur rgplomberie.com
+    # (sinon les visiteurs tombent sur une alerte de sécurité).
+    # RewriteCond %{SERVER_PORT} 80 [OR]
+    # RewriteCond %{HTTP_HOST} ^rgplomberie\.com$ [NC]
+    # RewriteRule ^(.*)$ https://www.rgplomberie.com/$1 [R=301,L]
+
+</IfModule>
+
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>
+
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/html "access plus 0 seconds"
+    ExpiresByType image/jpeg "access plus 1 month"
+    ExpiresByType image/png "access plus 1 month"
+    ExpiresByType image/svg+xml "access plus 1 month"
+    ExpiresByType image/x-icon "access plus 1 month"
+</IfModule>
