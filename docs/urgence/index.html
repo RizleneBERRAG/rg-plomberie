@@ -77,7 +77,7 @@
 
         p { margin: 0; }
 
-        a { color: inherit; }
+        a { color: inherit; -webkit-tap-highlight-color: transparent; }
 
         img { display: block; max-width: 100%; height: auto; }
 
@@ -147,7 +147,8 @@
             transition: background 0.15s ease;
         }
 
-        .call:hover { background: var(--red-dark); }
+        .call:hover,
+        .call:active { background: var(--red-dark); }
 
         .call__icon {
             display: grid;
@@ -192,7 +193,8 @@
 
         .btn--red { color: var(--white); background: var(--red); }
 
-        .btn--red:hover { background: var(--red-dark); }
+        .btn--red:hover,
+        .btn--red:active { background: var(--red-dark); }
 
         .btn--outline {
             color: var(--ink);
@@ -225,10 +227,7 @@
         /* En-tête */
 
         .top {
-            position: sticky;
-            top: 0;
-            z-index: 30;
-            background: rgba(255, 255, 255, 0.97);
+            background: var(--white);
             border-bottom: 1px solid var(--line);
         }
 
@@ -237,7 +236,7 @@
             align-items: center;
             justify-content: space-between;
             gap: 14px;
-            min-height: 62px;
+            min-height: 58px;
         }
 
         .brand {
@@ -286,13 +285,13 @@
 
         /* Accueil */
 
-        .hero { padding: 30px 0 52px; }
+        .hero { padding: 22px 0 48px; }
 
         .hero__grid { display: grid; gap: 34px; }
 
         .hero h1 {
-            margin-top: 14px;
-            font-size: clamp(2.15rem, 9vw, 3.7rem);
+            margin-top: 12px;
+            font-size: clamp(2rem, 4.2vw + 1.05rem, 3.7rem);
             font-weight: 820;
         }
 
@@ -300,16 +299,16 @@
 
         .hero__lead {
             max-width: 34em;
-            margin-top: 18px;
+            margin-top: 14px;
             color: var(--muted);
-            font-size: 1.08rem;
+            font-size: 1.02rem;
         }
 
         .hero__actions {
             display: grid;
-            gap: 6px;
+            gap: 4px;
             justify-items: start;
-            margin-top: 26px;
+            margin-top: 20px;
         }
 
         .hero__actions .call { width: 100%; }
@@ -416,6 +415,8 @@
         }
 
         .problem:hover { border-color: var(--red); }
+
+        .problem:active { border-color: var(--red); background: var(--red-tint); }
 
         .problem__icon {
             display: grid;
@@ -664,14 +665,16 @@
             left: 0;
             z-index: 30;
             display: grid;
-            grid-template-columns: 1.6fr 1fr;
+            grid-template-columns: 1fr auto;
             gap: 8px;
             padding: 10px var(--gutter) calc(10px + env(safe-area-inset-bottom));
             background: var(--white);
             border-top: 1px solid var(--line);
         }
 
-        .callbar .btn { min-height: 50px; padding: 10px 12px; }
+        .callbar .btn { min-height: 52px; padding: 10px 14px; }
+
+        .callbar .btn--red { font-size: 1.08rem; font-variant-numeric: tabular-nums; white-space: nowrap; }
 
         .callbar .icon { width: 20px; height: 20px; }
 
@@ -719,6 +722,15 @@
             body { padding-bottom: 0; }
 
             .callbar { display: none; }
+
+            .top {
+                position: sticky;
+                top: 0;
+                z-index: 30;
+                background: rgba(255, 255, 255, 0.97);
+            }
+
+            [id] { scroll-margin-top: 96px; }
 
             .top__inner { min-height: 72px; }
 
@@ -768,10 +780,41 @@
             .legal__body { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px 48px; }
         }
 
+        .callbar .short { display: none; }
+
+        /* Téléphone tenu à l’horizontale : le bouton d’appel doit rester dans le premier écran. */
+        @media (max-height: 500px) and (max-width: 899px) {
+            .hero { padding-top: 14px; }
+
+            .hero h1 { font-size: 2rem; }
+
+            .hero__lead { margin-top: 10px; }
+
+            .hero__actions { margin-top: 14px; }
+        }
+
         @media (max-width: 370px) {
+            :root { --gutter: 14px; }
+
             .brand__name small { display: none; }
 
-            .call__text strong { font-size: 1.4rem; }
+            .brand { gap: 9px; }
+
+            .brand__mono { padding-right: 9px; font-size: 1.25rem; }
+
+            .brand__name strong { font-size: 0.86rem; white-space: nowrap; }
+
+            .top__call { gap: 6px; padding: 8px 11px; }
+
+            .call { gap: 12px; padding-right: 16px; }
+
+            .call__text strong { font-size: 1.38rem; }
+
+            .callbar .long { display: none; }
+
+            .callbar .short { display: inline; }
+
+            .callbar .btn--red { font-size: 1rem; }
         }
     </style>
 </head>
@@ -817,7 +860,7 @@
                         Lyon et Est lyonnais
                     </p>
                     <h1 id="titre">Fuite, panne de chauffage&nbsp;? <span>Parlez directement à votre plombier.</span></h1>
-                    <p class="hero__lead">RG Plomberie, artisan plombier chauffagiste installé à Janneyrias depuis 2017. Un appel, et vous savez tout de suite quand il peut passer.</p>
+                    <p class="hero__lead">Artisan plombier chauffagiste à Janneyrias depuis 2017. Un appel, et vous savez tout de suite quand il peut passer.</p>
 
                     <div class="hero__actions">
                         <a class="call" href="tel:+33627997646">
@@ -1085,11 +1128,11 @@
     </footer>
 
     <nav class="callbar" aria-label="Contact rapide">
-        <a class="btn btn--red" href="tel:+33627997646">
+        <a class="btn btn--red" href="tel:+33627997646" aria-label="Appeler le 06 27 99 76 46">
             <svg class="icon icon--fill" aria-hidden="true"><use href="#i-phone"></use></svg>
-            Appeler
+            06 27 99 76 46
         </a>
-        <a class="btn btn--outline" href="#rappel">Être rappelé</a>
+        <a class="btn btn--outline" href="#rappel"><span class="long">Être rappelé</span><span class="short">Rappel</span></a>
     </nav>
 
     <script>
