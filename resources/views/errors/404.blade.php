@@ -1,22 +1,20 @@
 @extends('layouts.app', [
     'title' => 'Page introuvable — RG Plomberie',
-    'description' => 'La page demandée est introuvable. Revenez à l’accueil de RG Plomberie ou utilisez la page de contact.'
+    'description' => 'La page demandée est introuvable. Revenez à l’accueil de RG Plomberie ou appelez directement le 06 27 99 76 46.',
     'robots' => 'noindex, follow'
 ])
 
 @section('content')
-    <section class="not-found">
-        <div class="container not-found__grid">
-            <div data-reveal>
-                <p class="eyebrow eyebrow--light">Erreur 404</p>
-                <h1>Cette page a pris<br>une mauvaise conduite.</h1>
-                <p>Le lien est incorrect ou la page a été déplacée. Revenez à l’accueil ou contactez directement RG Plomberie.</p>
-                <div class="button-row">
-                    <a class="button button--light" href="{{ route('home') }}">Retour à l’accueil</a>
-                    <a class="button button--outline-light" href="{{ route('contact') }}">Nous contacter</a>
-                </div>
+    <section class="page-head">
+        <img class="page-head__bg" src="{{ asset('assets/img/rg/chantiers/camions-rg-plomberie.webp') }}" width="1654" height="608" alt="" aria-hidden="true">
+        <div class="wrap notfound">
+            <p class="kicker">Erreur 404</p>
+            <h1>Cette page a pris une mauvaise conduite.</h1>
+            <p>Le lien est incorrect ou la page a été déplacée. Revenez à l’accueil ou appelez directement RG Plomberie.</p>
+            <div class="actions">
+                <a class="btn btn--red btn--big" href="tel:+33627997646">06 27 99 76 46</a>
+                <a class="btn btn--line btn--big" href="{{ route('home') }}">Retour à l’accueil</a>
             </div>
-            <div class="not-found__number" aria-hidden="true">404</div>
         </div>
     </section>
 @endsection

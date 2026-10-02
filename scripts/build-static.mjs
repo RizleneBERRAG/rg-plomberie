@@ -4,12 +4,27 @@ import { fileURLToPath } from "node:url";
 
 const scriptDirectory = path.dirname(fileURLToPath(import.meta.url));
 const root = path.resolve(scriptDirectory, "..");
-const docsDirectory = path.join(root, "docs");
 const publicDirectory = path.join(root, "public");
 const viewsDirectory = path.join(root, "resources", "views");
-const basePath = "/rg-plomberie/";
-const siteUrl = "https://rizleneberrag.github.io/rg-plomberie/";
-const lastModified = "2026-09-15";
+
+// Deux sorties : l'aperçu GitHub Pages (docs/, sous /rg-plomberie/) et le site publié
+// sur l'hébergement OVH (dist/, à la racine de www.rgplomberie.com) avec --target=ovh.
+const targets = {
+    pages: { directory: "docs", basePath: "/rg-plomberie/", siteUrl: "https://rizleneberrag.github.io/rg-plomberie/" },
+    ovh: { directory: "dist", basePath: "/", siteUrl: "https://www.rgplomberie.com/" }
+};
+const targetArgument = process.argv.find(function (argument) {
+    return argument.startsWith("--target=");
+});
+const targetName = targetArgument ? targetArgument.slice("--target=".length) : "pages";
+if (!(targetName in targets)) {
+    throw new Error("Cible inconnue : " + targetName + " (pages ou ovh).");
+}
+const target = targets[targetName];
+const docsDirectory = path.join(root, target.directory);
+const basePath = target.basePath;
+const siteUrl = target.siteUrl;
+const lastModified = "2026-10-01";
 
 const routePaths = {
     home: "",
@@ -97,7 +112,7 @@ function resolveHelpers(content) {
             return basePath + routePaths[routeName];
         })
         .replace(/\{\{\s*date\('Y'\)\s*\}\}/g, "2026")
-        .replace(/\{\{\s*date\('d\/m\/Y'\)\s*\}\}/g, "15/09/2026");
+        .replace(/\{\{\s*date\('d\/m\/Y'\)\s*\}\}/g, "01/10/2026");
 }
 
 function preparePageContent(blade, page) {
@@ -125,6 +140,12 @@ function preparePageContent(blade, page) {
 }
 
 function staticSchema() {
+    const cities = [
+        "Lyon", "Villeurbanne", "Vaulx-en-Velin", "Bron", "Décines-Charpieu", "Meyzieu",
+        "Chassieu", "Genas", "Saint-Priest", "Jonage", "Pusignan", "Janneyrias",
+        "Colombier-Saugnieu", "Rillieux-la-Pape", "Caluire-et-Cuire", "Saint-Bonnet-de-Mure", "Saint-Laurent-de-Mure"
+    ];
+
     return {
         "@context": "https://schema.org",
         "@type": ["Plumber", "HVACBusiness"],
@@ -133,9 +154,9 @@ function staticSchema() {
         legalName: "RG PLOMBERIE",
         url: siteUrl,
         telephone: "+33627997646",
-        image: siteUrl + "assets/img/rg/web/transformations/heating-after.webp",
-        logo: siteUrl + "assets/img/rg/logo-official.webp",
-        description: "Plomberie, chauffage, climatisation et VMC dans le Rhône et l’Est lyonnais.",
+        image: siteUrl + "assets/img/rg/apercu-partage.jpg",
+        logo: siteUrl + "assets/img/rg/logo-rg-plomberie.webp",
+        description: "Plomberie, chauffage, climatisation et VMC à Lyon et dans l’Est lyonnais. Dépannage, installation et entretien. Devis gratuit.",
         foundingDate: "2017",
         priceRange: "€€",
         address: {
@@ -145,13 +166,14 @@ function staticSchema() {
             addressLocality: "Janneyrias",
             addressCountry: "FR"
         },
-        areaServed: [
-            { "@type": "AdministrativeArea", name: "Rhône" },
-            { "@type": "City", name: "Lyon" },
-            { "@type": "City", name: "Décines-Charpieu" },
-            { "@type": "City", name: "Villeurbanne" },
-            { "@type": "City", name: "Bron" }
-        ]
+        openingHoursSpecification: [
+            { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday"], opens: "07:30", closes: "19:30" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Friday", opens: "07:30", closes: "18:00" },
+            { "@type": "OpeningHoursSpecification", dayOfWeek: "Saturday", opens: "08:00", closes: "18:00" }
+        ],
+        areaServed: cities.map(function (city) {
+            return { "@type": "City", name: city };
+        })
     };
 }
 
@@ -169,8 +191,8 @@ function renderLayout(layoutBlade, metadata, canonical, content) {
 
     html = resolveHelpers(html);
     html = html.replace(
-        'content="' + basePath + 'assets/img/rg/web/transformations/heating-after.webp"',
-        'content="' + siteUrl + 'assets/img/rg/web/transformations/heating-after.webp"'
+        'content="' + basePath + 'assets/img/rg/apercu-partage.jpg"',
+        'content="' + siteUrl + 'assets/img/rg/apercu-partage.jpg"'
     );
 
     if (/(@extends|@section|@endsection|@if|@foreach|\{\{|\{!!)/.test(html)) {
@@ -228,10 +250,14 @@ function copyLanding() {
 
 function copyAssets() {
     const files = [
-        "assets/css/rg-premium.css",
-        "assets/js/rg-premium.js",
-        "assets/img/rg/brand-mark.svg",
-        "assets/img/rg/logo-official.webp",
+        "assets/css/rg-site.css",
+        "assets/js/rg-site.js",
+        "assets/fonts/archivo.woff2",
+        "assets/fonts/inter.woff2",
+        "assets/img/rg/logo-rg-plomberie.webp",
+        "assets/img/rg/logo-rg-plomberie-detoure.webp",
+        "assets/img/rg/logo-rg-plomberie-clair.webp",
+        "assets/img/rg/apercu-partage.jpg",
         "favicon.svg",
         "favicon.ico",
         "apple-touch-icon.png"
@@ -241,11 +267,13 @@ function copyAssets() {
         copy(path.join(publicDirectory, relativePath), path.join(docsDirectory, relativePath));
     });
 
-    fs.cpSync(
-        path.join(publicDirectory, "assets", "img", "rg", "web"),
-        path.join(docsDirectory, "assets", "img", "rg", "web"),
-        { recursive: true }
-    );
+    ["web", "chantiers", "prestations", "vitrine", "avant-apres"].forEach(function (folder) {
+        fs.cpSync(
+            path.join(publicDirectory, "assets", "img", "rg", folder),
+            path.join(docsDirectory, "assets", "img", "rg", folder),
+            { recursive: true }
+        );
+    });
 
     const manifest = {
         name: "RG Plomberie",
@@ -268,10 +296,43 @@ function copyAssets() {
     write(path.join(docsDirectory, "site.webmanifest"), JSON.stringify(manifest, null, 2) + "\n");
 }
 
+// Règles Apache de l'hébergement OVH : une seule adresse (https://www.), page 404, cache.
+function htaccess() {
+    return [
+        "Options -Indexes",
+        "DirectoryIndex index.html",
+        "AddDefaultCharset UTF-8",
+        "ErrorDocument 404 /404.html",
+        "",
+        "<IfModule mod_rewrite.c>",
+        "    RewriteEngine On",
+        "    RewriteCond %{SERVER_PORT} 80 [OR]",
+        "    RewriteCond %{HTTP_HOST} !^www\\.rgplomberie\\.com$ [NC]",
+        "    RewriteRule ^(.*)$ https://www.rgplomberie.com/$1 [R=301,L]",
+        "</IfModule>",
+        "",
+        "<IfModule mod_deflate.c>",
+        "    AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml application/xml text/plain",
+        "</IfModule>",
+        "",
+        "<IfModule mod_expires.c>",
+        "    ExpiresActive On",
+        "    ExpiresByType text/html \"access plus 0 seconds\"",
+        "    ExpiresByType text/css \"access plus 1 week\"",
+        "    ExpiresByType application/javascript \"access plus 1 week\"",
+        "    ExpiresByType image/webp \"access plus 1 month\"",
+        "    ExpiresByType image/jpeg \"access plus 1 month\"",
+        "    ExpiresByType image/png \"access plus 1 month\"",
+        "    ExpiresByType image/svg+xml \"access plus 1 month\"",
+        "    ExpiresByType image/x-icon \"access plus 1 month\"",
+        "</IfModule>",
+        ""
+    ].join("\n");
+}
+
 function build() {
-    const expectedDocsPath = path.join(root, "docs");
-    if (docsDirectory !== expectedDocsPath || path.basename(docsDirectory) !== "docs") {
-        throw new Error("Chemin docs inattendu, export annulé.");
+    if (path.dirname(docsDirectory) !== root || !["docs", "dist"].includes(path.basename(docsDirectory))) {
+        throw new Error("Dossier de sortie inattendu, export annulé.");
     }
 
     fs.rmSync(docsDirectory, { recursive: true, force: true });
@@ -284,6 +345,10 @@ function build() {
         const metadata = extractMetadata(blade);
         if (page.noindex) {
             metadata.robots = "noindex, follow";
+        } else if (targetName === "pages") {
+            // L'aperçu GitHub sert à montrer le site au client : il reste hors des résultats Google,
+            // pour ne pas faire doublon avec le site officiel.
+            metadata.robots = "noindex, nofollow";
         }
         const content = preparePageContent(blade, page);
         const canonical = page.route ? siteUrl + routePaths[page.route] : siteUrl + "404.html";
@@ -293,17 +358,20 @@ function build() {
 
     copyAssets();
     copyLanding();
-    write(path.join(docsDirectory, ".nojekyll"), "");
+    if (targetName === "pages") {
+        write(path.join(docsDirectory, ".nojekyll"), "");
+    } else {
+        write(path.join(docsDirectory, ".htaccess"), htaccess());
+    }
     write(path.join(docsDirectory, "sitemap.xml"), buildSitemap());
+    // Sur l'aperçu, pas de plan du site : les pages sont en noindex.
     write(path.join(docsDirectory, "robots.txt"), [
         "User-agent: *",
         "Allow: /",
-        "",
-        "Sitemap: " + siteUrl + "sitemap.xml",
         ""
-    ].join("\n"));
+    ].concat(targetName === "pages" ? [] : ["Sitemap: " + siteUrl + "sitemap.xml", ""]).join("\n"));
 
-    console.log("Export statique terminé : " + pages.length + " pages.");
+    console.log("Export statique terminé (" + targetName + ", " + target.directory + "/) : " + pages.length + " pages.");
 }
 
 build();

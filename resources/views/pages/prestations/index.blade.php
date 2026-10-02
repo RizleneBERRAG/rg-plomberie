@@ -1,133 +1,76 @@
 @extends('layouts.app', [
-    'title' => 'Prestations plomberie, chauffage, climatisation et VMC — RG Plomberie',
-    'description' => 'Découvrez les prestations RG Plomberie : plomberie, chauffage, climatisation, VMC, installation, entretien et dépannage dans le Rhône.'
+    'title' => 'Prestations — plomberie, chauffage, climatisation et VMC — RG Plomberie',
+    'description' => 'Plomberie, chauffage, climatisation, pompe à chaleur et VMC à Lyon et dans l’Est lyonnais : dépannage, entretien et installation. Devis gratuit.'
 ])
 
 @section('content')
-    <section class="page-hero page-hero--compact">
-        <div class="container page-hero__grid">
-            <div class="page-hero__copy" data-reveal>
-                <nav class="breadcrumb" aria-label="Fil d’Ariane">
-                    <a href="{{ route('home') }}">Accueil</a><span aria-hidden="true">/</span><span>Prestations</span>
-                </nav>
-                <p class="eyebrow">Prestations</p>
-                <h1>Quatre métiers.<br>Un service complet.</h1>
-                <p class="lead">
-                    De la fuite visible au confort thermique global, RG Plomberie intervient
-                    sur les équipements essentiels du logement et des locaux professionnels.
-                </p>
-                <a class="button button--primary" href="{{ route('contact') }}">Demander une étude</a>
+    <section class="page-head">
+        <img class="page-head__bg" src="{{ asset('assets/img/rg/chantiers/camions-rg-plomberie.webp') }}" width="1654" height="608" alt="" aria-hidden="true">
+        <div class="wrap page-head__in">
+            <div data-reveal>
+                <nav class="crumbs" aria-label="Fil d’Ariane"><a href="{{ route('home') }}">Accueil</a><span aria-hidden="true">/</span><span>Prestations</span></nav>
+                <p class="kicker">Prestations</p>
+                <h1>Un seul artisan pour <em>l’eau, la chaleur et l’air</em>.</h1>
+                <p class="page-head__lead">Plomberie, chauffage, climatisation, pompe à chaleur et VMC : dépannage, entretien et installation à Lyon et dans l’Est lyonnais.</p>
+                <div class="actions">
+                    <a class="btn btn--red btn--big" href="tel:+33627997646"><svg class="ic ic--fill" aria-hidden="true"><use href="#i-phone"></use></svg>06 27 99 76 46</a>
+                    <a class="btn btn--line btn--big" href="{{ route('contact') }}#demande"><svg class="ic" aria-hidden="true"><use href="#i-sms"></use></svg>Demande par SMS</a>
+                </div>
             </div>
-            <figure class="page-hero__media" data-reveal>
-                <img src="{{ asset('assets/img/rg/web/hvac-installation.webp') }}" width="996" height="664" alt="Pose d’un équipement de climatisation intérieur" fetchpriority="high">
-                <figcaption>Installation · Entretien · Dépannage</figcaption>
+            <figure class="page-head__photo" data-reveal>
+                <img src="{{ asset('assets/img/rg/chantiers/sdb-vasque-800.webp') }}" width="600" height="800" alt="Salle de bains avec meuble vasque suspendu, réalisée par RG Plomberie" fetchpriority="high">
+                <figcaption>Chantier RG Plomberie</figcaption>
             </figure>
         </div>
     </section>
 
-    <section class="section">
-        <div class="container service-chapters">
-            <article class="service-chapter" data-reveal>
-                <a class="service-chapter__media" href="{{ route('prestations.plomberie') }}">
-                    <img src="{{ asset('assets/img/rg/web/bathroom-2.webp') }}" width="1600" height="897" alt="Salle de bains avec équipements sanitaires" loading="lazy">
-                    <span>01</span>
-                </a>
-                <div class="service-chapter__copy">
-                    <p class="eyebrow">Plomberie</p>
-                    <h2>Réparer, raccorder, rénover.</h2>
-                    <p>Fuites, robinetterie, sanitaires, chauffe-eau, réseaux d’alimentation et évacuations.</p>
-                    <ul class="tick-list">
-                        <li>Recherche et réparation de fuite</li>
-                        <li>Création ou reprise de réseaux</li>
-                        <li>Pose d’équipements sanitaires</li>
-                    </ul>
-                    <a class="text-link" href="{{ route('prestations.plomberie') }}">Voir la plomberie <span aria-hidden="true">→</span></a>
-                </div>
-            </article>
-
-            <article class="service-chapter service-chapter--reverse" data-reveal>
-                <a class="service-chapter__media" href="{{ route('prestations.chauffage') }}">
-                    <img src="{{ asset('assets/img/rg/web/heating-technician.webp') }}" width="1168" height="784" alt="Technicien travaillant sur un équipement de chauffage" loading="lazy">
-                    <span>02</span>
-                </a>
-                <div class="service-chapter__copy">
-                    <p class="eyebrow">Chauffage</p>
-                    <h2>Installer, entretenir, dépanner.</h2>
-                    <p>Production de chaleur, eau chaude, radiateurs et amélioration du confort thermique.</p>
-                    <ul class="tick-list">
-                        <li>Diagnostic de panne</li>
-                        <li>Remplacement d’équipement</li>
-                        <li>Entretien et contrôle</li>
-                    </ul>
-                    <a class="text-link" href="{{ route('prestations.chauffage') }}">Voir le chauffage <span aria-hidden="true">→</span></a>
-                </div>
-            </article>
-
-            <article class="service-chapter" data-reveal>
-                <a class="service-chapter__media" href="{{ route('prestations.climatisation') }}">
-                    <img src="{{ asset('assets/img/rg/web/air-conditioning.webp') }}" width="1168" height="784" alt="Intervention sur une unité extérieure de climatisation" loading="lazy">
-                    <span>03</span>
-                </a>
-                <div class="service-chapter__copy">
-                    <p class="eyebrow">Climatisation</p>
-                    <h2>Dimensionner, poser, maintenir.</h2>
-                    <p>Solutions de climatisation adaptées aux volumes, à l’usage et au bâtiment existant.</p>
-                    <ul class="tick-list">
-                        <li>Installation et mise en service</li>
-                        <li>Nettoyage et maintenance</li>
-                        <li>Diagnostic de fonctionnement</li>
-                    </ul>
-                    <a class="text-link" href="{{ route('prestations.climatisation') }}">Voir la climatisation <span aria-hidden="true">→</span></a>
-                </div>
-            </article>
-
-            <article class="service-chapter service-chapter--reverse" data-reveal>
-                <a class="service-chapter__media" href="{{ route('prestations.vmc') }}">
-                    <img src="{{ asset('assets/img/rg/web/ventilation.webp') }}" width="1168" height="784" alt="Réseau de ventilation mécanique dans une construction" loading="lazy">
-                    <span>04</span>
-                </a>
-                <div class="service-chapter__copy">
-                    <p class="eyebrow">VMC</p>
-                    <h2>Renouveler l’air correctement.</h2>
-                    <p>Installation, remplacement et entretien de systèmes de ventilation mécanique contrôlée.</p>
-                    <ul class="tick-list">
-                        <li>Diagnostic d’humidité et d’aération</li>
-                        <li>Pose ou remplacement de VMC</li>
-                        <li>Entretien des bouches et réseaux</li>
-                    </ul>
-                    <a class="text-link" href="{{ route('prestations.vmc') }}">Voir la VMC <span aria-hidden="true">→</span></a>
-                </div>
-            </article>
+    <section class="block">
+        <div class="wrap">
+            <header class="head" data-reveal><p class="kicker">Nos métiers</p><h2>Choisissez votre besoin.</h2></header>
+            <ul class="svc" data-reveal>
+                <li><a href="{{ route('prestations.plomberie') }}">
+                    <span class="svc__n">01</span><svg class="svc__ic ic" aria-hidden="true"><use href="#i-drop"></use></svg>
+                    <h3>Plomberie</h3><p>Fuites, sanitaires, robinetterie, chauffe-eau, évacuations bouchées.</p>
+                    <span class="svc__go"><svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg></span></a></li>
+                <li><a href="{{ route('prestations.chauffage') }}">
+                    <span class="svc__n">02</span><svg class="svc__ic ic" aria-hidden="true"><use href="#i-radiator"></use></svg>
+                    <h3>Chauffage</h3><p>Chaudière, radiateurs, thermostat : entretien annuel, panne, remplacement.</p>
+                    <span class="svc__go"><svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg></span></a></li>
+                <li><a href="{{ route('prestations.climatisation') }}">
+                    <span class="svc__n">03</span><svg class="svc__ic ic" aria-hidden="true"><use href="#i-snow"></use></svg>
+                    <h3>Climatisation et pompe à chaleur</h3><p>Installation, mise en service, entretien et dépannage.</p>
+                    <span class="svc__go"><svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg></span></a></li>
+                <li><a href="{{ route('prestations.vmc') }}">
+                    <span class="svc__n">04</span><svg class="svc__ic ic" aria-hidden="true"><use href="#i-air"></use></svg>
+                    <h3>VMC</h3><p>Installation, entretien et remplacement pour un air sain.</p>
+                    <span class="svc__go"><svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg></span></a></li>
+                <li><a href="{{ route('depannage') }}">
+                    <span class="svc__n">05</span><svg class="svc__ic ic" aria-hidden="true"><use href="#i-tool"></use></svg>
+                    <h3>Dépannage</h3><p>Fuite, panne d’eau chaude ou de chauffage : appelez, l’artisan répond.</p>
+                    <span class="svc__go"><svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg></span></a></li>
+            </ul>
         </div>
     </section>
 
-    <section class="section section--sand">
-        <div class="container">
-            <header class="section-heading section-heading--split" data-reveal>
-                <div>
-                    <p class="eyebrow">Pour chaque demande</p>
-                    <h2>Le bon niveau d’intervention.</h2>
-                </div>
-                <p>Un dépannage, un entretien et une rénovation complète ne se préparent pas de la même façon. La première étape consiste à qualifier précisément le besoin.</p>
-            </header>
-            <div class="value-grid value-grid--three">
-                <article data-reveal><span>A</span><h3>Dépannage</h3><p>Identifier l’origine, sécuriser et remettre en service lorsque c’est possible.</p></article>
-                <article data-reveal><span>B</span><h3>Entretien</h3><p>Contrôler, nettoyer et anticiper les dysfonctionnements des équipements.</p></article>
-                <article data-reveal><span>C</span><h3>Installation</h3><p>Dimensionner une solution cohérente et soigner son intégration.</p></article>
+    <section class="block block--soft">
+        <div class="wrap">
+            <header class="head" data-reveal><p class="kicker">Pour chaque demande</p><h2>Le bon niveau d’intervention.</h2><p>Un dépannage, un entretien et une rénovation ne se préparent pas de la même façon : la première étape est de bien comprendre le besoin.</p></header>
+            <div class="cards" data-reveal>
+                <article><span>01</span><h3>Dépannage</h3><p>Identifier l’origine, sécuriser et remettre en service lorsque c’est possible.</p></article>
+                <article><span>02</span><h3>Entretien</h3><p>Contrôler, nettoyer et anticiper les dysfonctionnements des équipements.</p></article>
+                <article><span>03</span><h3>Installation</h3><p>Dimensionner une solution cohérente et soigner son intégration.</p></article>
             </div>
         </div>
     </section>
 
-    <section class="cta-section">
-        <div class="container cta-panel" data-reveal>
-            <div>
-                <p class="eyebrow eyebrow--light">Vous hésitez ?</p>
-                <h2>Décrivez simplement le symptôme.</h2>
-                <p>RG Plomberie vous aidera à identifier la prestation correspondant à votre situation.</p>
-            </div>
-            <div class="cta-panel__actions">
-                <a class="button button--light" href="{{ route('contact') }}">Faire une demande</a>
-                <a class="cta-phone" href="tel:+33627997646">06 27 99 76 46</a>
+    <section class="final">
+        <div class="final__band" aria-hidden="true"><div class="final__track"><span>Plomberie · Chauffage · Climatisation · Pompe à chaleur · VMC · Dépannage ·&nbsp;</span><span>Plomberie · Chauffage · Climatisation · Pompe à chaleur · VMC · Dépannage ·&nbsp;</span></div></div>
+        <div class="wrap final__in">
+            <h2>Vous hésitez ?</h2>
+            <p>Décrivez simplement le symptôme : l’artisan vous oriente. Devis gratuit.</p>
+            <div class="final__cta">
+                <a class="final__phone" href="tel:+33627997646"><span class="final__ic"><svg class="ic ic--fill" aria-hidden="true"><use href="#i-phone"></use></svg></span><span><small>Appel direct</small><strong>06 27 99 76 46</strong></span></a>
+                <a class="final__sms" href="{{ route('contact') }}#demande">ou faites une demande par SMS <svg class="ic" aria-hidden="true"><use href="#i-arrow"></use></svg></a>
             </div>
         </div>
     </section>

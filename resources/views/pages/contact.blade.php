@@ -1,144 +1,78 @@
 @extends('layouts.app', [
-    'title' => 'Contact et demande de devis — RG Plomberie',
-    'description' => 'Contactez RG Plomberie pour une demande de devis ou d’intervention en plomberie, chauffage, climatisation ou VMC.'
+    'title' => 'Contact et devis gratuit — RG Plomberie',
+    'description' => 'Contactez RG Plomberie au 06 27 99 76 46 ou envoyez votre demande par SMS : plomberie, chauffage, climatisation et VMC à Lyon et dans l’Est lyonnais. Devis gratuit.'
 ])
 
 @section('content')
-    <section class="contact-hero">
-        <div class="container contact-hero__grid">
+    <section class="page-head">
+        <img class="page-head__bg" src="{{ asset('assets/img/rg/chantiers/camions-rg-plomberie.webp') }}" width="1654" height="608" alt="" aria-hidden="true">
+        <div class="wrap page-head__in page-head__in--solo">
             <div data-reveal>
-                <nav class="breadcrumb" aria-label="Fil d’Ariane">
-                    <a href="{{ route('home') }}">Accueil</a><span aria-hidden="true">/</span><span>Contact</span>
-                </nav>
-                <p class="eyebrow">Contact</p>
-                <h1>Un besoin, un projet ?<br>Parlons-en.</h1>
-                <p class="lead">Pour une urgence, appelez directement. Pour un projet, laissez les informations essentielles dans le formulaire.</p>
+                <nav class="crumbs" aria-label="Fil d’Ariane"><a href="{{ route('home') }}">Accueil</a><span aria-hidden="true">/</span><span>Contact</span></nav>
+                <p class="kicker">Contact et devis</p>
+                <h1>Un besoin, un projet ? <em>Parlons-en.</em></h1>
+                <p class="page-head__lead">Pour une urgence, appelez. Pour le reste, envoyez votre demande par SMS en vingt secondes : l’artisan vous rappelle. Le devis est gratuit.</p>
+                <div class="actions"><a class="btn btn--red btn--big" href="tel:+33627997646"><svg class="ic ic--fill" aria-hidden="true"><use href="#i-phone"></use></svg>06 27 99 76 46</a></div>
             </div>
-            <a class="contact-phone-card" href="tel:+33627997646" data-reveal>
-                <span>Contact direct</span>
-                <strong>06 27 99 76 46</strong>
-                <small>Appeler RG Plomberie <span aria-hidden="true">→</span></small>
-            </a>
         </div>
     </section>
 
-    <section class="section section--sand" id="formulaire">
-        <div class="container contact-layout">
-            <div class="contact-form-panel" data-reveal>
-                <header>
-                    <p class="eyebrow">Demande de devis</p>
-                    <h2>Les informations utiles.</h2>
-                    <p>Les champs marqués d’un astérisque sont obligatoires.</p>
-                </header>
-
-                <!-- STATIC-REMOVE-START -->
-                @if (session('success'))
-                    <div class="form-alert form-alert--success" role="status">{{ session('success') }}</div>
-                @endif
-                @if ($errors->any())
-                    <div class="form-alert form-alert--error" role="alert">
-                        <strong>Le formulaire contient des erreurs.</strong>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-                <!-- STATIC-REMOVE-END -->
-
-                <form class="contact-form" method="post" action="{{ route('contact.send') }}" data-contact-form>
-                    @csrf
-                    <div class="hp-field" aria-hidden="true">
-                        <label for="website">Site internet</label>
-                        <input id="website" name="website" type="text" tabindex="-1" autocomplete="off">
-                    </div>
-
-                    <div class="form-grid">
-                        <div class="field">
-                            <label for="name">Nom complet <span aria-hidden="true">*</span></label>
-                            <input id="name" name="name" type="text" value="{{ old('name') }}" autocomplete="name" required maxlength="120">
-                        </div>
-                        <div class="field">
-                            <label for="phone">Téléphone <span aria-hidden="true">*</span></label>
-                            <input id="phone" name="phone" type="tel" value="{{ old('phone') }}" autocomplete="tel" inputmode="tel" required maxlength="30">
-                        </div>
-                        <div class="field">
-                            <label for="email">E-mail <small>(facultatif)</small></label>
-                            <input id="email" name="email" type="email" value="{{ old('email') }}" autocomplete="email" maxlength="160">
-                        </div>
-                        <div class="field">
-                            <label for="city">Ville <span aria-hidden="true">*</span></label>
-                            <input id="city" name="city" type="text" value="{{ old('city') }}" autocomplete="address-level2" required maxlength="120">
-                        </div>
-                        <div class="field field--full">
-                            <label for="service">Type de besoin <span aria-hidden="true">*</span></label>
-                            <select id="service" name="service" required>
-                                <option value="">Sélectionner</option>
-                                <option value="plomberie" @selected(old('service') === 'plomberie')>Plomberie</option>
-                                <option value="chauffage" @selected(old('service') === 'chauffage')>Chauffage</option>
-                                <option value="climatisation" @selected(old('service') === 'climatisation')>Climatisation</option>
-                                <option value="vmc" @selected(old('service') === 'vmc')>VMC / ventilation</option>
-                                <option value="depannage" @selected(old('service') === 'depannage')>Dépannage urgent</option>
-                                <option value="autre" @selected(old('service') === 'autre')>Autre demande</option>
-                            </select>
-                        </div>
-                        <div class="field field--full">
-                            <label for="message">Votre demande <span aria-hidden="true">*</span></label>
-                            <textarea id="message" name="message" rows="7" required maxlength="3000" placeholder="Équipement concerné, symptômes ou travaux souhaités, contraintes et disponibilités…">{{ old('message') }}</textarea>
-                            <small>Vous pourrez transmettre des photos lors de l’échange.</small>
-                        </div>
-                    </div>
-
-                    <label class="privacy-check">
-                        <input type="checkbox" name="privacy" value="1" required @checked(old('privacy'))>
-                        <span>J’accepte que mes informations soient utilisées pour répondre à ma demande. <a href="{{ route('mentions') }}">En savoir plus</a>.</span>
-                    </label>
-
-                    <div class="form-actions">
-                        <button class="button button--primary" type="submit">Envoyer la demande <span aria-hidden="true">↗</span></button>
-                        <p>Ou appelez le <a href="tel:+33627997646">06 27 99 76 46</a>.</p>
-                    </div>
-                    <div class="static-contact-result" id="contact-result" data-contact-result hidden aria-live="polite"></div>
-                </form>
+    <section class="block block--ink" id="demande">
+        <div class="wrap lead-box">
+            <div class="lead-box__copy" data-reveal>
+                <p class="kicker">Demande par SMS</p>
+                <h2>Décrivez le problème, l’artisan vous rappelle.</h2>
+                <p>Choisissez le problème et votre commune : le message part par SMS, directement sur le portable de RG Plomberie. Vous pourrez y joindre des photos.</p>
+                <a class="phone-tile" href="tel:+33627997646"><small>Appel direct</small><strong>06 27 99 76 46</strong></a>
+                <dl class="hours">
+                    <div><dt>Lun. – jeu.</dt><dd>7 h 30 – 19 h 30</dd></div>
+                    <div><dt>Vendredi</dt><dd>7 h 30 – 18 h</dd></div>
+                    <div><dt>Samedi</dt><dd>8 h – 18 h</dd></div>
+                </dl>
             </div>
-
-            <aside class="contact-sidebar" data-reveal>
-                <article>
-                    <span>01</span>
-                    <h3>Urgence</h3>
-                    <p>L’appel permet de qualifier la panne et de vérifier une disponibilité.</p>
-                    <a href="tel:+33627997646">Appeler maintenant <span aria-hidden="true">→</span></a>
-                </article>
-                <article>
-                    <span>02</span>
-                    <h3>Projet</h3>
-                    <p>Précisez les pièces, l’équipement, la commune et l’échéance souhaitée.</p>
-                </article>
-                <article>
-                    <span>03</span>
-                    <h3>Photos</h3>
-                    <p>Préparez une vue générale, une vue rapprochée et les références de l’appareil.</p>
-                </article>
-                <article class="contact-sidebar__zone">
-                    <span>Zone</span>
-                    <h3>Rhône & Est lyonnais</h3>
-                    <p>Siège à Janneyrias. Intervention sur déplacement selon la demande.</p>
-                </article>
-            </aside>
+            <form class="form" data-lead-form novalidate data-reveal>
+                <fieldset class="chips">
+                    <legend>Quel est le problème ?</legend>
+                    <label><input type="radio" name="probleme" value="une fuite d'eau"><span>Fuite d’eau</span></label>
+                    <label><input type="radio" name="probleme" value="plus d'eau chaude"><span>Plus d’eau chaude</span></label>
+                    <label><input type="radio" name="probleme" value="un chauffage en panne"><span>Chauffage</span></label>
+                    <label><input type="radio" name="probleme" value="une évacuation bouchée ou lente"><span>Évacuation bouchée</span></label>
+                    <label><input type="radio" name="probleme" value="la climatisation ou la pompe à chaleur"><span>Clim / pompe à chaleur</span></label>
+                    <label><input type="radio" name="probleme" value="la VMC"><span>VMC</span></label>
+                    <label><input type="radio" name="probleme" value="des travaux (devis)"><span>Travaux / devis</span></label>
+                    <label><input type="radio" name="probleme" value="autre chose"><span>Autre</span></label>
+                </fieldset>
+                <div class="fields">
+                    <label class="field"><span>Votre commune</span><input name="commune" type="text" autocomplete="address-level2" placeholder="Ex. : Meyzieu" maxlength="80"></label>
+                    <label class="field"><span>Prénom <small>(facultatif)</small></span><input name="prenom" type="text" autocomplete="given-name" maxlength="60"></label>
+                </div>
+                <button class="btn btn--red btn--big btn--full" type="submit"><svg class="ic" aria-hidden="true"><use href="#i-sms"></use></svg>Envoyer ma demande par SMS</button>
+                <p class="form__note">Votre application SMS s’ouvre avec le message déjà rédigé. Rien n’est enregistré sur le site.</p>
+                <div class="form__result" data-lead-result aria-live="polite"></div>
+            </form>
         </div>
     </section>
 
-    <section class="section">
-        <div class="container zone-panel" data-reveal>
-            <div>
-                <p class="eyebrow">Secteur d’intervention</p>
-                <h2>Votre commune n’est pas listée ?</h2>
-                <p>Les secteurs affichés sont des repères, pas une frontière stricte. Contactez RG Plomberie pour vérifier la faisabilité du déplacement.</p>
-                <a class="text-link" href="tel:+33627997646">Vérifier par téléphone <span aria-hidden="true">→</span></a>
-            </div>
-            <div class="zone-panel__map" aria-label="Exemples de secteurs desservis">
-                <span>Lyon</span><span>Villeurbanne</span><span>Bron</span><span>Décines</span><span>Meyzieu</span><span>Janneyrias</span>
+    <section class="block block--soft">
+        <div class="wrap zone-box">
+            <header class="head" data-reveal>
+                <p class="kicker">Secteur</p>
+                <h2>Lyon et l’Est lyonnais.</h2>
+                <p>Siège à Janneyrias. Votre commune n’est pas listée ? Appelez, on vous dit tout de suite si le déplacement est possible.</p>
+            </header>
+            <ul class="towns" data-reveal>
+                <li>Lyon</li><li>Villeurbanne</li><li>Vaulx-en-Velin</li><li>Bron</li><li>Décines-Charpieu</li><li>Meyzieu</li>
+                <li>Chassieu</li><li>Genas</li><li>Saint-Priest</li><li>Jonage</li><li>Pusignan</li><li>Janneyrias</li>
+            </ul>
+        </div>
+    </section>
+
+    <section class="block">
+        <div class="wrap split">
+            <div data-reveal><p class="kicker">Pour un projet</p><h2>Préparez trois photos.</h2></div>
+            <div class="prose" data-reveal>
+                <p>Une vue générale de la pièce, une vue rapprochée de l’équipement et sa plaque signalétique (marque, modèle).</p>
+                <p>Indiquez aussi l’échéance souhaitée et les contraintes d’accès : le devis n’en sera que plus juste. RG PLOMBERIE · 4 B chemin de la Batterie, 38280 Janneyrias.</p>
             </div>
         </div>
     </section>

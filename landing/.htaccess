@@ -11,6 +11,13 @@ AddDefaultCharset UTF-8
     RewriteCond %{HTTP_HOST} ^rgplomberie\.com$ [NC]
     RewriteRule ^(.*)$ https://www.rgplomberie.com/$1 [R=301,L]
 
+    # Tant que le site complet n'est pas validé, seule la page de dépannage est publiée :
+    # toute autre adresse (anciennes pages encore présentes sur le serveur) renvoie vers l'accueil.
+    RewriteCond %{REQUEST_URI} !^/$
+    RewriteCond %{REQUEST_URI} !^/(index\.html|robots\.txt|favicon\.ico|favicon\.svg|apple-touch-icon\.png|apercu-partage\.jpg)$
+    RewriteCond %{REQUEST_URI} !^/(img|\.well-known)/
+    RewriteRule ^ https://www.rgplomberie.com/ [R=302,L]
+
 </IfModule>
 
 <IfModule mod_deflate.c>

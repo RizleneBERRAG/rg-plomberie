@@ -2,33 +2,32 @@
 
 Site vitrine de RG Plomberie, entreprise artisanale spécialisée en plomberie, chauffage, climatisation et ventilation dans le Rhône et l’Est lyonnais.
 
-Cette version adopte une direction « artisan premium » : composition structurée, palette ivoire / anthracite / rouge brique, typographie sobre et interactions limitées aux usages qui améliorent réellement l’expérience.
+Charte « Chantier », validée le 1er octobre 2026 parmi trois ébauches : noir, photo des camions, rouge franc, titres massifs en Archivo et texte en Inter. Tout est à plat : aucun dégradé, aucun halo, aucune ombre portée, aucun bouton en gélule.
 
 ## Points forts
 
-- Comparateur avant / après accessible au clavier et au tactile
-- Pages dédiées à la plomberie, au chauffage, à la climatisation et à la VMC
-- Galerie avec agrandissement natif
-- Navigation responsive et barre d’action mobile
-- Formulaire Laravel protégé par validation, limitation de débit et honeypot
-- Solution de contact explicite pour la version statique GitHub Pages
-- Métadonnées SEO, Open Graph, sitemap et données structurées
-- Respect de la préférence de réduction des animations
-- Images WebP optimisées et dimensions explicites
-- Mentions légales renseignées avec les données publiques vérifiées
+- Pages distinctes : accueil, entreprise, prestations (plomberie, chauffage, climatisation et pompe à chaleur, VMC), réalisations, dépannage, avis, contact, mentions légales
+- Vraies photos de chantiers et des camions ; les visuels générés sont toujours signalés « visuel d’illustration »
+- Comparateur avant / après au doigt, à la souris et au clavier
+- Demande d’intervention par SMS (`#demande` sur l’accueil et la page Contact), sans serveur ni donnée enregistrée
+- Menu et barre d’appel pensés pour le téléphone, sans débordement horizontal
+- Polices hébergées sur le site (aucun appel à Google Fonts), aucun cookie
+- Métadonnées SEO, Open Graph, sitemap, données structurées (horaires, communes desservies)
 
 ## Architecture
 
 Le dépôt contient deux sorties cohérentes :
 
 - resources/views : vues Blade utilisées par Laravel
-- docs : export statique publié par GitHub Pages
+- docs : export statique publié par GitHub Pages (aperçu)
+- dist : export statique pour l’hébergement OVH (`npm run build:ovh`, non versionné)
 
 Les fichiers réellement chargés par le site sont :
 
-- public/assets/css/rg-premium.css
-- public/assets/js/rg-premium.js
-- public/assets/img/rg/web
+- public/assets/css/rg-site.css
+- public/assets/js/rg-site.js
+- public/assets/fonts (Archivo et Inter, variables)
+- public/assets/img/rg (logo officiel, photos de chantiers, visuels d’illustration)
 
 L’export statique est produit depuis les vues Blade par scripts/build-static.mjs. Cela évite de maintenir manuellement deux versions différentes.
 
@@ -78,44 +77,51 @@ La commande check vérifie notamment :
 - la page 404 en noindex ;
 - le poids total des assets publiés.
 
-## Formulaire statique
+## Mise en ligne sur OVH (www.rgplomberie.com)
 
-GitHub Pages ne peut pas exécuter le contrôleur Laravel. Sur la version docs, le formulaire prépare donc localement un message que le visiteur peut :
+Le site publié est l’export statique des vues Blade : aucune base de données, aucun `.env`, aucun `vendor` sur l’hébergement.
 
-- envoyer par SMS au 06 27 99 76 46 ;
-- copier avant d’appeler.
+    npm run build:ovh
+    npm run check:ovh
+    python scripts/deploy-landing.py --source dist --host ftp.cluster129.hosting.ovh.net --user rgploml
 
-Aucune donnée n’est envoyée silencieusement à un service tiers. Si l’entreprise souhaite recevoir de vrais formulaires web, il faut déployer Laravel avec la messagerie configurée ou connecter explicitement un prestataire de formulaires.
+- `build:ovh` produit `dist/` (ignoré par Git) avec des chemins à la racine, les adresses en `https://www.rgplomberie.com/`, le sitemap, le `robots.txt` et un `.htaccess` (une seule adresse en `https://www.`, page 404, compression, cache).
+- Le script envoie `dist/` dans `www/` par SFTP ; le mot de passe est demandé au lancement et n’est jamais stocké.
+- La fiche Google pointe vers `https://www.rgplomberie.com/#demande` (bouton de réservation et produits) : l’accueil doit garder une section `id="demande"`.
+
+`npm run build` reste la commande de l’aperçu GitHub Pages (`docs/`, sous `/rg-plomberie/`).
+
+## Demandes par SMS
+
+L’hébergement ne fait tourner aucun serveur de formulaire. Le formulaire d’accueil (`#demande`) et celui de la page Contact préparent un message que le visiteur envoie lui-même par SMS au 06 27 99 76 46 :
+
+- sur téléphone, l’application SMS s’ouvre avec le message déjà rédigé ;
+- sur ordinateur, le numéro et le message à copier s’affichent.
+
+Rien n’est transmis au site ni enregistré. Le contrôleur Laravel (`ContactController`, envoi par e-mail) reste disponible si le site est un jour déployé en Laravel avec une messagerie configurée et testée.
 
 ## Page unique de dépannage
 
-Le dossier landing contient une page autonome, pensée pour récolter des demandes, à publier sur le domaine du client en attendant le site complet. Elle ne dépend ni de Laravel ni de Node : il suffit d’envoyer le contenu du dossier dans le répertoire www de l’hébergement.
+Le dossier landing contient la première page mise en ligne pour récolter des demandes en attendant le site complet. Le site complet la remplace à la racine ; elle reste publiée à l’adresse `/urgence/`, hors index, dans `docs/` comme dans `dist/`.
 
-- landing/index.html : la page (styles et script intégrés)
-- landing/img : photos réelles (camions, réalisations) reprises de la fiche Google
-- landing/.htaccess : redirection HTTPS à activer une fois le certificat SSL en place
+    python scripts/deploy-landing.py --host ftp.cluster129.hosting.ovh.net --user rgploml
 
-Les demandes partent par SMS vers le 06 27 99 76 46 : sur téléphone, le formulaire ouvre l’application SMS avec le message déjà rédigé ; sur ordinateur, il affiche le numéro et le message à copier. Aucun serveur ni aucune donnée stockée.
+envoie de nouveau la seule page de dépannage dans `www/` (à n’utiliser que pour revenir à cette version).
 
-Mise en ligne :
+## Photos
 
-1. envoyer le contenu de landing dans www par FTP ;
-2. une fois le certificat SSL actif, décommenter la redirection dans .htaccess ;
-3. renseigner l’adresse du site sur la fiche Google.
-
-Si le domaine final n’est pas www.rgplomberie.com, remplacer cette adresse dans index.html (canonique, Open Graph, données structurées).
-
-L’aperçu est publié sur GitHub Pages à l’adresse /urgence/, hors index.
+- `public/assets/img/rg/chantiers` : vraies photos de chantiers RG Plomberie (salles de bains, hammam) et des camions, reprises de la fiche Google.
+- `public/assets/img/rg/web` : visuels d’illustration générés. Ils sont toujours signalés comme tels sur le site (« visuel d’illustration ») et ne doivent jamais être présentés comme des chantiers de l’entreprise.
 
 ## Contenus à confirmer
 
 Avant une mise en production commerciale définitive :
 
 1. confirmer le médiateur de la consommation auquel RG Plomberie a adhéré ;
-2. tester l’adresse de réception du formulaire Laravel ;
-3. remplacer les visuels de présentation par des photos de chantiers autorisées ;
+2. après la mise en ligne, envoyer une vraie demande par SMS depuis un téléphone pour vérifier sa réception ;
+3. remplacer peu à peu les visuels d’illustration par des photos de chantiers fournies par le client ;
 4. remplacer la projection avant / après par deux photos réelles prises au même cadrage ;
-5. confirmer le domaine canonique final si un nom de domaine personnalisé est connecté.
+5. demander au client de nouvelles photos de chantiers (avant / après au même cadrage si possible).
 
 Le visuel assets/img/rg/web/after-bathroom-projection.webp est une transformation générée à partir de la photo avant. Le site le signale comme projection et ne le présente pas comme un chantier réel.
 

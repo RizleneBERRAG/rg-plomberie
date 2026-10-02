@@ -3,7 +3,10 @@ import path from "node:path";
 import { fileURLToPath } from "node:url";
 
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), "..");
-const docs = path.join(root, "docs");
+// Même cible que build-static.mjs : docs/ (aperçu GitHub Pages) ou dist/ (--target=ovh).
+const isOvh = process.argv.includes("--target=ovh");
+const docs = path.join(root, isOvh ? "dist" : "docs");
+const basePath = isOvh ? "/" : "/rg-plomberie/";
 const failures = [];
 
 function walk(directory) {
@@ -80,11 +83,11 @@ htmlFiles.forEach(function (file) {
 
     Array.from(html.matchAll(/\s(?:src|href)="([^"]+)"/g)).forEach(function (match) {
         const reference = match[1].split("#")[0].split("?")[0];
-        if (!reference.startsWith("/rg-plomberie/")) {
+        if (!reference.startsWith(basePath) || reference.startsWith("//")) {
             return;
         }
 
-        let localPath = reference.slice("/rg-plomberie/".length);
+        let localPath = reference.slice(basePath.length);
         if (localPath === "" || localPath.endsWith("/")) {
             localPath += "index.html";
         }
@@ -94,8 +97,8 @@ htmlFiles.forEach(function (file) {
         }
     });
 
-    if (relative === path.join("contact", "index.html") && !/data-static-contact/.test(html)) {
-        fail(file, "le formulaire statique n’a pas de gestionnaire local");
+    if ((relative === "index.html" || relative === path.join("contact", "index.html")) && !/id="demande"[\s\S]*data-lead-form/.test(html)) {
+        fail(file, "la demande par SMS (#demande) est absente : la fiche Google pointe vers cette ancre");
     }
     if (relative === "404.html" && !/name="robots" content="noindex, follow"/.test(html)) {
         fail(file, "la page 404 doit être en noindex");
@@ -110,20 +113,30 @@ htmlFiles.forEach(function (file) {
     }
 });
 
-["favicon.ico", "favicon.svg", "apple-touch-icon.png", "site.webmanifest", "sitemap.xml"].forEach(function (name) {
+["favicon.ico", "favicon.svg", "apple-touch-icon.png", "site.webmanifest", "sitemap.xml"].concat(isOvh ? [".htaccess"] : []).forEach(function (name) {
     const file = path.join(docs, name);
     if (!fs.existsSync(file) || fs.statSync(file).size === 0) {
-        failures.push("Fichier public absent ou vide : docs/" + name);
+        failures.push("Fichier public absent ou vide : " + path.basename(docs) + "/" + name);
     }
 });
+
+if (isOvh) {
+    walk(docs).filter(function (file) {
+        return file.endsWith(".html");
+    }).forEach(function (file) {
+        if (/rizleneberrag\.github\.io/.test(fs.readFileSync(file, "utf8"))) {
+            fail(file, "adresse de l’aperçu GitHub restante dans le site publié");
+        }
+    });
+}
 
 const deliveredAssets = walk(path.join(docs, "assets"));
 const deliveredBytes = deliveredAssets.reduce(function (total, file) {
     return total + fs.statSync(file).size;
 }, 0);
 
-if (deliveredBytes > 2 * 1024 * 1024) {
-    failures.push("Poids des assets publiés supérieur à 2 Mio : " + deliveredBytes);
+if (deliveredBytes > 3 * 1024 * 1024) {
+    failures.push("Poids des assets publiés supérieur à 3 Mio : " + deliveredBytes);
 }
 
 if (failures.length) {

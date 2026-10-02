@@ -1,10 +1,12 @@
 {
-    "$schema": "https://www.schemastore.org/package.json",
-    "private": true,
-    "type": "module",
-    "scripts": {
-        "build": "node scripts/build-static.mjs",
-        "check": "node --check public/assets/js/rg-premium.js && node scripts/check-site.mjs",
-        "test": "npm run build && npm run check"
-    }
+  "$schema": "https://www.schemastore.org/package.json",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node scripts/build-static.mjs",
+    "build:ovh": "node scripts/build-static.mjs --target=ovh",
+    "check": "node --check public/assets/js/rg-site.js && node scripts/check-site.mjs",
+    "check:ovh": "node --check public/assets/js/rg-site.js && node scripts/check-site.mjs --target=ovh",
+    "test": "npm run build && npm run check"
+  }
 }
