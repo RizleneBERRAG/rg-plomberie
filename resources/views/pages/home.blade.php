@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'title' => 'RG Plomberie — Plombier chauffagiste à Lyon et dans l’Est lyonnais',
-    'description' => 'RG Plomberie, plombier chauffagiste à Lyon et dans l’Est lyonnais depuis 2017 : dépannage, installation et entretien en plomberie, chauffage, climatisation et VMC. Devis gratuit.'
+    'description' => 'Plombier chauffagiste à Lyon et dans l’Est lyonnais depuis 2017 : dépannage, installation et entretien, plomberie, chauffage, clim et VMC. Devis gratuit.'
 ])
 
 @section('content')

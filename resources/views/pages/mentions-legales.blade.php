@@ -83,7 +83,7 @@
 
                 <article id="cookies">
                     <h2>Cookies et services tiers</h2>
-                    <p>Le site n’utilise ni outil publicitaire, ni mesure d’audience, ni carte interactive : il ne dépose aucun cookie. Les polices de caractères sont hébergées sur le site lui-même. Les liens externes (avis Google, CNIL, hébergeur) s’ouvrent uniquement à votre demande.</p>
+                    <p>Le site n’utilise ni outil publicitaire, ni mesure d’audience, ni carte d’un service tiers (la carte du secteur est dessinée sur le site lui-même) : il ne dépose aucun cookie. Les polices de caractères sont hébergées sur le site lui-même. Les liens externes (avis Google, CNIL, hébergeur) s’ouvrent uniquement à votre demande.</p>
                 </article>
 
                 <article>

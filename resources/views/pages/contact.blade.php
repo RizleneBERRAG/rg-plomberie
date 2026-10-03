@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'title' => 'Contact et devis gratuit — RG Plomberie',
-    'description' => 'Contactez RG Plomberie au 06 27 99 76 46 ou envoyez votre demande par SMS : plomberie, chauffage, climatisation et VMC à Lyon et dans l’Est lyonnais. Devis gratuit.'
+    'description' => 'Appelez RG Plomberie au 06 27 99 76 46 ou envoyez votre demande par SMS : plomberie, chauffage, clim et VMC dans l’Est lyonnais. Devis gratuit.'
 ])
 
 @section('content')

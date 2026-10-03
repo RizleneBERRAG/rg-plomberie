@@ -62,6 +62,8 @@
                 'Chassieu', 'Genas', 'Saint-Priest', 'Jonage', 'Pusignan', 'Janneyrias',
                 'Colombier-Saugnieu', 'Rillieux-la-Pape', 'Caluire-et-Cuire', 'Saint-Bonnet-de-Mure', 'Saint-Laurent-de-Mure',
             ]),
+            'hasMap' => 'https://www.google.com/maps/search/?api=1&query=RG+Plomberie+Janneyrias',
+            'sameAs' => ['https://g.page/r/CcS2Cbh39mnoEAE'],
         ];
     @endphp
     <script type="application/ld+json">{!! json_encode($businessSchema, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES) !!}</script>
@@ -98,7 +100,7 @@
             <div class="wrap top__strip-in">
                 <p class="top__status" data-open-status><span class="top__dot" aria-hidden="true"></span><span data-open-text>Du lundi au samedi, dès 7 h 30</span></p>
                 <p class="top__zone">Plombier chauffagiste à Janneyrias · Lyon et Est lyonnais</p>
-                <a class="top__score" href="{{ route('avis') }}"><span aria-hidden="true">★</span> 4,9/5 · 67 avis Google</a>
+                <a class="top__score" href="{{ route('avis') }}"><span aria-hidden="true">★</span> 4,9/5<span class="top__score-more"> · 67 avis Google</span></a>
                 <p class="top__free">Devis gratuit</p>
             </div>
         </div>

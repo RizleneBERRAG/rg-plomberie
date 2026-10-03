@@ -1,6 +1,6 @@
 @extends('layouts.app', [
     'title' => 'L’entreprise — RG Plomberie, artisan plombier chauffagiste depuis 2017',
-    'description' => 'RG Plomberie, entreprise artisanale de plomberie, chauffage, climatisation et VMC installée dans l’Est lyonnais depuis 2017. Vous parlez directement à l’artisan.'
+    'description' => 'RG Plomberie, artisan plombier chauffagiste installé à Janneyrias depuis 2017 : plomberie, chauffage, clim et VMC. Vous parlez directement à l’artisan.'
 ])
 
 @section('content')

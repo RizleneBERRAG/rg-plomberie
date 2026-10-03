@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-    'title' => 'Dépannage plomberie et chauffage à Lyon et dans l’Est lyonnais — RG Plomberie',
+    'title' => 'Dépannage plomberie et chauffage, Est lyonnais — RG Plomberie',
     'description' => 'Fuite, plus d’eau chaude, chauffage en panne, évacuation bouchée : appelez RG Plomberie. Devis gratuit, intervention le jour même selon le planning.'
 ])
 

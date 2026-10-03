@@ -1,5 +1,5 @@
 @extends('layouts.app', [
-    'title' => 'Climatisation et pompe à chaleur à Lyon et dans l’Est lyonnais — RG Plomberie',
+    'title' => 'Climatisation et pompe à chaleur, Est lyonnais — RG Plomberie',
     'description' => 'Installation de climatisation, mise en service de pompe à chaleur, entretien et dépannage à Lyon et dans l’Est lyonnais. Devis gratuit.'
 ])
 

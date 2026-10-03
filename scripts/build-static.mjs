@@ -24,7 +24,8 @@ const target = targets[targetName];
 const docsDirectory = path.join(root, target.directory);
 const basePath = target.basePath;
 const siteUrl = target.siteUrl;
-const lastModified = "2026-10-01";
+// Date du dernier export : elle indique à Google que les pages ont changé.
+const lastModified = new Date().toISOString().slice(0, 10);
 
 const routePaths = {
     home: "",
@@ -173,11 +174,47 @@ function staticSchema() {
         ],
         areaServed: cities.map(function (city) {
             return { "@type": "City", name: city };
+        }),
+        hasMap: "https://www.google.com/maps/search/?api=1&query=RG+Plomberie+Janneyrias",
+        sameAs: ["https://g.page/r/CcS2Cbh39mnoEAE"]
+    };
+}
+
+// Fil d'Ariane lisible par Google (affiché sous le titre dans les résultats).
+const breadcrumbNames = {
+    entreprise: ["L’entreprise"],
+    prestations: ["Prestations"],
+    "prestations.plomberie": ["Prestations", "Plomberie"],
+    "prestations.chauffage": ["Prestations", "Chauffage"],
+    "prestations.climatisation": ["Prestations", "Climatisation et pompe à chaleur"],
+    "prestations.vmc": ["Prestations", "VMC"],
+    realisations: ["Réalisations"],
+    depannage: ["Dépannage"],
+    avis: ["Avis clients"],
+    contact: ["Contact"],
+    mentions: ["Mentions légales"]
+};
+
+function breadcrumbSchema(route) {
+    const names = breadcrumbNames[route];
+    if (!names) {
+        return null;
+    }
+    const items = [{ name: "Accueil", url: siteUrl }];
+    if (names.length === 2) {
+        items.push({ name: names[0], url: siteUrl + routePaths.prestations });
+    }
+    items.push({ name: names[names.length - 1], url: siteUrl + routePaths[route] });
+    return {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: items.map(function (item, index) {
+            return { "@type": "ListItem", position: index + 1, name: item.name, item: item.url };
         })
     };
 }
 
-function renderLayout(layoutBlade, metadata, canonical, content) {
+function renderLayout(layoutBlade, metadata, canonical, content, route) {
     let html = layoutBlade;
 
     html = html
@@ -188,6 +225,11 @@ function renderLayout(layoutBlade, metadata, canonical, content) {
         .replace(/\{\{\s*\$robots\s*\?\?\s*'[^']*'\s*\}\}/g, metadata.robots)
         .replace(/\{\{\s*url\(\)->current\(\)\s*\}\}/g, canonical)
         .replace("@yield('content')", content);
+
+    const crumbs = breadcrumbSchema(route);
+    if (crumbs) {
+        html = html.replace("</head>", '    <script type="application/ld+json">' + JSON.stringify(crumbs) + "</script>\n</head>");
+    }
 
     html = resolveHelpers(html);
     html = html.replace(
@@ -352,7 +394,7 @@ function build() {
         }
         const content = preparePageContent(blade, page);
         const canonical = page.route ? siteUrl + routePaths[page.route] : siteUrl + "404.html";
-        const html = renderLayout(layoutBlade, metadata, canonical, content);
+        const html = renderLayout(layoutBlade, metadata, canonical, content, page.route);
         write(path.join(docsDirectory, page.output), html);
     });
 
