@@ -29,7 +29,7 @@
     <meta name="twitter:card" content="summary_large_image">
 
     <script>document.documentElement.classList.add("js");</script>
-    <link rel="stylesheet" href="{{ asset('assets/css/rg-site.css') }}?v=20261002o">
+    <link rel="stylesheet" href="{{ asset('assets/css/rg-site.css') }}?v=20261003a">
 
     @php
         $businessSchema = [
@@ -236,6 +236,6 @@
 
     <div class="callbar"><a href="tel:+33627997646">Appeler</a><a href="{{ route('contact') }}#demande">Demande par SMS</a></div>
 
-    <script src="{{ asset('assets/js/rg-site.js') }}?v=20261002o" defer></script>
+    <script src="{{ asset('assets/js/rg-site.js') }}?v=20261003a" defer></script>
 </body>
 </html>
