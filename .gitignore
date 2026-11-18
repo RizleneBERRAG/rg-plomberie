@@ -38,3 +38,6 @@ __pycache__/
 
 # Export du site pour OVH (npm run build:ovh)
 /dist/
+
+# Clé de la page privée du compteur (écrite dans dist/compteur/cle.php à l’export OVH)
+/.compteur-cle

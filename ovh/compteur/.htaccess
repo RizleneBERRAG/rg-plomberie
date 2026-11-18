@@ -1,0 +1,4 @@
+# Seuls clic.php (le site y envoie les clics) et stats.php (page privée à clé) sont accessibles.
+<FilesMatch "^(commun|cle)\.php$">
+    Require all denied
+</FilesMatch>

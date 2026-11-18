@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
@@ -338,6 +339,23 @@ function copyAssets() {
     write(path.join(docsDirectory, "site.webmanifest"), JSON.stringify(manifest, null, 2) + "\n");
 }
 
+// Compteur anonyme des clics « Appeler » et des demandes par SMS (PHP, seulement sur OVH).
+// La clé de la page des totaux reste sur le poste (.compteur-cle, hors Git) et n'est
+// écrite que dans dist/, qui n'est pas versionné non plus.
+function copyCounter() {
+    const keyPath = path.join(root, ".compteur-cle");
+    if (!fs.existsSync(keyPath)) {
+        fs.writeFileSync(keyPath, crypto.randomBytes(18).toString("hex") + "\n", "utf8");
+    }
+    const key = fs.readFileSync(keyPath, "utf8").trim();
+    if (!/^[a-f0-9]{24,}$/.test(key)) {
+        throw new Error("Clé du compteur invalide dans .compteur-cle.");
+    }
+    const counterDirectory = path.join(docsDirectory, "compteur");
+    fs.cpSync(path.join(root, "ovh", "compteur"), counterDirectory, { recursive: true });
+    write(path.join(counterDirectory, "cle.php"), "<?php\nreturn '" + key + "';\n");
+}
+
 // Règles Apache de l'hébergement OVH : une seule adresse (https://www.), page 404, cache.
 function htaccess() {
     return [
@@ -404,6 +422,7 @@ function build() {
         write(path.join(docsDirectory, ".nojekyll"), "");
     } else {
         write(path.join(docsDirectory, ".htaccess"), htaccess());
+        copyCounter();
     }
     write(path.join(docsDirectory, "sitemap.xml"), buildSitemap());
     // Sur l'aperçu, pas de plan du site : les pages sont en noindex.

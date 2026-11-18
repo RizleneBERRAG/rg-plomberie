@@ -83,7 +83,9 @@
 
                 <article id="cookies">
                     <h2>Cookies et services tiers</h2>
-                    <p>Le site n’utilise ni outil publicitaire, ni mesure d’audience, ni carte d’un service tiers (la carte du secteur est dessinée sur le site lui-même) : il ne dépose aucun cookie. Les polices de caractères sont hébergées sur le site lui-même. Les liens externes (avis Google, CNIL, hébergeur) s’ouvrent uniquement à votre demande.</p>
+                    <p>Le site ne dépose aucun cookie et n’utilise ni outil publicitaire, ni service de mesure d’audience tiers, ni carte d’un service tiers (la carte du secteur est dessinée sur le site lui-même).</p>
+                    <p>Pour savoir combien de demandes il reçoit, le site compte lui-même, de façon anonyme, les appuis sur les boutons « Appeler » et les demandes préparées par SMS : il enregistre seulement un total par jour, par page et par provenance de la visite (recherche Google, annonce Google, accès direct ou autre site), sans adresse IP ni identifiant. La provenance est gardée dans le stockage de session de votre navigateur, qui s’efface à la fermeture de l’onglet.</p>
+                    <p> de caractères sont hébergées sur le site lui-même. Les liens externes (avis Google, CNIL, hébergeur) s’ouvrent uniquement à votre demande.</p>
                 </article>
 
                 <article>

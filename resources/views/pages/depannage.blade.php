@@ -15,7 +15,7 @@
                     <span class="dep-call__ic"><svg class="ic ic--fill" aria-hidden="true"><use href="#i-phone"></use></svg></span>
                     <span class="dep-call__text"><small>Appelez maintenant</small><strong>06 27 99 76 46</strong></span>
                 </a>
-                <p class="dep-status" data-open-status><span class="top__dot" aria-hidden="true"></span><span data-open-text>Du lundi au samedi, dès 7 h 30</span></p>
+                <p class="dep-status" data-open-status data-nosnippet><span class="top__dot" aria-hidden="true"></span><span data-open-text>Du lundi au samedi, dès 7 h 30</span></p>
                 <ul class="dep-perks">
                     <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>Devis gratuit</li>
                     <li><svg class="ic" aria-hidden="true"><use href="#i-check"></use></svg>Intervention le jour même*</li>

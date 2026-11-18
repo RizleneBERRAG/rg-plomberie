@@ -98,7 +98,7 @@
     <header class="top" data-top>
         <div class="top__strip">
             <div class="wrap top__strip-in">
-                <p class="top__status" data-open-status><span class="top__dot" aria-hidden="true"></span><span data-open-text>Du lundi au samedi, dès 7 h 30</span></p>
+                <p class="top__status" data-open-status data-nosnippet><span class="top__dot" aria-hidden="true"></span><span data-open-text>Du lundi au samedi, dès 7 h 30</span></p>
                 <p class="top__zone">Plombier chauffagiste à Janneyrias · Lyon et Est lyonnais</p>
                 <a class="top__score" href="{{ route('avis') }}"><span aria-hidden="true">★</span> 4,9/5<span class="top__score-more"> · 67 avis Google</span></a>
                 <p class="top__free">Devis gratuit</p>
@@ -236,6 +236,6 @@
 
     <div class="callbar"><a href="tel:+33627997646">Appeler</a><a href="{{ route('contact') }}#demande">Demande par SMS</a></div>
 
-    <script src="{{ asset('assets/js/rg-site.js') }}?v=20261003a" defer></script>
+    <script src="{{ asset('assets/js/rg-site.js') }}?v=20261118a" defer></script>
 </body>
 </html>

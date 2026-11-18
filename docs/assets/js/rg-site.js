@@ -1019,6 +1019,66 @@
         }
     }
 
+    /* Compteur anonyme des demandes (site publié uniquement) */
+
+    // Un total par jour, par page et par provenance : pas de cookie, pas d'identifiant.
+    // La provenance est gardée le temps de l'onglet pour suivre la visite d'une page à l'autre.
+    var countEnabled = /(^|\.)rgplomberie\.com$/.test(location.hostname) && "sendBeacon" in navigator;
+
+    function landingSource() {
+        if (/[?&](gclid|gbraid|wbraid)=/.test(location.search) || /[?&]utm_medium=cpc(&|$)/.test(location.search)) {
+            return "pub";
+        }
+        var referrer = "";
+        try {
+            referrer = document.referrer ? new URL(document.referrer).hostname : "";
+        } catch (error) {
+            referrer = "";
+        }
+        if (!referrer) {
+            return "direct";
+        }
+        if (/(^|\.)rgplomberie\.com$/.test(referrer)) {
+            return "";
+        }
+        return /(^|\.)google\./.test(referrer) ? "google" : "autre";
+    }
+
+    var visitSource = landingSource();
+    try {
+        var storedSource = sessionStorage.getItem("rg-provenance");
+        if (storedSource && visitSource !== "pub") {
+            visitSource = storedSource;
+        } else if (visitSource) {
+            sessionStorage.setItem("rg-provenance", visitSource);
+        }
+    } catch (error) {
+        // Stockage indisponible (navigation privée stricte) : on garde la provenance de la page.
+    }
+    visitSource = visitSource || "direct";
+
+    function countRequest(type) {
+        if (!countEnabled) {
+            return;
+        }
+        var data = new FormData();
+        data.append("t", type);
+        data.append("p", location.pathname);
+        data.append("s", visitSource);
+        try {
+            navigator.sendBeacon("/compteur/clic.php", data);
+        } catch (error) {
+            // Le compteur ne doit jamais gêner l'appel.
+        }
+    }
+
+    document.addEventListener("click", function (event) {
+        var link = event.target.closest ? event.target.closest("a[href^='tel:']") : null;
+        if (link) {
+            countRequest("appel");
+        }
+    }, true);
+
     /* Demande par SMS */
 
     function element(tag, className, text) {
@@ -1079,6 +1139,7 @@
             ].join("\n");
 
             var box = element("div", "form__ok");
+            countRequest(isDesktop ? "ordinateur" : "sms");
             if (isDesktop) {
                 box.appendChild(element("strong", "", "Sur ordinateur, appelez le " + phoneLabel + "."));
                 box.appendChild(element("p", "", "L’envoi par SMS se fait depuis un téléphone. Voici votre message, prêt à être envoyé :"));
