@@ -83,10 +83,10 @@ Le site publié est l’export statique des vues Blade : aucune base de données
 
     npm run build:ovh
     npm run check:ovh
-    python scripts/deploy-landing.py --source dist --host ftp.cluster129.hosting.ovh.net --user rgploml
+    python scripts/deploy-landing.py --source dist --host ftp.cluster129.hosting.ovh.net --user <identifiant-sftp>
 
 - `build:ovh` produit `dist/` (ignoré par Git) avec des chemins à la racine, les adresses en `https://www.rgplomberie.com/`, le sitemap, le `robots.txt` et un `.htaccess` (une seule adresse en `https://www.`, page 404, compression, cache).
-- Le script envoie `dist/` dans `www/` par SFTP ; le mot de passe est demandé au lancement et n’est jamais stocké.
+- Le script envoie `dist/` dans `www/` par SFTP. L’identifiant SFTP se trouve dans l’espace client OVH (Hébergement > FTP-SSH) ; le mot de passe est demandé au lancement et n’est jamais stocké.
 - La fiche Google pointe vers `https://www.rgplomberie.com/#demande` (bouton de réservation et produits) : l’accueil doit garder une section `id="demande"`.
 
 `npm run build` reste la commande de l’aperçu GitHub Pages (`docs/`, sous `/rg-plomberie/`).
@@ -104,7 +104,7 @@ Rien n’est transmis au site ni enregistré. Le contrôleur Laravel (`ContactCo
 
 Le dossier landing contient la première page mise en ligne pour récolter des demandes en attendant le site complet. Le site complet la remplace à la racine ; elle reste publiée à l’adresse `/urgence/`, hors index, dans `docs/` comme dans `dist/`.
 
-    python scripts/deploy-landing.py --host ftp.cluster129.hosting.ovh.net --user rgploml
+    python scripts/deploy-landing.py --host ftp.cluster129.hosting.ovh.net --user <identifiant-sftp>
 
 envoie de nouveau la seule page de dépannage dans `www/` (à n’utiliser que pour revenir à cette version).
 
