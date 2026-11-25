@@ -24,8 +24,10 @@ jobs:
       - name: Build and check
         run: npm test
 
+      # Le sitemap prend la date du jour de la construction (<lastmod>) :
+      # on ignore ces lignes, sinon le contrôle échoue dès le lendemain.
       - name: Check generated files
-        run: git diff --exit-code -- docs
+        run: git diff --exit-code -I '<lastmod>' -- docs
 
   laravel:
     name: Laravel
